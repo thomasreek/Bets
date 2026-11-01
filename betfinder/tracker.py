@@ -151,6 +151,17 @@ def grade_h2h(selection: str, scores: list[dict]) -> str | None:
     if len(pts) != 2:
         return None
     (a, sa), (b, sb) = pts.items()
+    parts = selection.rsplit(" ", 1)
+    if len(parts) == 2 and parts[1].lstrip("+-").replace(".", "", 1).isdigit():
+        side, line = parts[0], float(parts[1])
+        if side in ("Over", "Under"):  # totals
+            diff = (sa + sb - line) * (1 if side == "Over" else -1)
+        elif side in pts:  # spreads
+            other = sb if side == a else sa
+            diff = pts[side] + line - other
+        else:
+            return None
+        return "won" if diff > 0 else "lost" if diff < 0 else "push"
     if selection == "Draw":
         return "won" if sa == sb else "lost"
     if selection not in pts:
@@ -175,7 +186,7 @@ def auto_settle(bets: list[Bet], client, now: datetime | None = None) -> list[tu
                 if g.get("completed") and g.get("home_team") == home and g.get("away_team") == away:
                     is_soccer = sport.startswith("soccer")
                     result = grade_h2h(b.selection, g.get("scores") or [])
-                    if result == "push" and is_soccer:
+                    if result == "push" and is_soccer and b.selection.rsplit(" ", 1)[-1][0] not in "+-0123456789":
                         result = "lost"  # 3-way market: a draw loses a team bet
                     if result:
                         b.status = result

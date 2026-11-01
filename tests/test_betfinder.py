@@ -138,3 +138,14 @@ class TrackerTest(unittest.TestCase):
         self.assertEqual(grade_h2h("Draw", scores), "lost")
         self.assertIsNone(grade_h2h("Somebody", scores))
         self.assertEqual(grade_h2h("Draw", [{"name": "A", "score": "1"}, {"name": "B", "score": "1"}]), "won")
+
+
+class GradeLinesTest(unittest.TestCase):
+    def test_spreads_and_totals(self):
+        from betfinder.tracker import grade_h2h
+        sc = [{"name": "Las Vegas Raiders", "score": "20"}, {"name": "New York Jets", "score": "21"}]
+        self.assertEqual(grade_h2h("Las Vegas Raiders +1.5", sc), "won")
+        self.assertEqual(grade_h2h("Las Vegas Raiders +1", sc), "push")
+        self.assertEqual(grade_h2h("New York Jets -1.5", sc), "lost")
+        self.assertEqual(grade_h2h("Over 40.5", sc), "won")
+        self.assertEqual(grade_h2h("Under 41", sc), "push")
