@@ -29,6 +29,7 @@ DEFAULT_US_BOOKS = (
     "hardrockbet",
     "ballybet",
     "betparx",
+    "circa",
     "fliff",
     "bovada",
     "betonlineag",
@@ -52,6 +53,7 @@ class ScanConfig:
     bankroll: float = 1000.0
     kelly_multiplier: float = 0.25  # quarter Kelly
     max_stake_pct: float = 0.03  # never more than 3% of bankroll on one bet
+    max_age_hours: float = 3.0  # ignore prices not updated for this long (likely stale)
 
 
 @dataclass
@@ -101,12 +103,27 @@ def _outcome_id(outcome: dict) -> str:
     return name
 
 
-def _collect_lines(event: dict) -> dict[tuple[str, float | None], dict[str, dict[str, float]]]:
-    """Map (market, line) -> book -> outcome_id -> decimal price."""
+def _is_stale(updated: str | None, now: datetime, max_age_hours: float) -> bool:
+    if not updated:
+        return False
+    try:
+        ts = datetime.fromisoformat(updated.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return (now - ts).total_seconds() > max_age_hours * 3600
+
+
+def _collect_lines(
+    event: dict, now: datetime | None = None, max_age_hours: float = float("inf")
+) -> dict[tuple[str, float | None], dict[str, dict[str, float]]]:
+    """Map (market, line) -> book -> outcome_id -> decimal price, skipping stale prices."""
     lines: dict[tuple[str, float | None], dict[str, dict[str, float]]] = {}
     home = event.get("home_team", "")
+    now = now or datetime.now(timezone.utc)
     for book in event.get("bookmakers", []):
         for market in book.get("markets", []):
+            if _is_stale(market.get("last_update") or book.get("last_update"), now, max_age_hours):
+                continue
             mkey = market["key"]
             for outcome in market.get("outcomes", []):
                 price = outcome.get("price")
@@ -164,7 +181,7 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
         name = f"{event.get('away_team', '?')} @ {event.get('home_team', '?')}"
         sport = event.get("sport_title") or event.get("sport_key", "")
 
-        for (market, _line), books in _collect_lines(event).items():
+        for (market, _line), books in _collect_lines(event, now, cfg.max_age_hours).items():
             fair = _fair_probs(books, cfg)
             if fair:
                 probs, source = fair

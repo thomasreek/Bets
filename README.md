@@ -12,10 +12,15 @@ If Pinnacle doesn't offer a line (common in smaller tennis events), it uses the 
 
 ## Setup
 
-Requires Python 3.10+ and nothing else.
+Requires Python 3.10+ and nothing else. Two odds sources are supported:
 
-1. Get a free API key at <https://the-odds-api.com>. The free tier gives 500 credits a month.
-2. `export ODDS_API_KEY=your_key_here`
+- **Betting Data API** (<https://bettingdataapi.com>): `export BETTINGDATA_API_KEY=your_key`. Used automatically when this variable is set.
+  - Free plan: NFL, NBA and MLB moneylines from about 8 US books, 25 requests a day, no Pinnacle.
+  - Pro ($29/month): adds Eredivisie, EPL and other soccer leagues, NHL, tennis, spreads and totals.
+  - Business: adds Pinnacle, the most reliable reference for fair prices.
+- **The Odds API** (<https://the-odds-api.com>): `export ODDS_API_KEY=your_key`. The free tier gives 500 credits a month and includes Pinnacle via the `eu` region.
+
+Pick a source explicitly with `--provider bettingdata` or `--provider oddsapi`.
 
 ## Usage
 
@@ -26,7 +31,10 @@ python -m betfinder scan                   # NFL, NBA, NHL, EPL, all active tenn
 python -m betfinder scan --sports soccer,tennis --markets h2h,totals
 python -m betfinder scan --books draftkings,fanduel --bankroll 500 --min-ev 0.03
 python -m betfinder scan --sports all --max-cost 200 --csv bets.csv
+python -m betfinder scan --sports eredivisie        # league names work too
 ```
+
+Prices that haven't been updated for 3 hours are ignored, because a stale price looks like a fake edge. Change this with `--max-age`.
 
 **API credits:** each scan costs sports × markets × regions credits. `--sports all` can cost over 100 credits, so the tool refuses any scan that would cost more than `--max-cost` (default 60). Keep `eu` in `--regions`, because that's where the Pinnacle line comes from. Add `us2` to include ESPN BET, Hard Rock and Fliff.
 

@@ -10,16 +10,25 @@ from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 
+import os
+
+from .bettingdata_api import BettingDataClient
 from .odds_api import OddsApiClient, OddsApiError
 from .odds_math import decimal_to_american
 from .scanner import DEFAULT_US_BOOKS, ScanConfig, scan_events
 
 DEFAULT_SPORTS = "americanfootball_nfl,basketball_nba,icehockey_nhl,soccer_epl,tennis"
+
+
+def _make_client(provider: str):
+    if provider == "auto":
+        provider = "bettingdata" if os.environ.get("BETTINGDATA_API_KEY") else "oddsapi"
+    return (BettingDataClient() if provider == "bettingdata" else OddsApiClient()), provider
 DEMO_FILE = Path(__file__).parent / "sample_odds.json"
 
 
-def _resolve_sports(client: OddsApiClient, spec: str) -> list[str]:
-    """Turn 'all', group names like 'tennis', or sport keys into active sport keys."""
+def _resolve_sports(client, spec: str) -> list[str]:
+    """Turn 'all', group names like 'tennis', league names like 'eredivisie', or sport keys into keys."""
     active = [s for s in client.sports() if s.get("active") and not s.get("has_outrights")]
     wanted = [w.strip().lower() for w in spec.split(",") if w.strip()]
     if "all" in wanted:
@@ -31,8 +40,12 @@ def _resolve_sports(client: OddsApiClient, spec: str) -> list[str]:
             keys.extend(group)
         elif any(s["key"] == w for s in active):
             keys.append(w)
+        elif any(s.get("title", "").lower() == w or s["key"].endswith("_" + w) for s in active):
+            keys.extend(s["key"] for s in active
+                        if s.get("title", "").lower() == w or s["key"].endswith("_" + w))
         else:
-            print(f"  (skipping '{w}': not in season or unknown)", file=sys.stderr)
+            print(f"  (skipping '{w}': not in season, unknown, or not included in your API plan)",
+                  file=sys.stderr)
     return list(dict.fromkeys(keys))
 
 
@@ -90,6 +103,7 @@ def cmd_scan(args: argparse.Namespace) -> int:
         devig=args.devig,
         max_odds=args.max_odds,
         bet_books=tuple(b.strip() for b in args.books.split(",")) if args.books else DEFAULT_US_BOOKS,
+        max_age_hours=args.max_age,
     )
 
     if args.demo:
@@ -97,13 +111,17 @@ def cmd_scan(args: argparse.Namespace) -> int:
         print(f"DEMO MODE: using bundled sample odds from {DEMO_FILE.name} (not real games).")
     else:
         try:
-            client = OddsApiClient()
+            client, provider = _make_client(args.provider)
             sports = _resolve_sports(client, args.sports)
             n_markets = len(args.markets.split(","))
             n_regions = len(args.regions.split(","))
-            cost = len(sports) * n_markets * n_regions
-            print(f"Scanning {len(sports)} sports x {n_markets} markets x {n_regions} regions "
-                  f"= ~{cost} API credits")
+            if provider == "bettingdata":
+                cost = len(sports)
+                print(f"[Betting Data API] Scanning {len(sports)} sports = {cost} requests")
+            else:
+                cost = len(sports) * n_markets * n_regions
+                print(f"[The Odds API] Scanning {len(sports)} sports x {n_markets} markets x {n_regions} "
+                      f"regions = ~{cost} API credits")
             if cost > args.max_cost:
                 print(f"That is above --max-cost {args.max_cost}. Narrow --sports/--markets or raise "
                       f"--max-cost.", file=sys.stderr)
@@ -114,7 +132,9 @@ def cmd_scan(args: argparse.Namespace) -> int:
                     events.extend(client.odds(sport, regions=args.regions, markets=args.markets))
                 except OddsApiError as e:
                     print(f"  {sport}: {e}", file=sys.stderr)
-            print(f"Fetched {len(events)} events. API credits remaining: {client.requests_remaining}")
+            if provider == "bettingdata":
+                client.account()
+            print(f"Fetched {len(events)} events. API requests remaining: {client.requests_remaining}")
             if args.save_raw:
                 Path(args.save_raw).write_text(json.dumps(events, indent=1))
         except OddsApiError as e:
@@ -133,9 +153,9 @@ def cmd_scan(args: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_sports(_args: argparse.Namespace) -> int:
+def cmd_sports(args: argparse.Namespace) -> int:
     try:
-        client = OddsApiClient()
+        client, _ = _make_client(args.provider)
         for s in client.sports():
             if s.get("active"):
                 outright = " (outrights)" if s.get("has_outrights") else ""
@@ -151,6 +171,8 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
 
     scan = sub.add_parser("scan", help="scan odds for +EV bets and arbitrage")
+    scan.add_argument("--provider", choices=["auto", "bettingdata", "oddsapi"], default="auto",
+                      help="odds source (auto: bettingdata if BETTINGDATA_API_KEY is set)")
     scan.add_argument("--demo", action="store_true", help="use bundled sample data, no API key needed")
     scan.add_argument("--sports", default=DEFAULT_SPORTS,
                       help="comma list of sport keys, groups (soccer, tennis, ...) or 'all'")
@@ -164,12 +186,15 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--kelly", type=float, default=0.25, help="Kelly multiplier (0.25 = quarter Kelly)")
     scan.add_argument("--devig", choices=["power", "multiplicative"], default="power")
     scan.add_argument("--max-cost", type=int, default=60, help="refuse scans that cost more API credits")
+    scan.add_argument("--max-age", type=float, default=3.0,
+                      help="ignore prices not updated in this many hours")
     scan.add_argument("--limit", type=int, default=25)
     scan.add_argument("--csv", help="also write the bets to this CSV file")
     scan.add_argument("--save-raw", help="save the raw API response to this JSON file")
     scan.set_defaults(func=cmd_scan)
 
-    sports = sub.add_parser("sports", help="list in-season sports (free, no credits used)")
+    sports = sub.add_parser("sports", help="list sports your key can access")
+    sports.add_argument("--provider", choices=["auto", "bettingdata", "oddsapi"], default="auto")
     sports.set_defaults(func=cmd_sports)
 
     args = parser.parse_args(argv)

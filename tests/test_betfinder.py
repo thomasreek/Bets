@@ -71,3 +71,28 @@ class ScannerTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BettingDataAdapterTest(unittest.TestCase):
+    def test_conversion_and_staleness(self):
+        from datetime import datetime, timedelta, timezone
+
+        from betfinder.bettingdata_api import to_odds_api_event
+        from betfinder.scanner import _collect_lines
+
+        now = datetime.now(timezone.utc)
+        fresh = now.isoformat()
+        old = (now - timedelta(hours=10)).isoformat()
+        raw = {"event_id": "x", "league": "NFL", "home_team": "H", "away_team": "A",
+               "start_time": (now + timedelta(hours=5)).isoformat(),
+               "books": [
+                   {"book": "draftkings", "market": "h2h", "updated_at": fresh,
+                    "outcomes": [{"name": "H", "price": 1.9}, {"name": "A", "price": 1.95}]},
+                   {"book": "fanduel", "market": "h2h", "updated_at": old,
+                    "outcomes": [{"name": "H", "price": 1.8}, {"name": "A", "price": 2.1}]},
+               ]}
+        ev = to_odds_api_event(raw, "americanfootball_nfl")
+        self.assertEqual(ev["sport_title"], "NFL")
+        self.assertEqual({b["key"] for b in ev["bookmakers"]}, {"draftkings", "fanduel"})
+        lines = _collect_lines(ev, now, max_age_hours=3)
+        self.assertEqual(set(lines[("h2h", None)]), {"draftkings"})
