@@ -1,0 +1,353 @@
+[
+ {
+  "id": "demo1",
+  "sport_key": "basketball_nba",
+  "sport_title": "NBA",
+  "commence_time": "2030-01-10T00:30:00Z",
+  "home_team": "Boston Celtics",
+  "away_team": "Miami Heat",
+  "bookmakers": [
+   {
+    "key": "pinnacle",
+    "title": "pinnacle",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 1.45
+       },
+       {
+        "name": "Miami Heat",
+        "price": 2.88
+       }
+      ]
+     },
+     {
+      "key": "spreads",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 1.95,
+        "point": -6.5
+       },
+       {
+        "name": "Miami Heat",
+        "price": 1.95,
+        "point": 6.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "draftkings",
+    "title": "draftkings",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 1.42
+       },
+       {
+        "name": "Miami Heat",
+        "price": 2.85
+       }
+      ]
+     },
+     {
+      "key": "spreads",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 1.91,
+        "point": -6.5
+       },
+       {
+        "name": "Miami Heat",
+        "price": 1.91,
+        "point": 6.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "fanduel",
+    "title": "fanduel",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 1.53
+       },
+       {
+        "name": "Miami Heat",
+        "price": 2.6
+       }
+      ]
+     },
+     {
+      "key": "spreads",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 2.05,
+        "point": -6.5
+       },
+       {
+        "name": "Miami Heat",
+        "price": 1.8,
+        "point": 6.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betmgm",
+    "title": "betmgm",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Boston Celtics",
+        "price": 1.43
+       },
+       {
+        "name": "Miami Heat",
+        "price": 2.8
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "demo2",
+  "sport_key": "soccer_epl",
+  "sport_title": "EPL",
+  "commence_time": "2030-01-11T15:00:00Z",
+  "home_team": "Arsenal",
+  "away_team": "Brentford",
+  "bookmakers": [
+   {
+    "key": "pinnacle",
+    "title": "pinnacle",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.62
+       },
+       {
+        "name": "Brentford",
+        "price": 5.6
+       },
+       {
+        "name": "Draw",
+        "price": 4.25
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "draftkings",
+    "title": "draftkings",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.57
+       },
+       {
+        "name": "Brentford",
+        "price": 5.25
+       },
+       {
+        "name": "Draw",
+        "price": 4.1
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betmgm",
+    "title": "betmgm",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.6
+       },
+       {
+        "name": "Brentford",
+        "price": 5.0
+       },
+       {
+        "name": "Draw",
+        "price": 4.75
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "williamhill_us",
+    "title": "williamhill_us",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Arsenal",
+        "price": 1.59
+       },
+       {
+        "name": "Brentford",
+        "price": 5.5
+       },
+       {
+        "name": "Draw",
+        "price": 4.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "demo3",
+  "sport_key": "tennis_atp_paris_masters",
+  "sport_title": "ATP Paris Masters",
+  "commence_time": "2030-01-12T13:00:00Z",
+  "home_team": "Player A",
+  "away_team": "Player B",
+  "bookmakers": [
+   {
+    "key": "draftkings",
+    "title": "draftkings",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Player A",
+        "price": 2.1
+       },
+       {
+        "name": "Player B",
+        "price": 1.74
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "fanduel",
+    "title": "fanduel",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Player A",
+        "price": 1.8
+       },
+       {
+        "name": "Player B",
+        "price": 2.02
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betmgm",
+    "title": "betmgm",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Player A",
+        "price": 1.95
+       },
+       {
+        "name": "Player B",
+        "price": 1.83
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "betrivers",
+    "title": "betrivers",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Player A",
+        "price": 1.93
+       },
+       {
+        "name": "Player B",
+        "price": 1.85
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "key": "fanatics",
+    "title": "fanatics",
+    "last_update": "2030-01-01T00:00:00Z",
+    "markets": [
+     {
+      "key": "h2h",
+      "outcomes": [
+       {
+        "name": "Player A",
+        "price": 1.91
+       },
+       {
+        "name": "Player B",
+        "price": 1.87
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
