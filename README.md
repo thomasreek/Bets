@@ -34,6 +34,18 @@ python -m betfinder scan --sports all --max-cost 200 --csv bets.csv
 python -m betfinder scan --sports eredivisie        # league names work too
 ```
 
+**Only show books you can use.** `--books` takes a list of bookmaker keys or a preset:
+
+| Preset | Books |
+|---|---|
+| `prediction` | Kalshi, Polymarket US, Novig, ProphetX, BetOpenly |
+| `offshore` | Bovada, BetOnline, MyBookie, BetUS, LowVig, BetAnySports, Everygame, GTBets, BetWhale |
+| `texas` | both of the above (Texas has no licensed sportsbooks) |
+
+A preset also limits the API regions to the ones it needs, which saves credits. To make it permanent, run `export BETFINDER_BOOKS=texas`.
+
+Offshore books aren't licensed or regulated in the US. If one refuses to pay out, you have no regulator to complain to.
+
 Prices that haven't been updated for 3 hours are ignored, because a stale price looks like a fake edge. Change this with `--max-age`.
 
 **API credits:** each scan costs sports × markets × regions credits. `--sports all` can cost over 100 credits, so the tool refuses any scan that would cost more than `--max-cost` (default 60). Keep `eu` in `--regions`, because that's where the Pinnacle line comes from. By default it also scans `us2` (ESPN BET, Hard Rock, Fliff) and `us_ex`, which covers exchanges and prediction markets: Kalshi, Novig, Polymarket US, ProphetX and BetOpenly. Each region adds to the credit cost. Exchange and prediction-market prices may not include their trading fees, so a small edge there can disappear after fees. Arbitrage margins under 1% are hidden for the same reason.

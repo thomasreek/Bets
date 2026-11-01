@@ -47,6 +47,20 @@ DEFAULT_US_BOOKS = (
 )
 
 
+PREDICTION_MARKETS = ("kalshi", "polymarket_us", "novig", "prophetx", "betopenly")
+OFFSHORE_BOOKS = (
+    "bovada", "betonlineag", "mybookieag", "betus", "lowvig",
+    "betanysports", "everygame", "gtbets", "betwhale",
+)
+
+# Named sets of books for --books, with the Odds API regions they need.
+BOOK_PRESETS: dict[str, tuple[tuple[str, ...], str]] = {
+    "texas": (PREDICTION_MARKETS + OFFSHORE_BOOKS, "us,us_ex,eu"),
+    "prediction": (PREDICTION_MARKETS, "us_ex,eu"),
+    "offshore": (OFFSHORE_BOOKS, "us,eu"),
+}
+
+
 @dataclass
 class ScanConfig:
     sharp_books: tuple[str, ...] = DEFAULT_SHARP_BOOKS

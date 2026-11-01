@@ -15,7 +15,7 @@ import os
 from .bettingdata_api import BettingDataClient
 from .odds_api import OddsApiClient, OddsApiError
 from .odds_math import decimal_to_american
-from .scanner import DEFAULT_US_BOOKS, ScanConfig, scan_events
+from .scanner import BOOK_PRESETS, DEFAULT_US_BOOKS, ScanConfig, scan_events
 
 DEFAULT_SPORTS = "americanfootball_nfl,basketball_nba,icehockey_nhl,soccer_epl,tennis"
 
@@ -47,6 +47,14 @@ def _resolve_sports(client, spec: str) -> list[str]:
             print(f"  (skipping '{w}': not in season, unknown, or not included in your API plan)",
                   file=sys.stderr)
     return list(dict.fromkeys(keys))
+
+
+def _bet_books(spec: str | None) -> tuple[str, ...]:
+    if not spec:
+        return DEFAULT_US_BOOKS
+    if spec.lower() in BOOK_PRESETS:
+        return BOOK_PRESETS[spec.lower()][0]
+    return tuple(b.strip() for b in spec.split(",") if b.strip())
 
 
 def _fmt_time(iso: str) -> str:
@@ -96,13 +104,16 @@ def _write_csv(path: str, bets) -> None:
 
 
 def cmd_scan(args: argparse.Namespace) -> int:
+    if args.regions is None:
+        preset = BOOK_PRESETS.get((args.books or "").lower())
+        args.regions = preset[1] if preset else "us,us2,us_ex,eu"
     cfg = ScanConfig(
         min_ev=args.min_ev,
         bankroll=args.bankroll,
         kelly_multiplier=args.kelly,
         devig=args.devig,
         max_odds=args.max_odds,
-        bet_books=tuple(b.strip() for b in args.books.split(",")) if args.books else DEFAULT_US_BOOKS,
+        bet_books=_bet_books(args.books),
         max_age_hours=args.max_age,
     )
 
@@ -177,9 +188,11 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--sports", default=DEFAULT_SPORTS,
                       help="comma list of sport keys, groups (soccer, tennis, ...) or 'all'")
     scan.add_argument("--markets", default="h2h", help="h2h,spreads,totals (each costs credits)")
-    scan.add_argument("--regions", default="us,us2,us_ex,eu",
+    scan.add_argument("--regions", default=None,
                       help="eu = Pinnacle sharp line, us2 = ESPN BET/Hard Rock/Fliff, us_ex = Kalshi/Novig/Polymarket/ProphetX")
-    scan.add_argument("--books", help="comma list of bookmaker keys you can bet with (default: all US books)")
+    scan.add_argument("--books", default=os.environ.get("BETFINDER_BOOKS"),
+                      help="bookmaker keys you can bet with, or a preset: texas, prediction, offshore "
+                           "(default: $BETFINDER_BOOKS, else all US books)")
     scan.add_argument("--min-ev", type=float, default=0.02, help="minimum expected value (0.02 = 2%%)")
     scan.add_argument("--max-odds", type=float, default=10.0, help="ignore longer odds than this (decimal)")
     scan.add_argument("--bankroll", type=float, default=1000.0)

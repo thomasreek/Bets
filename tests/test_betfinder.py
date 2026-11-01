@@ -96,3 +96,13 @@ class BettingDataAdapterTest(unittest.TestCase):
         self.assertEqual({b["key"] for b in ev["bookmakers"]}, {"draftkings", "fanduel"})
         lines = _collect_lines(ev, now, max_age_hours=3)
         self.assertEqual(set(lines[("h2h", None)]), {"draftkings"})
+
+
+class PresetTest(unittest.TestCase):
+    def test_texas_preset(self):
+        from betfinder.cli import _bet_books
+        books = _bet_books("texas")
+        self.assertIn("kalshi", books)
+        self.assertIn("bovada", books)
+        self.assertNotIn("draftkings", books)
+        self.assertEqual(_bet_books("fanduel, kalshi"), ("fanduel", "kalshi"))
