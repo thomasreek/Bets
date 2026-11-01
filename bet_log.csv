@@ -1,5 +1,5 @@
 id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 1,2026-11-01,americanfootball_nfl,Minnesota Vikings @ Detroit Lions,Detroit Lions,novig,16.68,1.5995,1.58,2026-11-01T18:00:00Z,open,
 2,2026-11-01,americanfootball_nfl,Las Vegas Raiders @ New York Jets,Las Vegas Raiders +1.5,novig,10.0,2.04,2.03,2026-11-01T18:00:00Z,open,
-3,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +0.5,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,open,"Half of Sparta +0.5,+1 ($10.80 to win $10)"
-4,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +1,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,open,"Half of Sparta +0.5,+1 ($10.80 to win $10)"
+3,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +0.5,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,open,"Half of Asian handicap Sparta +0.5,+1 (+0.75), $10.80 to win $10"
+4,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +1,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,open,"Half of Asian handicap Sparta +0.5,+1 (+0.75), $10.80 to win $10"
