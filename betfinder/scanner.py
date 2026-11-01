@@ -71,7 +71,8 @@ class ScanConfig:
     max_odds: float = 10.0  # longshot fair probabilities are the least reliable
     devig: str = "power"
     consensus_min_books: int = 4  # when no sharp book has the line
-    max_sharp_margin: float = 0.08  # ignore sharp lines with a big margin (thin markets)
+    max_sharp_margin: float = 0.08
+    max_consensus_margin: float = 0.12  # books with a bigger margin are left out of the consensus  # ignore sharp lines with a big margin (thin markets)
     bankroll: float = 1000.0
     kelly_multiplier: float = 0.25  # quarter Kelly
     max_stake_pct: float = 0.03  # never more than 3% of bankroll on one bet
@@ -176,7 +177,11 @@ def _fair_probs(
             return dict(zip(names, devig(odds))), sharp
 
     # Consensus: average the de-vigged probabilities of every book with the full line.
-    complete = [p for p in books.values() if len(p) == n_outcomes]
+    # Skip lines with an impossible margin (broken or placeholder prices).
+    complete = [
+        p for p in books.values()
+        if len(p) == n_outcomes and -0.02 <= overround(list(p.values())) <= cfg.max_consensus_margin
+    ]
     if len(complete) < cfg.consensus_min_books:
         return None
     names = list(complete[0])

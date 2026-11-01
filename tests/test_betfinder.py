@@ -149,3 +149,13 @@ class GradeLinesTest(unittest.TestCase):
         self.assertEqual(grade_h2h("New York Jets -1.5", sc), "lost")
         self.assertEqual(grade_h2h("Over 40.5", sc), "won")
         self.assertEqual(grade_h2h("Under 41", sc), "push")
+
+
+class ConsensusSanityTest(unittest.TestCase):
+    def test_broken_book_excluded_from_consensus(self):
+        from betfinder.scanner import _fair_probs
+        books = {b: {"A": 1.91, "B": 1.91} for b in ("b1", "b2", "b3", "b4")}
+        books["broken"] = {"A": 1.45, "B": 1.56}
+        probs, source = _fair_probs(books, ScanConfig())
+        self.assertEqual(source, "consensus(4)")
+        self.assertAlmostEqual(probs["A"], 0.5)
