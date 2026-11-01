@@ -14,5 +14,5 @@ Expected profit is what the bets were worth at the fair price when placed. Over 
 
 | # | Placed | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 2 | 2026-11-01 | Las Vegas Raiders @ New York Jets | Las Vegas Raiders +1.5 | unknown | $10.00 | 2.040 (+104) | $10.40 | +0.5% | ⏳ Open |  |
+| 2 | 2026-11-01 | Las Vegas Raiders @ New York Jets | Las Vegas Raiders +1.5 | novig | $10.00 | 2.040 (+104) | $10.40 | +0.5% | ⏳ Open |  |
 | 1 | 2026-11-01 | Minnesota Vikings @ Detroit Lions | Detroit Lions | novig | $16.68 | 1.599 (-167) | $10.00 | +1.2% | ⏳ Open |  |
