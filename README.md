@@ -50,6 +50,21 @@ Prices that haven't been updated for 3 hours are ignored, because a stale price 
 
 **API credits:** each scan costs sports × markets × regions credits. `--sports all` can cost over 100 credits, so the tool refuses any scan that would cost more than `--max-cost` (default 60). Keep `eu` in `--regions`, because that's where the Pinnacle line comes from. By default it also scans `us2` (ESPN BET, Hard Rock, Fliff) and `us_ex`, which covers exchanges and prediction markets: Kalshi, Novig, Polymarket US, ProphetX and BetOpenly. Each region adds to the credit cost. Exchange and prediction-market prices may not include their trading fees, so a small edge there can disappear after fees. Arbitrage margins under 1% are hidden for the same reason.
 
+## Tracking your bets
+
+Every bet you place goes in `bet_log.csv`, and `BETS.md` shows the table with your record, profit and ROI.
+
+```bash
+python -m betfinder bet add --event "Minnesota Vikings @ Detroit Lions" --selection "Detroit Lions" \
+    --stake 16.68 --to-win 10 --book kalshi --sport americanfootball_nfl \
+    --start 2026-11-01T18:00:00Z --fair 1.58
+python -m betfinder bet                    # show all bets and profit
+python -m betfinder bet settle 1 won       # record a result by hand (won, lost, push, void)
+python -m betfinder bet settle --auto      # grade moneyline bets from final scores (2 credits per sport)
+```
+
+Copy `--event`, `--sport` and `--fair` from the scan output. `--fair` lets the log compare your actual profit with expected profit.
+
 ## Reading the output
 
 | Column | Meaning |

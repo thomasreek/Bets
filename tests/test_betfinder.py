@@ -106,3 +106,35 @@ class PresetTest(unittest.TestCase):
         self.assertIn("bovada", books)
         self.assertNotIn("draftkings", books)
         self.assertEqual(_bet_books("fanduel, kalshi"), ("fanduel", "kalshi"))
+
+
+class TrackerTest(unittest.TestCase):
+    def test_log_roundtrip_and_profit(self):
+        import tempfile
+
+        from betfinder import tracker
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "log.csv"
+            bets = []
+            tracker.add(bets, placed="2026-11-01", sport="americanfootball_nfl", event="A @ H",
+                        selection="H", book="x", stake=16.68, odds=1 + 10 / 16.68, fair_odds=1.58,
+                        start="2026-11-01T18:00:00Z")
+            tracker.add(bets, placed="2026-11-01", sport="", event="B @ C", selection="B", book="y",
+                        stake=10, odds=3.0, fair_odds=None, start="")
+            bets[0].status, bets[1].status = "won", "lost"
+            tracker.save(bets, path, table=None)
+            loaded = tracker.load(path)
+            self.assertEqual(loaded[0].to_win, 10.0)
+            s = tracker.summary(loaded)
+            self.assertAlmostEqual(s["profit"], 0.0)
+            self.assertEqual((s["won"], s["lost"]), (1, 1))
+            self.assertIn("| 2 |", tracker.render_markdown(loaded))
+
+    def test_grade_h2h(self):
+        from betfinder.tracker import grade_h2h
+        scores = [{"name": "Detroit Lions", "score": "27"}, {"name": "Minnesota Vikings", "score": "20"}]
+        self.assertEqual(grade_h2h("Detroit Lions", scores), "won")
+        self.assertEqual(grade_h2h("Minnesota Vikings", scores), "lost")
+        self.assertEqual(grade_h2h("Draw", scores), "lost")
+        self.assertIsNone(grade_h2h("Somebody", scores))
+        self.assertEqual(grade_h2h("Draw", [{"name": "A", "score": "1"}, {"name": "B", "score": "1"}]), "won")

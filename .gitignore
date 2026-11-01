@@ -3,3 +3,4 @@ __pycache__/
 *.csv
 raw*.json
 .env
+!bet_log.csv

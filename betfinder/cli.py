@@ -177,6 +177,72 @@ def cmd_sports(args: argparse.Namespace) -> int:
     return 0
 
 
+def _print_log(bets) -> None:
+    from . import tracker
+    s = tracker.summary(bets)
+    for b in sorted(bets, key=lambda b: b.id):
+        edge = f"{b.odds / b.fair_odds - 1:+.1%}" if b.fair_odds else "   -"
+        print(f"#{b.id:<3} {b.placed}  {b.status:<5} ${b.stake:>7.2f} @ {b.odds:.3f} "
+              f"({decimal_to_american(b.odds):+d})  edge {edge:>6}  {b.selection}  [{b.event}, {b.book}]"
+              + (f"  profit {b.profit:+.2f}" if b.status in ("won", "lost", "push") else ""))
+    print(f"\nRecord {s['won']}-{s['lost']}-{s['push']}, {s['open']} open (${s['open_stake']:.2f} at risk). "
+          f"Profit ${s['profit']:+.2f} on ${s['staked']:.2f} settled (ROI {s['roi']:.1%}). "
+          f"Expected profit ${s['expected_profit']:+.2f}.")
+
+
+def cmd_bet(args: argparse.Namespace) -> int:
+    from . import tracker
+    from .odds_math import american_to_decimal
+
+    bets = tracker.load()
+    if args.action == "add":
+        if args.odds:
+            odds = args.odds
+        elif args.american:
+            odds = american_to_decimal(args.american)
+        elif args.to_win:
+            odds = 1 + args.to_win / args.stake
+        else:
+            print("Give the price with --odds, --american or --to-win.", file=sys.stderr)
+            return 2
+        fair = args.fair or (american_to_decimal(args.fair_american) if args.fair_american else None)
+        bet = tracker.add(
+            bets, placed=args.placed or datetime.now().strftime("%Y-%m-%d"), sport=args.sport or "",
+            event=args.event, selection=args.selection, book=args.book, stake=args.stake,
+            odds=round(odds, 4), fair_odds=fair, start=args.start or "", notes=args.notes or "",
+        )
+        tracker.save(bets)
+        print(f"Added bet #{bet.id}: ${bet.stake:.2f} on {bet.selection} @ {bet.odds:.3f} to win ${bet.to_win:.2f}")
+    elif args.action == "settle":
+        if args.auto:
+            try:
+                done = tracker.auto_settle(bets, OddsApiClient())
+            except OddsApiError as e:
+                print(e, file=sys.stderr)
+                return 1
+            for b, result in done:
+                print(f"#{b.id} {b.selection}: {result} ({b.profit:+.2f})")
+            if not done:
+                print("No open bets have final scores yet.")
+        else:
+            if not args.id or not args.result:
+                print("Usage: bet settle ID won|lost|push|void   (or: bet settle --auto)", file=sys.stderr)
+                return 2
+            match = [b for b in bets if b.id == args.id]
+            if not match:
+                print(f"No bet #{args.id}", file=sys.stderr)
+                return 1
+            match[0].status = args.result
+            print(f"#{args.id} marked {args.result} ({match[0].profit:+.2f})")
+        tracker.save(bets)
+    elif args.action == "delete":
+        bets = [b for b in bets if b.id != args.id]
+        tracker.save(bets)
+        print(f"Deleted bet #{args.id}")
+    _print_log(bets)
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="betfinder", description="Find +EV bets at US sportsbooks.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -209,6 +275,31 @@ def main(argv: list[str] | None = None) -> int:
     sports = sub.add_parser("sports", help="list sports your key can access")
     sports.add_argument("--provider", choices=["auto", "bettingdata", "oddsapi"], default="auto")
     sports.set_defaults(func=cmd_sports)
+
+    bet = sub.add_parser("bet", help="track the bets you place (log: bet_log.csv, table: BETS.md)")
+    bsub = bet.add_subparsers(dest="action")
+    bet.set_defaults(func=cmd_bet, action="list")
+    bsub.add_parser("list", help="show all bets and profit")
+    add = bsub.add_parser("add", help="record a bet you placed")
+    add.add_argument("--event", required=True, help='"Away Team @ Home Team" (as the scanner prints it)')
+    add.add_argument("--selection", required=True, help="team or outcome you backed, e.g. 'Detroit Lions' or 'Draw'")
+    add.add_argument("--stake", type=float, required=True)
+    add.add_argument("--odds", type=float, help="decimal odds")
+    add.add_argument("--american", type=float, help="American odds, e.g. -167")
+    add.add_argument("--to-win", type=float, help="profit if it wins (odds are worked out from this)")
+    add.add_argument("--book", default="unknown")
+    add.add_argument("--sport", help="sport key, e.g. americanfootball_nfl (needed for --auto settling)")
+    add.add_argument("--start", help="game start time, ISO 8601 UTC")
+    add.add_argument("--fair", type=float, help="fair decimal odds from the scan, to track expected profit")
+    add.add_argument("--fair-american", type=float)
+    add.add_argument("--placed", help="date placed, YYYY-MM-DD (default today)")
+    add.add_argument("--notes")
+    settle = bsub.add_parser("settle", help="record a result")
+    settle.add_argument("id", type=int, nargs="?")
+    settle.add_argument("result", nargs="?", choices=["won", "lost", "push", "void"])
+    settle.add_argument("--auto", action="store_true", help="grade open moneyline bets from final scores")
+    delete = bsub.add_parser("delete", help="remove a bet entered by mistake")
+    delete.add_argument("id", type=int)
 
     args = parser.parse_args(argv)
     return args.func(args)

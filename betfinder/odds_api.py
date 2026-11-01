@@ -64,3 +64,7 @@ class OddsApiClient:
             "dateFormat": "iso",
         }
         return self._get(f"/sports/{sport}/odds", params)  # type: ignore[return-value]
+
+    def scores(self, sport: str, days_from: int = 3) -> list[dict]:
+        """Recent and live scores. Costs 2 credits with days_from (1-3 days back)."""
+        return self._get(f"/sports/{sport}/scores", {"daysFrom": str(days_from), "dateFormat": "iso"})  # type: ignore[return-value]
