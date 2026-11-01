@@ -59,7 +59,8 @@ def _bet_books(spec: str | None) -> tuple[str, ...]:
 
 def _fmt_time(iso: str) -> str:
     try:
-        return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone().strftime("%a %d %b %H:%M")
+        from .timefmt import fmt_time
+        return fmt_time(iso)
     except ValueError:
         return iso
 
@@ -183,7 +184,7 @@ def _print_log(bets) -> None:
     for b in sorted(bets, key=lambda b: b.id):
         edge = f"{b.odds / b.fair_odds - 1:+.1%}" if b.fair_odds else "   -"
         print(f"#{b.id:<3} {b.placed}  {b.status:<5} ${b.stake:>7.2f} @ {b.odds:.3f} "
-              f"({decimal_to_american(b.odds):+d})  edge {edge:>6}  {b.selection}  [{b.event}, {b.book}]"
+              f"({decimal_to_american(b.odds):+d})  edge {edge:>6}  {b.selection}  [{b.event}, {b.book}, {_fmt_time(b.start)}]"
               + (f"  profit {b.profit:+.2f}" if b.status in ("won", "lost", "push") else ""))
     print(f"\nRecord {s['won']}-{s['lost']}-{s['push']}, {s['open']} open (${s['open_stake']:.2f} at risk). "
           f"Profit ${s['profit']:+.2f} on ${s['staked']:.2f} settled (ROI {s['roi']:.1%}). "

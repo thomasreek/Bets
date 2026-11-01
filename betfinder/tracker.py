@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .odds_math import decimal_to_american
+from .timefmt import fmt_time
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LOG_FILE = REPO_ROOT / "bet_log.csv"
@@ -127,7 +128,7 @@ def render_markdown(bets: list[Bet]) -> str:
         "",
         "## Bets",
         "",
-        "| # | Placed | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |",
+        "| # | Game time (Houston) | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |",
         "|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     icons = {"won": "✅ Won", "lost": "❌ Lost", "push": "↩️ Push", "void": "Void", "open": "⏳ Open"}
@@ -135,7 +136,7 @@ def render_markdown(bets: list[Bet]) -> str:
         edge = f"{b.odds / b.fair_odds - 1:+.1%}" if b.fair_odds else ""
         profit = _money(b.profit) if b.status in ("won", "lost", "push") else ""
         lines.append(
-            f"| {b.id} | {b.placed} | {b.event} | {b.selection} | {b.book} | {_money(b.stake)} "
+            f"| {b.id} | {fmt_time(b.start) or b.placed} | {b.event} | {b.selection} | {b.book} | {_money(b.stake)} "
             f"| {b.odds:.3f} ({decimal_to_american(b.odds):+d}) | {_money(b.to_win)} | {edge} "
             f"| {icons.get(b.status, b.status)} | {profit} |"
         )

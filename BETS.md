@@ -12,10 +12,10 @@ Expected profit is what the bets were worth at the fair price when placed. Over 
 
 ## Bets
 
-| # | Placed | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |
+| # | Game time (Houston) | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 5 | 2026-11-01 | Winnipeg Jets @ Carolina Hurricanes | Under 6 | betopenly | $10.00 | 2.110 (+111) | $11.10 | +3.4% | ⏳ Open |  |
-| 4 | 2026-11-01 | Sparta Rotterdam @ Groningen | Sparta Rotterdam +1 | bovada | $5.40 | 1.926 (-108) | $5.00 | -2.5% | ⏳ Open |  |
-| 3 | 2026-11-01 | Sparta Rotterdam @ Groningen | Sparta Rotterdam +0.5 | bovada | $5.40 | 1.926 (-108) | $5.00 | -2.5% | ⏳ Open |  |
-| 2 | 2026-11-01 | Las Vegas Raiders @ New York Jets | Las Vegas Raiders +1.5 | novig | $10.00 | 2.040 (+104) | $10.40 | +0.5% | ⏳ Open |  |
-| 1 | 2026-11-01 | Minnesota Vikings @ Detroit Lions | Detroit Lions | novig | $16.68 | 1.599 (-167) | $10.00 | +1.2% | ⏳ Open |  |
+| 5 | Sun 1 Nov 12:10 PM CST | Winnipeg Jets @ Carolina Hurricanes | Under 6 | betopenly | $10.00 | 2.110 (+111) | $11.10 | +3.4% | ⏳ Open |  |
+| 4 | Sun 1 Nov 9:45 AM CST | Sparta Rotterdam @ Groningen | Sparta Rotterdam +1 | bovada | $5.40 | 1.926 (-108) | $5.00 | -2.5% | ⏳ Open |  |
+| 3 | Sun 1 Nov 9:45 AM CST | Sparta Rotterdam @ Groningen | Sparta Rotterdam +0.5 | bovada | $5.40 | 1.926 (-108) | $5.00 | -2.5% | ⏳ Open |  |
+| 2 | Sun 1 Nov 12:00 PM CST | Las Vegas Raiders @ New York Jets | Las Vegas Raiders +1.5 | novig | $10.00 | 2.040 (+104) | $10.40 | +0.5% | ⏳ Open |  |
+| 1 | Sun 1 Nov 12:00 PM CST | Minnesota Vikings @ Detroit Lions | Detroit Lions | novig | $16.68 | 1.599 (-167) | $10.00 | +1.2% | ⏳ Open |  |

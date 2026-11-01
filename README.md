@@ -63,6 +63,8 @@ python -m betfinder bet settle 1 won       # record a result by hand (won, lost,
 python -m betfinder bet settle --auto      # grade moneyline bets from final scores (2 credits per sport)
 ```
 
+Game times in the scan output and `BETS.md` are shown in Houston time. Set `BETFINDER_TZ` to change it, e.g. `export BETFINDER_TZ=America/New_York`.
+
 Copy `--event`, `--sport` and `--fair` from the scan output. `--fair` lets the log compare your actual profit with expected profit.
 
 ## Reading the output
