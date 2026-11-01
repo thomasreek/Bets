@@ -14,4 +14,4 @@ Expected profit is what the bets were worth at the fair price when placed. Over 
 
 | # | Placed | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 2026-11-01 | Minnesota Vikings @ Detroit Lions | Detroit Lions | unknown | $16.68 | 1.599 (-167) | $10.00 | +1.2% | ⏳ Open |  |
+| 1 | 2026-11-01 | Minnesota Vikings @ Detroit Lions | Detroit Lions | novig | $16.68 | 1.599 (-167) | $10.00 | +1.2% | ⏳ Open |  |
