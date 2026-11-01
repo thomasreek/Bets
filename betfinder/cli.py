@@ -177,8 +177,8 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--sports", default=DEFAULT_SPORTS,
                       help="comma list of sport keys, groups (soccer, tennis, ...) or 'all'")
     scan.add_argument("--markets", default="h2h", help="h2h,spreads,totals (each costs credits)")
-    scan.add_argument("--regions", default="us,eu",
-                      help="'eu' supplies the Pinnacle sharp line; add us2 for ESPN BET, Hard Rock, Fliff")
+    scan.add_argument("--regions", default="us,us2,us_ex,eu",
+                      help="eu = Pinnacle sharp line, us2 = ESPN BET/Hard Rock/Fliff, us_ex = Kalshi/Novig/Polymarket/ProphetX")
     scan.add_argument("--books", help="comma list of bookmaker keys you can bet with (default: all US books)")
     scan.add_argument("--min-ev", type=float, default=0.02, help="minimum expected value (0.02 = 2%%)")
     scan.add_argument("--max-odds", type=float, default=10.0, help="ignore longer odds than this (decimal)")

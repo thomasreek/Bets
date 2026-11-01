@@ -36,6 +36,14 @@ DEFAULT_US_BOOKS = (
     "lowvig",
     "mybookieag",
     "betus",
+    "hardrockbet_fl",
+    "hardrockbet_oh",
+    # Exchanges and prediction markets (The Odds API region us_ex)
+    "novig",
+    "kalshi",
+    "polymarket_us",
+    "prophetx",
+    "betopenly",
 )
 
 
@@ -53,6 +61,7 @@ class ScanConfig:
     bankroll: float = 1000.0
     kelly_multiplier: float = 0.25  # quarter Kelly
     max_stake_pct: float = 0.03  # never more than 3% of bankroll on one bet
+    min_arb: float = 0.01  # smaller arbitrage margins are usually eaten by fees
     max_age_hours: float = 3.0  # ignore prices not updated for this long (likely stale)
 
 
@@ -243,6 +252,6 @@ def _find_arb(
         return None
     sels = list(best)
     margin, stakes = arbitrage_stakes([best[s][0] for s in sels], cfg.bankroll * cfg.max_stake_pct * 3)
-    if margin <= 0 or margin > cfg.max_ev:
+    if margin < cfg.min_arb or margin > cfg.max_ev:
         return None
     return margin, [(s, best[s][1], best[s][0], round(st, 2)) for s, st in zip(sels, stakes)]
