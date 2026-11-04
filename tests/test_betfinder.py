@@ -159,3 +159,11 @@ class ConsensusSanityTest(unittest.TestCase):
         probs, source = _fair_probs(books, ScanConfig())
         self.assertEqual(source, "consensus(4)")
         self.assertAlmostEqual(probs["A"], 0.5)
+
+
+class FeeTest(unittest.TestCase):
+    def test_kalshi_fee_lowers_odds(self):
+        from betfinder.scanner import net_odds
+        self.assertEqual(net_odds("novig", 2.0), 2.0)
+        # 50c contract + 0.07*0.25 = 1.75c fee -> 1/0.5175
+        self.assertAlmostEqual(net_odds("kalshi", 2.0), 1 / 0.5175)

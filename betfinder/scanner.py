@@ -58,7 +58,22 @@ BOOK_PRESETS: dict[str, tuple[tuple[str, ...], str]] = {
     "texas": (PREDICTION_MARKETS + OFFSHORE_BOOKS, "us,us_ex,eu"),
     "prediction": (PREDICTION_MARKETS, "us_ex,eu"),
     "offshore": (OFFSHORE_BOOKS, "us,eu"),
+    # The books this user actually has accounts with.
+    "mine": (("novig", "kalshi", "betopenly", "bovada"), "us,us_ex,eu"),
 }
+
+# Trading fee per contract as rate * P * (1 - P), where P is the contract price.
+# Kalshi's published taker fee has this shape; check their fee schedule for the current rate.
+FEE_RATES: dict[str, float] = {"kalshi": 0.07}
+
+
+def net_odds(book: str, odds: float) -> float:
+    """Decimal odds after the book's trading fee (unchanged for books without one)."""
+    rate = FEE_RATES.get(book)
+    if not rate:
+        return odds
+    price = 1.0 / odds
+    return 1.0 / (price + rate * price * (1.0 - price))
 
 
 @dataclass
@@ -221,11 +236,12 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                         p = probs.get(selection)
                         if p is None or not (cfg.min_odds <= odds <= cfg.max_odds):
                             continue
-                        ev = expected_value(p, odds)
+                        net = net_odds(book_key, odds)
+                        ev = expected_value(p, net)
                         if ev < cfg.min_ev:
                             continue
                         stake_frac = min(
-                            kelly_fraction(p, odds) * cfg.kelly_multiplier, cfg.max_stake_pct
+                            kelly_fraction(p, net) * cfg.kelly_multiplier, cfg.max_stake_pct
                         )
                         value_bets.append(
                             ValueBet(
@@ -265,6 +281,7 @@ def _find_arb(
     best: dict[str, tuple[float, str]] = {}
     for book_key, prices in usable.items():
         for sel, odds in prices.items():
+            odds = net_odds(book_key, odds)
             if sel not in best or odds > best[sel][0]:
                 best[sel] = (odds, book_key)
     if len(best) != n_outcomes or n_outcomes < 2:
