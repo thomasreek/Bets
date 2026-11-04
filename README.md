@@ -47,6 +47,8 @@ A preset also limits the API regions to the ones it needs, which saves credits. 
 
 Offshore books aren't licensed or regulated in the US. If one refuses to pay out, you have no regulator to complain to.
 
+**Different lines are compared too.** If a book offers Under 6.5 and Pinnacle only prices Under 7, or a book has +30 and Pinnacle has +29.5, the scanner converts Pinnacle's price to the book's line (`betfinder/lines.py`). It models the final total or margin as a normal curve calibrated to Pinnacle's price, with a typical spread per sport, and handles pushes and quarter lines. These rows say `converted` in the output. Football is limited to 1-point conversions because of key numbers.
+
 Prices that haven't been updated for 3 hours are ignored, because a stale price looks like a fake edge. Change this with `--max-age`.
 
 **API credits:** each scan costs sports × markets × regions credits. `--sports all` can cost over 100 credits, so the tool refuses any scan that would cost more than `--max-cost` (default 60). Keep `eu` in `--regions`, because that's where the Pinnacle line comes from. By default it also scans `us2` (ESPN BET, Hard Rock, Fliff) and `us_ex`, which covers exchanges and prediction markets: Kalshi, Novig, Polymarket US, ProphetX and BetOpenly. Each region adds to the credit cost. Kalshi's trading fee (7% × price × (1 − price) per contract) is taken off its prices before the edge is calculated. Other exchange and prediction-market prices may not include their trading fees, so a small edge there can disappear after fees. Arbitrage margins under 1% are hidden for the same reason.

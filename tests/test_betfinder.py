@@ -167,3 +167,52 @@ class FeeTest(unittest.TestCase):
         self.assertEqual(net_odds("novig", 2.0), 2.0)
         # 50c contract + 0.07*0.25 = 1.75c fee -> 1/0.5175
         self.assertAlmostEqual(net_odds("kalshi", 2.0), 1 / 0.5175)
+
+
+class LineConversionTest(unittest.TestCase):
+    def test_reproduces_sharp_price_on_its_own_line(self):
+        from betfinder.lines import calibrate, parse_bet
+        m = calibrate("icehockey_nhl", "totals", "H", {"Over 7": 2.16, "Under 7": 1.77}, "pin")
+        inv_o, inv_u = 1 / 2.16, 1 / 1.77
+        self.assertAlmostEqual(m.fair_odds(parse_bet("totals", "Under 7", "H")), 1 + inv_o / inv_u, places=4)
+
+    def test_ducks_under_6_5(self):
+        # Pinnacle had Under 7 at 1.77; Novig offered Under 6.5 at 2.35.
+        from betfinder.lines import calibrate, parse_bet
+        m = calibrate("icehockey_nhl", "totals", "H", {"Over 7": 2.16, "Under 7": 1.77}, "pin")
+        fair = m.fair_odds(parse_bet("totals", "Under 6.5", "H"))
+        self.assertTrue(2.0 < fair < 2.25, fair)
+        self.assertGreater(m.ev(parse_bet("totals", "Under 6.5", "H"), 2.35), 0.04)
+
+    def test_spread_extra_points_help_underdog(self):
+        from betfinder.lines import calibrate, parse_bet
+        home = "Houston Cougars"
+        m = calibrate("basketball_ncaab", "spreads", home,
+                      {"Houston Cougars -29.5": 1.86, "La Salle Explorers +29.5": 1.96}, "pin")
+        f295 = m.fair_odds(parse_bet("spreads", "La Salle Explorers +29.5", home))
+        f30 = m.fair_odds(parse_bet("spreads", "La Salle Explorers +30", home))
+        f31 = m.fair_odds(parse_bet("spreads", "La Salle Explorers +31", home))
+        self.assertTrue(f31 < f30 < f295)
+        self.assertTrue(1.85 < f30 < 2.0, f30)
+
+    def test_quarter_line_sits_between_neighbours(self):
+        from betfinder.lines import calibrate, parse_bet
+        m = calibrate("soccer_epl", "totals", "H", {"Over 2.5": 1.95, "Under 2.5": 1.95}, "pin")
+        o25 = m.fair_odds(parse_bet("totals", "Over 2.5", "H"))
+        o275 = m.fair_odds(parse_bet("totals", "Over 2.75", "H"))
+        o3 = m.fair_odds(parse_bet("totals", "Over 3", "H"))
+        self.assertTrue(o25 < o275 < o3)
+
+    def test_scanner_uses_conversion(self):
+        from datetime import datetime, timedelta, timezone
+        start = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
+        ev = [{"sport_key": "icehockey_nhl", "sport_title": "NHL", "commence_time": start,
+               "home_team": "Vancouver Canucks", "away_team": "Anaheim Ducks", "bookmakers": [
+                   {"key": "pinnacle", "markets": [{"key": "totals", "outcomes": [
+                       {"name": "Over", "point": 7.0, "price": 2.16}, {"name": "Under", "point": 7.0, "price": 1.77}]}]},
+                   {"key": "novig", "markets": [{"key": "totals", "outcomes": [
+                       {"name": "Over", "point": 6.5, "price": 1.71}, {"name": "Under", "point": 6.5, "price": 2.35}]}]},
+               ]}]
+        bets, _ = scan_events(ev, ScanConfig(bet_books=("novig",)))
+        self.assertEqual([b.selection for b in bets], ["Under 6.5"])
+        self.assertIn("converted", bets[0].fair_source)

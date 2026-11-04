@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
+from .lines import LineModel, calibrate, max_shift, parse_bet
 from .odds_math import (
     DEVIG_METHODS,
     arbitrage_stakes,
@@ -224,20 +225,37 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
         name = f"{event.get('away_team', '?')} @ {event.get('home_team', '?')}"
         sport = event.get("sport_title") or event.get("sport_key", "")
 
-        for (market, _line), books in _collect_lines(event, now, cfg.max_age_hours).items():
+        home = event.get("home_team", "")
+        lines = _collect_lines(event, now, cfg.max_age_hours)
+        sharp_lines = _sharp_lines(lines, cfg)
+        for (market, line), books in lines.items():
             fair = _fair_probs(books, cfg)
-            if fair:
-                probs, source = fair
+            model = None
+            if market in ("spreads", "totals") and not (fair and fair[1] in cfg.sharp_books):
+                # No sharp price on this exact line: convert from a nearby sharp line.
+                model = _nearest_model(event, market, line, sharp_lines)
+            if model or fair:
+                probs, source = fair if fair else ({}, "")
                 for book_key in cfg.bet_books:
                     prices = books.get(book_key)
                     if not prices:
                         continue
                     for selection, odds in prices.items():
-                        p = probs.get(selection)
-                        if p is None or not (cfg.min_odds <= odds <= cfg.max_odds):
+                        if not (cfg.min_odds <= odds <= cfg.max_odds):
                             continue
                         net = net_odds(book_key, odds)
-                        ev = expected_value(p, net)
+                        if model:
+                            bet = parse_bet(market, selection, home)
+                            if bet is None:
+                                continue
+                            p = 1.0 / model.fair_odds(bet)
+                            ev = model.ev(bet, net)
+                            source = model.source
+                        else:
+                            p = probs.get(selection)
+                            if p is None:
+                                continue
+                            ev = expected_value(p, net)
                         if ev < cfg.min_ev:
                             continue
                         stake_frac = min(
@@ -269,6 +287,36 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
     value_bets.sort(key=lambda b: (b.suspicious, -b.ev))
     arbs.sort(key=lambda a: -a.margin)
     return value_bets, arbs
+
+
+def _sharp_lines(lines, cfg: ScanConfig) -> dict[tuple[str, float], tuple[str, dict[str, float]]]:
+    """Two-way spread/total lines priced by a sharp book with a sensible margin."""
+    out = {}
+    for (market, line), books in lines.items():
+        if market not in ("spreads", "totals") or line is None:
+            continue
+        for sharp in cfg.sharp_books:
+            prices = books.get(sharp)
+            if prices and len(prices) == 2 and overround(list(prices.values())) <= cfg.max_sharp_margin:
+                out[(market, line)] = (sharp, prices)
+                break
+    return out
+
+
+def _nearest_model(event: dict, market: str, line: float | None, sharp_lines) -> LineModel | None:
+    sport_key = event.get("sport_key", "")
+    shift = max_shift(sport_key, market)
+    if shift is None or line is None:
+        return None
+    candidates = sorted(
+        (abs(sl - line), sl, v) for (m, sl), v in sharp_lines.items()
+        if m == market and sl != line and abs(sl - line) <= shift + 1e-9
+    )
+    if not candidates:
+        return None
+    _, sharp_line, (sharp, prices) = candidates[0]
+    label = f"{sharp} {'total' if market == 'totals' else 'line'} {sharp_line:g}, converted"
+    return calibrate(sport_key, market, event.get("home_team", ""), prices, label)
 
 
 def _find_arb(
