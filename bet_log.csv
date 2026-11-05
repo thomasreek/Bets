@@ -8,3 +8,6 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 7,2026-11-02,basketball_ncaab,Tenn-Martin Skyhawks @ Tulane Green Wave,Under 147,betopenly,10.0,2.044,1.96,2026-11-03T01:00:00Z,void,
 8,2026-11-02,basketball_ncaab,La Salle Explorers @ Houston Cougars,Over 134.5,novig,10.0,2.0,1.955,2026-11-03T02:00:00Z,won,
 9,2026-11-03,icehockey_nhl,Anaheim Ducks @ Vancouver Canucks,Under 6.5,novig,9.9,2.3485,2.1,2026-11-04T02:10:00Z,lost,Fair estimated from Pinnacle Under 7 (1.77)
+10,2026-11-04,basketball_ncaab,SE Louisiana Lions @ Auburn Tigers,Over 149.5,novig,10.0,2.04,1.93,2026-11-05T01:00:00Z,open,Fair converted from Pinnacle total 150
+11,2026-11-04,basketball_ncaab,Maryland-Eastern Shore Hawks @ High Point Panthers,Maryland-Eastern Shore Hawks +34.5,novig,10.0,2.0,1.92,2026-11-05T00:00:00Z,open,Fair converted from Pinnacle line 34
+12,2026-11-04,basketball_ncaab,Fairleigh Dickinson Knights @ Butler Bulldogs,Over 155.5,kalshi,10.0,2.051,1.91,2026-11-05T00:00:00Z,open,Fair converted from Pinnacle total 156.5
