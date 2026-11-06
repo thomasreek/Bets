@@ -11,3 +11,4 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 10,2026-11-04,basketball_ncaab,SE Louisiana Lions @ Auburn Tigers,Over 149.5,novig,10.0,2.04,1.93,2026-11-05T01:00:00Z,won,Fair converted from Pinnacle total 150
 11,2026-11-04,basketball_ncaab,Maryland-Eastern Shore Hawks @ High Point Panthers,Maryland-Eastern Shore Hawks +34.5,novig,10.0,2.0,1.92,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle line 34
 12,2026-11-04,basketball_ncaab,Fairleigh Dickinson Knights @ Butler Bulldogs,Over 155.5,kalshi,10.0,2.051,1.91,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle total 156.5
+13,2026-11-05,basketball_ncaab,Jackson St Tigers @ Tulane Green Wave,Over 151.5,novig,10.0,2.04,1.924,2026-11-06T00:30:00Z,open,Fair converted from Pinnacle total 152.5
