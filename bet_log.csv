@@ -13,4 +13,4 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 12,2026-11-04,basketball_ncaab,Fairleigh Dickinson Knights @ Butler Bulldogs,Over 155.5,kalshi,10.0,2.051,1.91,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle total 156.5
 13,2026-11-05,basketball_ncaab,Jackson St Tigers @ Tulane Green Wave,Over 151.5,novig,10.0,2.04,1.924,2026-11-06T00:30:00Z,won,Fair converted from Pinnacle total 152.5
 14,2026-11-06,basketball_ncaab,Northeastern Huskies @ Virginia Cavaliers,Virginia Cavaliers -34.5,novig,10.0,2.083,1.988,2026-11-06T22:00:00Z,lost,Fair converted from Pinnacle line -35
-15,2026-11-06,basketball_ncaab,UConn Huskies @ Michigan Wolverines,Michigan Wolverines +7.5,draftkings_predictions,9.9,1.9818,1.947,2026-11-07T01:00:00Z,open,"18 contracts at 53c + 0.36 fee, 20% profit boost"
+15,2026-11-06,basketball_ncaab,UConn Huskies @ Michigan Wolverines,Michigan Wolverines +7.5,draftkings_predictions,9.9,1.9818,1.947,2026-11-07T01:00:00Z,lost,"18 contracts at 53c + 0.36 fee, 20% profit boost"
