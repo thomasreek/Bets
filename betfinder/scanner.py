@@ -60,7 +60,7 @@ BOOK_PRESETS: dict[str, tuple[tuple[str, ...], str]] = {
     "prediction": (PREDICTION_MARKETS, "us_ex,eu"),
     "offshore": (OFFSHORE_BOOKS, "us,eu"),
     # The books this user actually has accounts with.
-    "mine": (("novig", "kalshi", "betopenly", "bovada", "betus", "mybookieag"), "us,us_ex,eu"),
+    "mine": (("novig", "kalshi", "bovada", "betus", "mybookieag"), "us,us_ex,eu"),
 }
 
 # Trading fee per contract as rate * P * (1 - P), where P is the contract price.

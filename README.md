@@ -41,7 +41,7 @@ python -m betfinder scan --sports eredivisie        # league names work too
 | `prediction` | Kalshi, Polymarket US, Novig, ProphetX, BetOpenly |
 | `offshore` | Bovada, BetOnline, MyBookie, BetUS, LowVig, BetAnySports, Everygame, GTBets, BetWhale |
 | `texas` | both of the above (Texas has no licensed sportsbooks) |
-| `mine` | Novig, Kalshi, BetOpenly, Bovada, BetUS, MyBookie: the accounts actually in use |
+| `mine` | Novig, Kalshi, Bovada, BetUS, MyBookie: the accounts actually in use (BetOpenly left out: most bets there never fill) |
 
 A preset also limits the API regions to the ones it needs, which saves credits. To make it permanent, run `export BETFINDER_BOOKS=texas`.
 
