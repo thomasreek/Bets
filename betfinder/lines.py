@@ -157,6 +157,18 @@ def calibrate(
     return LineModel((lo + hi) / 2, sigma, source)
 
 
+# Final margins in American football cluster on these numbers far more than a normal
+# curve allows, so a spread is never converted across (or onto/off) one of them.
+FOOTBALL_KEY_NUMBERS = (3, 7, 10, 14)
+
+
+def crosses_key_number(sport_key: str, market: str, line_a: float, line_b: float) -> bool:
+    if market != "spreads" or not sport_key.startswith("americanfootball"):
+        return False
+    lo, hi = sorted((abs(line_a), abs(line_b)))
+    return any(lo <= k <= hi for k in FOOTBALL_KEY_NUMBERS)
+
+
 def max_shift(sport_key: str, market: str) -> float | None:
     params = _params(sport_key, market)
     return params[1] if params else None

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
-from .lines import LineModel, calibrate, max_shift, parse_bet
+from .lines import LineModel, calibrate, crosses_key_number, max_shift, parse_bet
 from .odds_math import (
     DEVIG_METHODS,
     arbitrage_stakes,
@@ -311,6 +311,7 @@ def _nearest_model(event: dict, market: str, line: float | None, sharp_lines) ->
     candidates = sorted(
         (abs(sl - line), sl, v) for (m, sl), v in sharp_lines.items()
         if m == market and sl != line and abs(sl - line) <= shift + 1e-9
+        and not crosses_key_number(sport_key, market, sl, line)
     )
     if not candidates:
         return None

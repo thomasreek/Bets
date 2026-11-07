@@ -216,3 +216,13 @@ class LineConversionTest(unittest.TestCase):
         bets, _ = scan_events(ev, ScanConfig(bet_books=("novig",)))
         self.assertEqual([b.selection for b in bets], ["Under 6.5"])
         self.assertIn("converted", bets[0].fair_source)
+
+
+class KeyNumberTest(unittest.TestCase):
+    def test_football_spread_not_converted_across_3(self):
+        from betfinder.lines import crosses_key_number
+        self.assertTrue(crosses_key_number("americanfootball_ncaaf", "spreads", -3, -3.5))
+        self.assertTrue(crosses_key_number("americanfootball_nfl", "spreads", 7, 6.5))
+        self.assertFalse(crosses_key_number("americanfootball_nfl", "spreads", -4, -4.5))
+        self.assertFalse(crosses_key_number("basketball_nba", "spreads", -3, -3.5))
+        self.assertFalse(crosses_key_number("americanfootball_nfl", "totals", 43, 43.5))

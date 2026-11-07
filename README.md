@@ -47,7 +47,7 @@ A preset also limits the API regions to the ones it needs, which saves credits. 
 
 Offshore books aren't licensed or regulated in the US. If one refuses to pay out, you have no regulator to complain to.
 
-**Different lines are compared too.** If a book offers Under 6.5 and Pinnacle only prices Under 7, or a book has +30 and Pinnacle has +29.5, the scanner converts Pinnacle's price to the book's line (`betfinder/lines.py`). It models the final total or margin as a normal curve calibrated to Pinnacle's price, with a typical spread per sport, and handles pushes and quarter lines. These rows say `converted` in the output. Football is limited to 1-point conversions because of key numbers.
+**Different lines are compared too.** If a book offers Under 6.5 and Pinnacle only prices Under 7, or a book has +30 and Pinnacle has +29.5, the scanner converts Pinnacle's price to the book's line (`betfinder/lines.py`). It models the final total or margin as a normal curve calibrated to Pinnacle's price, with a typical spread per sport, and handles pushes and quarter lines. These rows say `converted` in the output. Football is limited to 1-point conversions, and football spreads are never converted across the key numbers 3, 7, 10 or 14 (Pinnacle -3 vs a book's -3.5 is skipped), because final margins land on those far more often than the model assumes.
 
 Prices that haven't been updated for 3 hours are ignored, because a stale price looks like a fake edge. Change this with `--max-age`.
 
