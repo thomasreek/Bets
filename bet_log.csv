@@ -15,3 +15,5 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 14,2026-11-06,basketball_ncaab,Northeastern Huskies @ Virginia Cavaliers,Virginia Cavaliers -34.5,novig,10.0,2.083,1.988,2026-11-06T22:00:00Z,lost,Fair converted from Pinnacle line -35
 15,2026-11-06,basketball_ncaab,UConn Huskies @ Michigan Wolverines,Michigan Wolverines +7.5,draftkings_predictions,9.9,1.9818,1.947,2026-11-07T01:00:00Z,lost,"18 contracts at 53c + 0.36 fee, 20% profit boost"
 16,2026-11-07,soccer_efl_champ,Southampton @ Preston North End,Under 3,bovada,12.8,1.7812,1.72,2026-11-07T15:00:00Z,open,Fair converted from Pinnacle total 2.75
+17,2026-11-07,americanfootball_ncaaf,Florida State Seminoles @ Boston College Eagles,Under 53.5,novig,10.0,2.0,1.94,2026-11-07T17:00:00Z,open,Fair converted from Pinnacle total 52.5
+18,2026-11-07,americanfootball_ncaaf,Louisiana Tech Bulldogs @ Troy Trojans,Troy Trojans +6.5,novig,10.0,2.04,1.97,2026-11-07T21:00:00Z,open,Fair converted from Pinnacle line 5.5
