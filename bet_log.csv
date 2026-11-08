@@ -24,7 +24,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 23,2026-11-08,americanfootball_nfl,Los Angeles Rams @ Washington Commanders,Blake Corum anytime TD,novig,10.0,2.531,2.36,2026-11-08T18:00:00Z,won,Player prop at 39.5%; fair from Pinnacle
 24,2026-11-08,americanfootball_nfl,Denver Broncos @ Carolina Panthers,John Metchie III 2+ receptions,novig,10.0,1.818,1.73,2026-11-08T18:00:00Z,won,Player prop (Over 1.5) at 55%; fair from Pinnacle
 25,2026-11-08,americanfootball_nfl,New York Jets @ Kansas City Chiefs,Emmett Johnson 11+ rushing yards,novig,5.0,2.324,2.05,2026-11-08T18:00:00Z,won,Player prop (Over 10.5) at 43%; fair from Pinnacle
-26,2026-11-08,basketball_nba,Philadelphia 76ers @ Chicago Bulls,Chicago Bulls +5.5,novig,7.96,2.8706,2.71,2026-11-08T20:40:00Z,open,34.8%; fair converted from Pinnacle +7
+26,2026-11-08,basketball_nba,Philadelphia 76ers @ Chicago Bulls,Chicago Bulls +5.5,novig,7.96,2.8706,2.71,2026-11-08T20:40:00Z,lost,34.8%; fair converted from Pinnacle +7
 27,2026-11-08,basketball_nba,Los Angeles Lakers @ Detroit Pistons,Jake LaRavia Under 3.5 rebounds,bovada,5.0,2.85,2.62,2026-11-08T23:10:00Z,open,Player prop; fair from Novig/other books
 28,2026-11-08,basketball_nba,Utah Jazz @ Minnesota Timberwolves,Terrence Shannon Jr. 12+ points,novig,8.0,2.04,1.92,2026-11-09T00:10:00Z,open,Player prop (Over 11.5) at 49%; fair from Pinnacle 12.5
 29,2026-11-08,basketball_nba,Brooklyn Nets @ Dallas Mavericks,Brooklyn Nets +3.5,prophetx,5.0,2.76,2.65,2026-11-09T00:40:00Z,open,Alternate spread; fair converted from Pinnacle
