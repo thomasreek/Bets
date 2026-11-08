@@ -21,3 +21,6 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 20,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Bijan Robinson anytime TD,novig,10.0,1.515,1.42,2026-11-08T14:30:00Z,won,Player prop; fair from Pinnacle
 21,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Under 46.5,novig,5.0,3.03,2.78,2026-11-08T14:30:00Z,lost,Alternate total; fair converted from Pinnacle 45.5
 22,2026-11-08,basketball_ncaab,Central Connecticut St Blue Devils @ Dartmouth Big Green,Over 143.5,novig,5.0,2.408,2.27,2026-11-08T19:00:00Z,open,Alternate total; fair converted from Pinnacle 142.5
+23,2026-11-08,americanfootball_nfl,Los Angeles Rams @ Washington Commanders,Blake Corum anytime TD,novig,10.0,2.531,2.36,2026-11-08T18:00:00Z,open,Player prop at 39.5%; fair from Pinnacle
+24,2026-11-08,americanfootball_nfl,Denver Broncos @ Carolina Panthers,John Metchie III 2+ receptions,novig,10.0,1.818,1.73,2026-11-08T18:00:00Z,open,Player prop (Over 1.5) at 55%; fair from Pinnacle
+25,2026-11-08,americanfootball_nfl,New York Jets @ Kansas City Chiefs,Emmett Johnson 11+ rushing yards,novig,5.0,2.324,2.05,2026-11-08T18:00:00Z,open,Player prop (Over 10.5) at 43%; fair from Pinnacle
