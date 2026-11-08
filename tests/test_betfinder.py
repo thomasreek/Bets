@@ -272,3 +272,13 @@ class PropsTest(unittest.TestCase):
         self.assertEqual([b.selection for b in bets], ["Over 236.5"])
         self.assertEqual(bets[0].fair_source, "pinnacle")
         self.assertEqual(bets[0].market, "totals")
+
+
+class PeriodMarketTest(unittest.TestCase):
+    def test_period_markets_treated_like_props(self):
+        from betfinder.scanner import is_prop
+        self.assertTrue(is_prop("h2h_h1"))
+        self.assertTrue(is_prop("totals_q1"))
+        self.assertTrue(is_prop("player_points_rebounds_assists"))
+        self.assertFalse(is_prop("alternate_totals"))
+        self.assertFalse(is_prop("h2h"))

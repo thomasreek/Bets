@@ -135,8 +135,12 @@ def base_market(market_key: str) -> str:
     return _MARKET_ALIASES.get(market_key, market_key)
 
 
+_PERIOD_SUFFIXES = ("_h1", "_h2", "_q1", "_q2", "_q3", "_q4", "_p1", "_p2", "_p3")
+
+
 def is_prop(market_key: str) -> bool:
-    return market_key.startswith("player_")
+    """Markets with no sharp line in the feed: player props and half/quarter/period lines."""
+    return market_key.startswith("player_") or market_key.endswith(_PERIOD_SUFFIXES)
 
 
 def _line_key(market_key: str, outcome: dict, home_team: str):

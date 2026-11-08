@@ -30,7 +30,8 @@ DEMO_FILE = Path(__file__).parent / "sample_odds.json"
 # alternate lines can be compared against Pinnacle's main line too.
 PROP_MARKETS = {
     "basketball_nba": "spreads,totals,alternate_spreads,alternate_totals,"
-                      "player_points,player_rebounds,player_assists,player_threes",
+                      "player_points,player_rebounds,player_assists,player_threes,"
+                      "player_points_rebounds_assists,h2h_h1",
     "basketball_ncaab": "spreads,totals,alternate_spreads,alternate_totals",
     "icehockey_nhl": "totals,alternate_totals,player_points,player_shots_on_goal",
     "americanfootball_nfl": "spreads,totals,alternate_spreads,alternate_totals,"
