@@ -68,3 +68,18 @@ class OddsApiClient:
     def scores(self, sport: str, days_from: int = 3) -> list[dict]:
         """Recent and live scores. Costs 2 credits with days_from (1-3 days back)."""
         return self._get(f"/sports/{sport}/scores", {"daysFrom": str(days_from), "dateFormat": "iso"})  # type: ignore[return-value]
+
+    def events(self, sport: str) -> list[dict]:
+        """Upcoming events for a sport (id, teams, start time). Free: no credits used."""
+        return self._get(f"/sports/{sport}/events", {"dateFormat": "iso"})  # type: ignore[return-value]
+
+    def event_odds(
+        self, sport: str, event_id: str, markets: str, regions: str = "us,us_ex,eu",
+        odds_format: str = "decimal",
+    ) -> dict:
+        """All markets for one event, including props and alternate lines.
+
+        Quota cost = number of markets returned x number of regions.
+        """
+        params = {"regions": regions, "markets": markets, "oddsFormat": odds_format, "dateFormat": "iso"}
+        return self._get(f"/sports/{sport}/events/{event_id}/odds", params)  # type: ignore[return-value]

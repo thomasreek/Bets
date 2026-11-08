@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 
 from .lines import LineModel, calibrate, crosses_key_number, max_shift, parse_bet
@@ -94,6 +94,10 @@ class ScanConfig:
     max_stake_pct: float = 0.03  # never more than 3% of bankroll on one bet
     min_arb: float = 0.01  # smaller arbitrage margins are usually eaten by fees
     max_age_hours: float = 3.0  # ignore prices not updated for this long (likely stale)
+    # Player props have no sharp line in the feed: the fair price is the average of the
+    # *other* books on the same line, so the bar is higher.
+    prop_min_books: int = 3
+    prop_min_ev: float = 0.05
 
 
 @dataclass
@@ -123,13 +127,32 @@ class Arbitrage:
     margin: float = 0.0
 
 
-def _line_key(market_key: str, outcome: dict, home_team: str) -> float | None:
-    """Identify which line an outcome belongs to, so only matching lines are compared."""
+# Alternate lines are compared with the main lines (and each other) as one market.
+_MARKET_ALIASES = {"alternate_spreads": "spreads", "alternate_totals": "totals"}
+
+
+def base_market(market_key: str) -> str:
+    return _MARKET_ALIASES.get(market_key, market_key)
+
+
+def is_prop(market_key: str) -> bool:
+    return market_key.startswith("player_")
+
+
+def _line_key(market_key: str, outcome: dict, home_team: str):
+    """Identify which line an outcome belongs to, so only matching lines are compared.
+
+    Player props and team totals carry the player or team in `description`, so the key
+    includes it: two players with the same 24.5 line are different markets.
+    """
     point = outcome.get("point")
+    desc = outcome.get("description")
     if point is None or market_key == "h2h":
-        return None
+        return desc
     if market_key == "spreads":
         return point if outcome["name"] == home_team else -point
+    if desc:
+        return (desc, abs(point))
     return abs(point)  # totals and similar: Over/Under share a point
 
 
@@ -139,7 +162,7 @@ def _outcome_id(outcome: dict) -> str:
         name = f"{outcome['description']} {name}"
     point = outcome.get("point")
     if point is not None:
-        return f"{name} {point:+g}" if name not in ("Over", "Under") else f"{name} {point:g}"
+        return f"{name} {point:g}" if outcome["name"] in ("Over", "Under") else f"{name} {point:+g}"
     return name
 
 
@@ -164,7 +187,7 @@ def _collect_lines(
         for market in book.get("markets", []):
             if _is_stale(market.get("last_update") or book.get("last_update"), now, max_age_hours):
                 continue
-            mkey = market["key"]
+            mkey = base_market(market["key"])
             for outcome in market.get("outcomes", []):
                 price = outcome.get("price")
                 if not price or price <= 1.0:
@@ -230,16 +253,26 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
         sharp_lines = _sharp_lines(lines, cfg)
         for (market, line), books in lines.items():
             fair = _fair_probs(books, cfg)
+            sharp_fair = bool(fair and fair[1] in cfg.sharp_books)
+            prop = is_prop(market) and not sharp_fair
             model = None
-            if market in ("spreads", "totals") and not (fair and fair[1] in cfg.sharp_books):
+            if market in ("spreads", "totals") and not sharp_fair:
                 # No sharp price on this exact line: convert from a nearby sharp line.
                 model = _nearest_model(event, market, line, sharp_lines)
-            if model or fair:
+            if model or fair or prop:
                 probs, source = fair if fair else ({}, "")
                 for book_key in cfg.bet_books:
                     prices = books.get(book_key)
                     if not prices:
                         continue
+                    if prop:
+                        # Leave this book out of its own fair price.
+                        others = {k: v for k, v in books.items() if k != book_key}
+                        prop_cfg = replace(cfg, consensus_min_books=cfg.prop_min_books)
+                        fair_ex = _fair_probs(others, prop_cfg) if others else None
+                        if not fair_ex:
+                            continue
+                        probs, source = fair_ex[0], fair_ex[1].replace("consensus", "others")
                     for selection, odds in prices.items():
                         if not (cfg.min_odds <= odds <= cfg.max_odds):
                             continue
@@ -256,7 +289,7 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                             if p is None:
                                 continue
                             ev = expected_value(p, net)
-                        if ev < cfg.min_ev:
+                        if ev < (cfg.prop_min_ev if prop else cfg.min_ev):
                             continue
                         stake_frac = min(
                             kelly_fraction(p, net) * cfg.kelly_multiplier, cfg.max_stake_pct

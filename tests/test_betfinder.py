@@ -226,3 +226,49 @@ class KeyNumberTest(unittest.TestCase):
         self.assertFalse(crosses_key_number("americanfootball_nfl", "spreads", -4, -4.5))
         self.assertFalse(crosses_key_number("basketball_nba", "spreads", -3, -3.5))
         self.assertFalse(crosses_key_number("americanfootball_nfl", "totals", 43, 43.5))
+
+
+class PropsTest(unittest.TestCase):
+    def _event(self, books):
+        from datetime import datetime, timedelta, timezone
+        start = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
+        return {"sport_key": "basketball_nba", "sport_title": "NBA", "commence_time": start,
+                "home_team": "H", "away_team": "A",
+                "bookmakers": [{"key": k, "markets": m} for k, m in books.items()]}
+
+    @staticmethod
+    def _pp(player, line, over, under):
+        return {"key": "player_points", "outcomes": [
+            {"name": "Over", "description": player, "point": line, "price": over},
+            {"name": "Under", "description": player, "point": line, "price": under}]}
+
+    def test_players_with_same_line_stay_separate(self):
+        from betfinder.scanner import _collect_lines
+        ev = self._event({"novig": [self._pp("P1", 24.5, 1.9, 1.9), self._pp("P2", 24.5, 2.5, 1.5)]})
+        keys = [k for k in _collect_lines(ev) if k[0] == "player_points"]
+        self.assertEqual(len(keys), 2)
+
+    def test_prop_edge_uses_other_books_only(self):
+        books = {b: [self._pp("P1", 24.5, 1.91, 1.91)] for b in ("fanduel", "prophetx", "polymarket")}
+        books["novig"] = [self._pp("P1", 24.5, 2.15, 1.75)]
+        bets, _ = scan_events([self._event(books)], ScanConfig(bet_books=("novig",)))
+        self.assertEqual([(b.selection, b.book) for b in bets], [("P1 Over 24.5", "novig")])
+        self.assertIn("others(3)", bets[0].fair_source)
+        self.assertGreater(bets[0].ev, 0.05)
+
+    def test_prop_needs_enough_other_books(self):
+        books = {b: [self._pp("P1", 24.5, 1.91, 1.91)] for b in ("fanduel", "prophetx")}
+        books["novig"] = [self._pp("P1", 24.5, 2.3, 1.6)]
+        bets, _ = scan_events([self._event(books)], ScanConfig(bet_books=("novig",)))
+        self.assertEqual(bets, [])
+
+    def test_alternate_total_matches_pinnacle_line(self):
+        pin_alt = {"key": "alternate_totals", "outcomes": [
+            {"name": "Over", "point": 236.5, "price": 1.95}, {"name": "Under", "point": 236.5, "price": 1.95}]}
+        nov_alt = {"key": "alternate_totals", "outcomes": [
+            {"name": "Over", "point": 236.5, "price": 2.10}, {"name": "Under", "point": 236.5, "price": 1.80}]}
+        bets, _ = scan_events([self._event({"pinnacle": [pin_alt], "novig": [nov_alt]})],
+                              ScanConfig(bet_books=("novig",)))
+        self.assertEqual([b.selection for b in bets], ["Over 236.5"])
+        self.assertEqual(bets[0].fair_source, "pinnacle")
+        self.assertEqual(bets[0].market, "totals")

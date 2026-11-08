@@ -7,7 +7,7 @@ import csv
 import json
 import sys
 from dataclasses import asdict
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import os
@@ -25,6 +25,46 @@ def _make_client(provider: str):
         provider = "bettingdata" if os.environ.get("BETTINGDATA_API_KEY") else "oddsapi"
     return (BettingDataClient() if provider == "bettingdata" else OddsApiClient()), provider
 DEMO_FILE = Path(__file__).parent / "sample_odds.json"
+
+# Extra per-game markets fetched with --props. Main spreads/totals are included so
+# alternate lines can be compared against Pinnacle's main line too.
+PROP_MARKETS = {
+    "basketball_nba": "spreads,totals,alternate_spreads,alternate_totals,"
+                      "player_points,player_rebounds,player_assists,player_threes",
+    "basketball_ncaab": "spreads,totals,alternate_spreads,alternate_totals",
+    "icehockey_nhl": "totals,alternate_totals,player_points,player_shots_on_goal",
+    "americanfootball_nfl": "spreads,totals,alternate_spreads,alternate_totals,"
+                            "player_pass_yds,player_rush_yds,player_reception_yds,player_receptions",
+    "americanfootball_ncaaf": "spreads,totals,alternate_spreads,alternate_totals",
+}
+DEFAULT_PROP_MARKETS = "spreads,totals,alternate_spreads,alternate_totals"
+
+
+def _fetch_props(client, sports, args) -> list[dict] | None:
+    """Per-game prop and alternate-line odds for games starting within --hours."""
+    now = datetime.now(timezone.utc)
+    plan = []
+    for sport in sports:
+        markets = args.prop_markets or PROP_MARKETS.get(sport, DEFAULT_PROP_MARKETS)
+        for ev in client.events(sport):
+            start = datetime.fromisoformat(ev["commence_time"].replace("Z", "+00:00"))
+            if now < start <= now + timedelta(hours=args.hours):
+                plan.append((sport, ev, markets))
+    n_regions = len(args.regions.split(","))
+    cost = sum(len(m.split(",")) * n_regions for _, _, m in plan)
+    print(f"[The Odds API] Props: {len(plan)} games starting in the next {args.hours:g}h, "
+          f"up to ~{cost} API credits (only markets a game offers are charged)")
+    if cost > args.max_cost:
+        print(f"That is above --max-cost {args.max_cost}. Lower --hours, narrow --sports or "
+              f"--prop-markets, or raise --max-cost.", file=sys.stderr)
+        return None
+    events = []
+    for sport, ev, markets in plan:
+        try:
+            events.append(client.event_odds(sport, ev["id"], markets, regions=args.regions))
+        except OddsApiError as e:
+            print(f"  {ev.get('away_team')} @ {ev.get('home_team')}: {e}", file=sys.stderr)
+    return events
 
 
 def _resolve_sports(client, spec: str) -> list[str]:
@@ -127,7 +167,19 @@ def cmd_scan(args: argparse.Namespace) -> int:
             sports = _resolve_sports(client, args.sports)
             n_markets = len(args.markets.split(","))
             n_regions = len(args.regions.split(","))
-            if provider == "bettingdata":
+            if args.props:
+                if provider != "oddsapi":
+                    print("--props needs --provider oddsapi", file=sys.stderr)
+                    return 2
+                events = _fetch_props(client, sports, args)
+                if events is None:
+                    return 2
+                print(f"Fetched {len(events)} games. API requests remaining: {client.requests_remaining}")
+                if args.save_raw:
+                    Path(args.save_raw).write_text(json.dumps(events, indent=1))
+                sports = []  # skip the main-market fetch below
+                cost = 0
+            elif provider == "bettingdata":
                 cost = len(sports)
                 print(f"[Betting Data API] Scanning {len(sports)} sports = {cost} requests")
             else:
@@ -138,17 +190,19 @@ def cmd_scan(args: argparse.Namespace) -> int:
                 print(f"That is above --max-cost {args.max_cost}. Narrow --sports/--markets or raise "
                       f"--max-cost.", file=sys.stderr)
                 return 2
-            events = []
+            if not args.props:
+                events = []
             for sport in sports:
                 try:
                     events.extend(client.odds(sport, regions=args.regions, markets=args.markets))
                 except OddsApiError as e:
                     print(f"  {sport}: {e}", file=sys.stderr)
-            if provider == "bettingdata":
-                client.account()
-            print(f"Fetched {len(events)} events. API requests remaining: {client.requests_remaining}")
-            if args.save_raw:
-                Path(args.save_raw).write_text(json.dumps(events, indent=1))
+            if not args.props:
+                if provider == "bettingdata":
+                    client.account()
+                print(f"Fetched {len(events)} events. API requests remaining: {client.requests_remaining}")
+                if args.save_raw:
+                    Path(args.save_raw).write_text(json.dumps(events, indent=1))
         except OddsApiError as e:
             print(e, file=sys.stderr)
             return 1
@@ -266,6 +320,11 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--kelly", type=float, default=0.25, help="Kelly multiplier (0.25 = quarter Kelly)")
     scan.add_argument("--devig", choices=["power", "multiplicative"], default="power")
     scan.add_argument("--max-cost", type=int, default=60, help="refuse scans that cost more API credits")
+    scan.add_argument("--props", action="store_true",
+                      help="scan alternate lines and player props game by game (costs more credits)")
+    scan.add_argument("--prop-markets", help="override the per-sport prop market list (comma list)")
+    scan.add_argument("--hours", type=float, default=12,
+                      help="with --props: only games starting within this many hours")
     scan.add_argument("--max-age", type=float, default=3.0,
                       help="ignore prices not updated in this many hours")
     scan.add_argument("--limit", type=int, default=25)

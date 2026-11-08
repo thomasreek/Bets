@@ -53,6 +53,17 @@ Prices that haven't been updated for 3 hours are ignored, because a stale price 
 
 **API credits:** each scan costs sports × markets × regions credits. `--sports all` can cost over 100 credits, so the tool refuses any scan that would cost more than `--max-cost` (default 60). Keep `eu` in `--regions`, because that's where the Pinnacle line comes from. By default it also scans `us2` (ESPN BET, Hard Rock, Fliff) and `us_ex`, which covers exchanges and prediction markets: Kalshi, Novig, Polymarket US, ProphetX and BetOpenly. Each region adds to the credit cost. Kalshi's trading fee (7% × price × (1 − price) per contract) is taken off its prices before the edge is calculated. Other exchange and prediction-market prices may not include their trading fees, so a small edge there can disappear after fees. Arbitrage margins under 1% are hidden for the same reason.
 
+## Props and alternate lines
+
+```bash
+python -m betfinder scan --props --sports basketball_nba --hours 6
+python -m betfinder scan --props --sports basketball_ncaab,icehockey_nhl --hours 4 --max-cost 300
+```
+
+`--props` fetches each game separately (games starting within `--hours`) with alternate spreads and totals, and for NBA, NHL and NFL also player props. Alternate lines are compared with Pinnacle's matching main or alternate line, or converted from the nearest one. Pinnacle has no player props in the feed, so a prop's fair price is the average of the *other* books on that player's line (at least 3), and the bar is 5% (`prop_min_ev`).
+
+**Cost:** per game, markets x regions. A 6-game NBA night with 8 markets and 3 regions is about 144 credits, so this is meant for a paid plan.
+
 ## Tracking your bets
 
 Every bet you place goes in `bet_log.csv`, and `BETS.md` shows the table with your record, profit and ROI.
