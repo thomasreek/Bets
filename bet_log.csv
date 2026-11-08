@@ -18,3 +18,5 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 17,2026-11-07,americanfootball_ncaaf,Florida State Seminoles @ Boston College Eagles,Under 53.5,novig,10.0,2.0,1.94,2026-11-07T17:00:00Z,lost,Fair converted from Pinnacle total 52.5
 18,2026-11-07,americanfootball_ncaaf,Louisiana Tech Bulldogs @ Troy Trojans,Troy Trojans +6.5,novig,10.0,2.04,1.97,2026-11-07T21:00:00Z,lost,Fair converted from Pinnacle line 5.5
 19,2026-11-07,americanfootball_ncaaf,Texas Longhorns @ Missouri Tigers,Under 45.5,draftkings_predictions,9.9,1.8182,1.89,2026-11-07T17:00:00Z,lost,"Earns 50% trade match in DK credit (up to 5 dollars), not counted in profit"
+20,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Bijan Robinson anytime TD,novig,10.0,1.515,1.42,2026-11-08T14:30:00Z,open,Player prop; fair from Pinnacle
+21,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Under 46.5,novig,5.0,3.03,2.78,2026-11-08T14:30:00Z,open,Alternate total; fair converted from Pinnacle 45.5
