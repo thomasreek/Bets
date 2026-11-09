@@ -28,7 +28,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 27,2026-11-08,basketball_nba,Los Angeles Lakers @ Detroit Pistons,Jake LaRavia Under 3.5 rebounds,bovada,5.0,2.85,2.62,2026-11-08T23:10:00Z,won,Player prop; fair from Novig/other books
 28,2026-11-08,basketball_nba,Utah Jazz @ Minnesota Timberwolves,Terrence Shannon Jr. 12+ points,novig,8.0,2.04,1.92,2026-11-09T00:10:00Z,lost,Player prop (Over 11.5) at 49%; fair from Pinnacle 12.5
 29,2026-11-08,basketball_nba,Brooklyn Nets @ Dallas Mavericks,Brooklyn Nets +3.5,prophetx,5.0,2.76,2.65,2026-11-09T00:40:00Z,lost,Alternate spread; fair converted from Pinnacle
-30,2026-11-08,basketball_nba,Miami Heat @ Sacramento Kings,Darius Acuff Jr. under 7 assists,novig,5.98,1.9281,1.84,2026-11-09T02:10:00Z,open,Player prop (Under 6.5) at 51.8%; fair from Pinnacle
-31,2026-11-08,basketball_nba,New Orleans Pelicans @ Los Angeles Clippers,Darius Garland under 7 assists,novig,5.0,2.38,2.18,2026-11-09T02:10:00Z,open,Player prop (Under 6.5) at 42%; fair from Pinnacle at 2 PM
+30,2026-11-08,basketball_nba,Miami Heat @ Sacramento Kings,Darius Acuff Jr. under 7 assists,novig,5.98,1.9281,1.84,2026-11-09T02:10:00Z,lost,Player prop (Under 6.5) at 51.8%; fair from Pinnacle
+31,2026-11-08,basketball_nba,New Orleans Pelicans @ Los Angeles Clippers,Darius Garland under 7 assists,novig,5.0,2.38,2.18,2026-11-09T02:10:00Z,lost,Player prop (Under 6.5) at 42%; fair from Pinnacle at 2 PM
 32,2026-11-08,americanfootball_nfl,Arizona Cardinals @ Seattle Seahawks,Over 45.5,novig,5.0,3.224,2.94,2026-11-08T21:25:00Z,lost,Alternate total at 31%; fair converted from Pinnacle 46.5
 33,2026-11-08,americanfootball_nfl,Green Bay Packers @ New England Patriots,Over 50.5,novig,5.0,2.94,2.83,2026-11-08T21:25:00Z,won,Alternate total at 34%; fair converted from Pinnacle 51.5
