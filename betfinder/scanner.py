@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 
+from .props import model_for
 from .lines import LineModel, calibrate, crosses_key_number, max_shift, parse_bet
 from .odds_math import (
     DEVIG_METHODS,
@@ -255,6 +256,7 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
         home = event.get("home_team", "")
         lines = _collect_lines(event, now, cfg.max_age_hours)
         sharp_lines = _sharp_lines(lines, cfg)
+        sharp_props = _sharp_props(lines, cfg)
         for (market, line), books in lines.items():
             fair = _fair_probs(books, cfg)
             sharp_fair = bool(fair and fair[1] in cfg.sharp_books)
@@ -263,13 +265,23 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
             if market in ("spreads", "totals") and not sharp_fair:
                 # No sharp price on this exact line: convert from a nearby sharp line.
                 model = _nearest_model(event, market, line, sharp_lines)
+            pmodel = pin_lines = None
+            if prop and isinstance(line, tuple):
+                found = sharp_props.get((market, line[0]))
+                if found:
+                    sharp_name, pin_lines = found
+                    pmodel = model_for(event.get("sport_key", ""), market, pin_lines, line[1], sharp_name)
             if model or fair or prop:
                 probs, source = fair if fair else ({}, "")
                 for book_key in cfg.bet_books:
                     prices = books.get(book_key)
                     if not prices:
                         continue
-                    if prop:
+                    if prop and pmodel is None and pin_lines is not None:
+                        break  # Pinnacle prices this player too far from here to convert
+                    if prop and pmodel is not None:
+                        pass  # priced from Pinnacle's nearby line below
+                    elif prop:
                         # Leave this book out of its own fair price.
                         others = {k: v for k, v in books.items() if k != book_key}
                         prop_cfg = replace(cfg, consensus_min_books=cfg.prop_min_books)
@@ -281,7 +293,19 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                         if not (cfg.min_odds <= odds <= cfg.max_odds):
                             continue
                         net = net_odds(book_key, odds)
-                        if model:
+                        if prop and pmodel is not None:
+                            side, _, pt = selection.rpartition(" ")
+                            side = side.rsplit(" ", 1)[-1]
+                            try:
+                                pt_val = float(pt)
+                            except ValueError:
+                                continue
+                            if side not in ("Over", "Under"):
+                                continue
+                            p = 1.0 / pmodel.fair_odds(side, pt_val)
+                            ev = pmodel.ev(side, pt_val, net)
+                            source = pmodel.source
+                        elif model:
                             bet = parse_bet(market, selection, home)
                             if bet is None:
                                 continue
@@ -324,6 +348,20 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
     value_bets.sort(key=lambda b: (b.suspicious, -b.ev))
     arbs.sort(key=lambda a: -a.margin)
     return value_bets, arbs
+
+
+def _sharp_props(lines, cfg: ScanConfig) -> dict:
+    """(market, player) -> (sharp book, {line: prices}) for player props the sharp book prices."""
+    out: dict = {}
+    for (market, line), books in lines.items():
+        if not is_prop(market) or not isinstance(line, tuple):
+            continue
+        for sharp in cfg.sharp_books:
+            prices = books.get(sharp)
+            if prices and len(prices) == 2 and overround(list(prices.values())) <= cfg.max_sharp_margin:
+                out.setdefault((market, line[0]), (sharp, {}))[1][line[1]] = prices
+                break
+    return out
 
 
 def _sharp_lines(lines, cfg: ScanConfig) -> dict[tuple[str, float], tuple[str, dict[str, float]]]:

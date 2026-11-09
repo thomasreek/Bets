@@ -60,7 +60,7 @@ python -m betfinder scan --props --sports basketball_nba --hours 6
 python -m betfinder scan --props --sports basketball_ncaab,icehockey_nhl --hours 4 --max-cost 300
 ```
 
-`--props` fetches each game separately (games starting within `--hours`) with alternate spreads and totals, and for NBA, NHL and NFL also player props. Alternate lines are compared with Pinnacle's matching main or alternate line, or converted from the nearest one. Pinnacle has no player props in the feed, so a prop's fair price is the average of the *other* books on that player's line (at least 3), and the bar is 5% (`prop_min_ev`).
+`--props` fetches each game separately (games starting within `--hours`) with alternate spreads and totals, and for NBA, NHL and NFL also player props. Alternate lines are compared with Pinnacle's matching main or alternate line, or converted from the nearest one. A player prop on the same line as Pinnacle is compared with Pinnacle directly. On a different line it is converted from Pinnacle's nearest line for that player (`betfinder/props.py`: Poisson for counts like rebounds, assists, threes and receptions; a normal curve for points, PRA and yards), and skipped if that line is too far away. Only when Pinnacle has no line for the player is the fair price the average of the *other* books (at least 3). The bar for props is 5% (`prop_min_ev`).
 
 **Cost:** per game, markets x regions. A 6-game NBA night with 8 markets and 3 regions is about 144 credits, so this is meant for a paid plan.
 

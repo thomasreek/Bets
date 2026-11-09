@@ -282,3 +282,48 @@ class PeriodMarketTest(unittest.TestCase):
         self.assertTrue(is_prop("player_points_rebounds_assists"))
         self.assertFalse(is_prop("alternate_totals"))
         self.assertFalse(is_prop("h2h"))
+
+
+class PropConversionTest(unittest.TestCase):
+    def _ev(self, books, sport="basketball_nba"):
+        from datetime import datetime, timedelta, timezone
+        start = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
+        return {"sport_key": sport, "sport_title": "NBA", "commence_time": start, "home_team": "H",
+                "away_team": "A", "bookmakers": [{"key": k, "markets": m} for k, m in books.items()]}
+
+    @staticmethod
+    def _m(market, player, line, over, under):
+        return {"key": market, "outcomes": [
+            {"name": "Over", "description": player, "point": line, "price": over},
+            {"name": "Under", "description": player, "point": line, "price": under}]}
+
+    def test_count_stat_converted_from_pinnacle_not_consensus(self):
+        # Giannis case: Pinnacle Over 11.5 reb ~52%; others price Over 12.5 at 2.0, Novig 2.33.
+        books = {"pinnacle": [self._m("player_rebounds", "G", 11.5, 1.79, 1.96)],
+                 "novig": [self._m("player_rebounds", "G", 12.5, 2.33, 1.71)],
+                 "draftkings": [self._m("player_rebounds", "G", 12.5, 2.0, 1.76)],
+                 "bovada": [self._m("player_rebounds", "G", 12.5, 2.0, 1.77)],
+                 "fanduel": [self._m("player_rebounds", "G", 12.5, 2.0, 1.78)]}
+        bets, _ = scan_events([self._ev(books)], ScanConfig(bet_books=("novig",), min_ev=0.0))
+        self.assertFalse([b for b in bets if b.selection == "G Over 12.5"])
+
+    def test_points_line_converted(self):
+        books = {"pinnacle": [self._m("player_points", "S", 12.5, 2.02, 1.74)],
+                 "novig": [self._m("player_points", "S", 11.5, 2.08, 1.89)]}
+        bets, _ = scan_events([self._ev(books)], ScanConfig(bet_books=("novig",)))
+        self.assertEqual([b.selection for b in bets], ["S Over 11.5"])
+        self.assertIn("pinnacle 12.5, converted", bets[0].fair_source)
+
+    def test_too_far_from_pinnacle_is_skipped(self):
+        others = {b: [self._m("player_rebounds", "G", 16.5, 1.91, 1.91)] for b in ("draftkings", "bovada", "fanduel")}
+        books = {"pinnacle": [self._m("player_rebounds", "G", 11.5, 1.9, 1.9)],
+                 "novig": [self._m("player_rebounds", "G", 16.5, 3.0, 1.3)], **others}
+        bets, _ = scan_events([self._ev(books)], ScanConfig(bet_books=("novig",), min_ev=0.0))
+        self.assertEqual(bets, [])
+
+    def test_model_reproduces_pinnacle_at_its_line(self):
+        from betfinder.props import model_for
+        m = model_for("basketball_nba", "player_rebounds",
+                      {11.5: {"G Over 11.5": 1.79, "G Under 11.5": 1.96}}, 11.5, "pinnacle")
+        inv_o, inv_u = 1 / 1.79, 1 / 1.96
+        self.assertAlmostEqual(1 / m.fair_odds("Over", 11.5), inv_o / (inv_o + inv_u), places=4)
