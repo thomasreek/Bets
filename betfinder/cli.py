@@ -37,7 +37,9 @@ PROP_MARKETS = {
     "americanfootball_nfl": "spreads,totals,alternate_spreads,alternate_totals,"
                             "player_pass_yds,player_rush_yds,player_reception_yds,player_receptions,"
                             "player_anytime_td",
-    "americanfootball_ncaaf": "spreads,totals,alternate_spreads,alternate_totals",
+    # No Pinnacle props in college football: priced off the other books (3+), so keep to big games.
+    "americanfootball_ncaaf": "spreads,totals,alternate_spreads,alternate_totals,"
+                              "player_pass_yds,player_rush_yds,player_reception_yds,player_anytime_td",
 }
 DEFAULT_PROP_MARKETS = "spreads,totals,alternate_spreads,alternate_totals"
 
@@ -48,8 +50,12 @@ def _fetch_props(client, sports, args) -> list[dict] | None:
     plan = []
     for sport in sports:
         markets = args.prop_markets or PROP_MARKETS.get(sport, DEFAULT_PROP_MARKETS)
+        wanted = [g.strip().lower() for g in (args.games or "").split(",") if g.strip()]
         for ev in client.events(sport):
             start = datetime.fromisoformat(ev["commence_time"].replace("Z", "+00:00"))
+            teams = f"{ev.get('home_team', '')} {ev.get('away_team', '')}".lower()
+            if wanted and not any(w in teams for w in wanted):
+                continue
             if now < start <= now + timedelta(hours=args.hours):
                 plan.append((sport, ev, markets))
     n_regions = len(args.regions.split(","))
@@ -325,6 +331,8 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--props", action="store_true",
                       help="scan alternate lines and player props game by game (costs more credits)")
     scan.add_argument("--prop-markets", help="override the per-sport prop market list (comma list)")
+    scan.add_argument("--games", help="with --props: only games whose team names contain one of "
+                                      "these words (comma list), e.g. 'Alabama,Ohio State,Texas'")
     scan.add_argument("--hours", type=float, default=12,
                       help="with --props: only games starting within this many hours")
     scan.add_argument("--max-age", type=float, default=3.0,

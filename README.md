@@ -58,9 +58,10 @@ Prices that haven't been updated for 3 hours are ignored, because a stale price 
 ```bash
 python -m betfinder scan --props --sports basketball_nba --hours 6
 python -m betfinder scan --props --sports basketball_ncaab,icehockey_nhl --hours 4 --max-cost 300
+python -m betfinder scan --props --sports americanfootball_ncaaf --games "Alabama,Ohio State,Texas" --hours 6
 ```
 
-`--props` fetches each game separately (games starting within `--hours`) with alternate spreads and totals, and for NBA, NHL and NFL also player props. Alternate lines are compared with Pinnacle's matching main or alternate line, or converted from the nearest one. A player prop on the same line as Pinnacle is compared with Pinnacle directly. On a nearby line (within 1 for counts, about 12% for bigger stats like points) it is priced from Pinnacle's level plus the average change in the *other* books' ladders between the two lines (`betfinder/props.py`, at least 2 books), and only when that chance is between 33% and 67%; tails and far lines are skipped. Only when Pinnacle has no line for the player is the fair price the average of the other books (at least 3). The bar for props is 5% (`prop_min_ev`).
+`--props` fetches each game separately (games starting within `--hours`) with alternate spreads and totals, and for NBA, NHL, NFL and college football also player props. College football has no Pinnacle props, so its player props are priced off the other books; use `--games` to keep that to the big games. Alternate lines are compared with Pinnacle's matching main or alternate line, or converted from the nearest one. A player prop on the same line as Pinnacle is compared with Pinnacle directly. On a nearby line (within 1 for counts, about 12% for bigger stats like points) it is priced from Pinnacle's level plus the average change in the *other* books' ladders between the two lines (`betfinder/props.py`, at least 2 books), and only when that chance is between 33% and 67%; tails and far lines are skipped. Only when Pinnacle has no line for the player is the fair price the average of the other books (at least 3). The bar for props is 5% (`prop_min_ev`).
 
 **Cost:** per game, markets x regions. A 6-game NBA night with 8 markets and 3 regions is about 144 credits, so this is meant for a paid plan.
 
