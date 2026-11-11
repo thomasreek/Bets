@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 
-from .props import model_for
+from .props import ladder_fair_over, max_distance
 from .lines import LineModel, calibrate, crosses_key_number, max_shift, parse_bet
 from .odds_math import (
     DEVIG_METHODS,
@@ -265,22 +265,29 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
             if market in ("spreads", "totals") and not sharp_fair:
                 # No sharp price on this exact line: convert from a nearby sharp line.
                 model = _nearest_model(event, market, line, sharp_lines)
-            pmodel = pin_lines = None
+            pin_lines = sharp_name = None
             if prop and isinstance(line, tuple):
                 found = sharp_props.get((market, line[0]))
                 if found:
                     sharp_name, pin_lines = found
-                    pmodel = model_for(event.get("sport_key", ""), market, pin_lines, line[1], sharp_name)
             if model or fair or prop:
                 probs, source = fair if fair else ({}, "")
                 for book_key in cfg.bet_books:
                     prices = books.get(book_key)
                     if not prices:
                         continue
-                    if prop and pmodel is None and pin_lines is not None:
-                        break  # Pinnacle prices this player too far from here to convert
-                    if prop and pmodel is not None:
-                        pass  # priced from Pinnacle's nearby line below
+                    ladder = None
+                    if prop and pin_lines is not None:
+                        pin_pt = min(pin_lines, key=lambda q: abs(q - line[1]))
+                        if abs(pin_pt - line[1]) > max_distance(pin_pt):
+                            break  # Pinnacle prices this player too far from here
+                        res = ladder_fair_over(
+                            pin_lines[pin_pt], lines.get((market, (line[0], pin_pt)), {}), books,
+                            exclude={book_key, sharp_name},
+                        )
+                        if res is None:
+                            continue  # not enough other ladders to price this book's line
+                        ladder = (res[0], res[1], pin_pt)
                     elif prop:
                         # Leave this book out of its own fair price.
                         others = {k: v for k, v in books.items() if k != book_key}
@@ -293,18 +300,13 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                         if not (cfg.min_odds <= odds <= cfg.max_odds):
                             continue
                         net = net_odds(book_key, odds)
-                        if prop and pmodel is not None:
-                            side, _, pt = selection.rpartition(" ")
-                            side = side.rsplit(" ", 1)[-1]
-                            try:
-                                pt_val = float(pt)
-                            except ValueError:
-                                continue
+                        if ladder is not None:
+                            side = selection.rsplit(" ", 2)[-2]
                             if side not in ("Over", "Under"):
                                 continue
-                            p = 1.0 / pmodel.fair_odds(side, pt_val)
-                            ev = pmodel.ev(side, pt_val, net)
-                            source = pmodel.source
+                            p = ladder[0] if side == "Over" else 1.0 - ladder[0]
+                            ev = expected_value(p, net)
+                            source = f"{sharp_name} {ladder[2]:g} + ladder({ladder[1]})"
                         elif model:
                             bet = parse_bet(market, selection, home)
                             if bet is None:
