@@ -34,8 +34,8 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 33,2026-11-08,americanfootball_nfl,Green Bay Packers @ New England Patriots,Over 50.5,novig,5.0,2.94,2.83,2026-11-08T21:25:00Z,won,Alternate total at 34%; fair converted from Pinnacle 51.5
 34,2026-11-10,basketball_ncaab,Maryland-Eastern Shore Hawks @ Boston College Eagles,Under 128.5,novig,8.0,2.02,1.92,2026-11-11T00:00:00Z,lost,49.5%; Pinnacle same line
 35,2026-11-10,basketball_ncaab,Presbyterian Blue Hose @ NC State Wolfpack,Over 154.5,prophetx,5.0,2.43,2.32,2026-11-11T00:00:00Z,lost,2.46 before ProphetX 2% fee on winnings; fair converted from Pinnacle 153.5
-36,2026-11-10,basketball_ncaab,Texas State Bobcats @ UT Rio Grande Valley Vaqueros,Over 140.5,novig,7.0,2.38,2.26,2026-11-11T00:30:00Z,open,42%; fair converted from Pinnacle 140
-37,2026-11-10,basketball_ncaab,SE Louisiana Lions @ Ole Miss Rebels,Over 149.5,novig,5.0,2.38,2.28,2026-11-11T01:30:00Z,open,42%; fair converted from Pinnacle 149
+36,2026-11-10,basketball_ncaab,Texas State Bobcats @ UT Rio Grande Valley Vaqueros,Over 140.5,novig,7.0,2.38,2.26,2026-11-11T00:30:00Z,lost,42%; fair converted from Pinnacle 140
+37,2026-11-10,basketball_ncaab,SE Louisiana Lions @ Ole Miss Rebels,Over 149.5,novig,5.0,2.38,2.28,2026-11-11T01:30:00Z,lost,42%; fair converted from Pinnacle 149
 38,2026-11-10,basketball_nba,Milwaukee Bucks @ New York Knicks,Mikal Bridges Under 10.5 points,prophetx,8.0,1.8687,1.8,2026-11-11T00:40:00Z,open,Filled at 1.88 avg; after ProphetX 2% fee; Pinnacle same line
 39,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Bennett Stirtz Over 7.5 points,prophetx,5.0,2.336,2.39,2026-11-11T04:10:00Z,open,Filled at 2.36 avg (scan had 2.60); after 2% fee; Pinnacle same line
 40,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Jrue Holiday Under 12.5 points,bovada,6.0,2.1,1.98,2026-11-11T04:10:00Z,open,Pinnacle same line
