@@ -69,8 +69,15 @@ BOOK_PRESETS: dict[str, tuple[tuple[str, ...], str]] = {
 FEE_RATES: dict[str, float] = {"kalshi": 0.07}
 
 
+# Commission charged on net winnings (shown on ProphetX trade slips).
+WINNINGS_FEES: dict[str, float] = {"prophetx": 0.02}
+
+
 def net_odds(book: str, odds: float) -> float:
-    """Decimal odds after the book's trading fee (unchanged for books without one)."""
+    """Decimal odds after the book's fees (unchanged for books without one)."""
+    win_fee = WINNINGS_FEES.get(book)
+    if win_fee:
+        odds = 1.0 + (odds - 1.0) * (1.0 - win_fee)
     rate = FEE_RATES.get(book)
     if not rate:
         return odds

@@ -332,3 +332,9 @@ class PropConversionTest(unittest.TestCase):
                  "novig": [self._m("player_rebounds", "G", (16.5, 3.0, 1.3))], **others}
         bets, _ = scan_events([self._ev(books)], ScanConfig(bet_books=("novig",), min_ev=0.0))
         self.assertEqual([b for b in bets if "16.5" in b.selection], [])
+
+
+class WinningsFeeTest(unittest.TestCase):
+    def test_prophetx_two_percent_on_winnings(self):
+        from betfinder.scanner import net_odds
+        self.assertAlmostEqual(net_odds("prophetx", 2.46), 1 + 1.46 * 0.98)
