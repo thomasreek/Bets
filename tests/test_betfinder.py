@@ -338,3 +338,17 @@ class WinningsFeeTest(unittest.TestCase):
     def test_prophetx_two_percent_on_winnings(self):
         from betfinder.scanner import net_odds
         self.assertAlmostEqual(net_odds("prophetx", 2.46), 1 + 1.46 * 0.98)
+
+
+class ConversionTailTest(unittest.TestCase):
+    def test_converted_long_shot_skipped(self):
+        from datetime import datetime, timedelta, timezone
+        start = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
+        ev = [{"sport_key": "icehockey_nhl", "sport_title": "NHL", "commence_time": start,
+               "home_team": "H", "away_team": "A", "bookmakers": [
+                   {"key": "pinnacle", "markets": [{"key": "totals", "outcomes": [
+                       {"name": "Over", "point": 5.5, "price": 1.85}, {"name": "Under", "point": 5.5, "price": 2.0}]}]},
+                   {"key": "novig", "markets": [{"key": "totals", "outcomes": [
+                       {"name": "Over", "point": 4.5, "price": 1.25}, {"name": "Under", "point": 4.5, "price": 4.76}]}]}]}]
+        bets, _ = scan_events(ev, ScanConfig(bet_books=("novig",), min_ev=0.0))
+        self.assertFalse([b for b in bets if b.selection == "Under 4.5"])

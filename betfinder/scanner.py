@@ -319,6 +319,8 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                             if bet is None:
                                 continue
                             p = 1.0 / model.fair_odds(bet)
+                            if not 0.30 <= p <= 0.70:
+                                continue  # converted tails are unreliable (long-shot lines)
                             ev = model.ev(bet, net)
                             source = model.source
                         else:
