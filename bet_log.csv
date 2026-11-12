@@ -45,7 +45,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 44,2026-11-11,basketball_nba,Cleveland Cavaliers @ New York Knicks,Donovan Mitchell Under 34.5 PRA,bovada,6.0,1.69,1.55,2026-11-12T00:10:00Z,lost,Pinnacle 33.5 + ladder
 45,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Zach Edey Under 7.5 rebounds,bovada,5.0,2.6,2.3,2026-11-12T01:10:00Z,open,+160; Pinnacle 8.5 + ladder
 46,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Cam Spencer 4+ assists,novig,6.0,1.625,1.52,2026-11-12T01:10:00Z,lost,Over 3.5 at 61.5%; Pinnacle 4.5 + ladder
-47,2026-11-11,basketball_nba,Golden State Warriors @ Houston Rockets,Alperen Sengun 7+ assists,novig,6.0,1.96,1.86,2026-11-12T02:40:00Z,open,Over 6.5 at 51%; Pinnacle same line
+47,2026-11-11,basketball_nba,Golden State Warriors @ Houston Rockets,Alperen Sengun 7+ assists,novig,6.0,1.96,1.86,2026-11-12T02:40:00Z,won,Over 6.5 at 51%; Pinnacle same line
 48,2026-11-11,icehockey_nhl,Utah Mammoth @ Vegas Golden Knights,Nick Schmaltz Over 2.5 shots on goal,prophetx,5.0,2.78,2.62,2026-11-12T02:40:00Z,lost,2.82 with 0.11 fee; Pinnacle same line
 49,2026-11-11,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Isaiah Hartenstein Under 8.5 points,bovada,5.0,2.2,2.0,2026-11-12T03:10:00Z,open,Pinnacle 9.5 + ladder
 50,2026-11-11,icehockey_nhl,Pittsburgh Penguins @ San Jose Sharks,Ben Kindel under 2 shots on goal,novig,5.0,2.898,2.69,2026-11-12T03:10:00Z,lost,Under 1.5 (2+ No) at 34.5%; Pinnacle same line
