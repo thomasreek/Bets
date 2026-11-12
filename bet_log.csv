@@ -40,7 +40,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
 39,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Bennett Stirtz Over 7.5 points,prophetx,5.0,2.336,2.39,2026-11-11T04:10:00Z,won,Filled at 2.36 avg (scan had 2.60); after 2% fee; Pinnacle same line
 40,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Jrue Holiday Under 12.5 points,bovada,6.0,2.1,1.98,2026-11-11T04:10:00Z,won,Pinnacle same line
 41,2026-11-11,basketball_ncaab,Saint Peter's Peacocks @ South Carolina Gamecocks,Under 124.5,novig,5.0,2.272,2.15,2026-11-12T00:00:00Z,won,44%; fair converted from Pinnacle 125
-42,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Andrew Nembhard Under 25.5 PRA,bovada,8.0,2.35,2.1,2026-11-12T00:10:00Z,open,Pinnacle same line
+42,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Andrew Nembhard Under 25.5 PRA,bovada,8.0,2.35,2.1,2026-11-12T00:10:00Z,lost,Pinnacle same line
 43,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Trae Young under 31 PRA,novig,6.0,2.0617,1.93,2026-11-12T00:10:00Z,won,Under 30.5 at 48.5%; Pinnacle same line
 44,2026-11-11,basketball_nba,Cleveland Cavaliers @ New York Knicks,Donovan Mitchell Under 34.5 PRA,bovada,6.0,1.69,1.55,2026-11-12T00:10:00Z,open,Pinnacle 33.5 + ladder
 45,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Zach Edey Under 7.5 rebounds,bovada,5.0,2.6,2.3,2026-11-12T01:10:00Z,open,+160; Pinnacle 8.5 + ladder
