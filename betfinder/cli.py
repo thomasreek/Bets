@@ -251,6 +251,8 @@ def _print_log(bets) -> None:
     print(f"\nRecord {s['won']}-{s['lost']}-{s['push']}, {s['open']} open (${s['open_stake']:.2f} at risk). "
           f"Profit ${s['profit']:+.2f} on ${s['staked']:.2f} settled (ROI {s['roi']:.1%}). "
           f"Expected profit ${s['expected_profit']:+.2f}.")
+    if s["clv_count"]:
+        print(f"Beat the closing line on {s['clv_beat']} of {s['clv_count']} bets, average CLV {s['clv_avg']:+.1%}.")
 
 
 def cmd_bet(args: argparse.Namespace) -> int:
@@ -302,6 +304,30 @@ def cmd_bet(args: argparse.Namespace) -> int:
         bets = [b for b in bets if b.id != args.id]
         tracker.save(bets)
         print(f"Deleted bet #{args.id}")
+    elif args.action == "clv":
+        from .clv import closing_odds
+        try:
+            client = OddsApiClient()
+        except OddsApiError as e:
+            print(e, file=sys.stderr)
+            return 1
+        now = datetime.now(timezone.utc)
+        todo = [b for b in bets if b.clv is None and b.status != "void" and b.sport and b.start
+                and datetime.fromisoformat(b.start.replace("Z", "+00:00")) < now
+                and (not args.ids or b.id in args.ids)]
+        print(f"Fetching Pinnacle closing prices for {len(todo)} bets (about 11-21 credits each)")
+        for b in todo:
+            try:
+                close, note = closing_odds(client, b)
+            except OddsApiError as e:
+                close, note = None, str(e)[:80]
+            if close:
+                b.close_odds, b.clv = close, b.odds / close - 1
+                print(f"#{b.id:<3} {b.selection:<40} bet {b.odds:.3f}  close {close:.3f}  CLV {b.clv:+.1%}")
+            else:
+                print(f"#{b.id:<3} {b.selection:<40} skipped: {note}")
+            tracker.save(bets)
+        print(f"API credits remaining: {client.requests_remaining}")
     _print_log(bets)
     return 0
 
@@ -370,6 +396,8 @@ def main(argv: list[str] | None = None) -> int:
     settle.add_argument("--auto", action="store_true", help="grade open moneyline bets from final scores")
     delete = bsub.add_parser("delete", help="remove a bet entered by mistake")
     delete.add_argument("id", type=int)
+    clv = bsub.add_parser("clv", help="record Pinnacle's closing price and CLV for started games")
+    clv.add_argument("ids", type=int, nargs="*", help="only these bet numbers (default: all missing)")
 
     args = parser.parse_args(argv)
     return args.func(args)

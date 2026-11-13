@@ -83,3 +83,18 @@ class OddsApiClient:
         """
         params = {"regions": regions, "markets": markets, "oddsFormat": odds_format, "dateFormat": "iso"}
         return self._get(f"/sports/{sport}/events/{event_id}/odds", params)  # type: ignore[return-value]
+
+    def historical_events(self, sport: str, date: str) -> list[dict]:
+        """Events listed at a past moment (ISO 8601 UTC). Costs 1 credit."""
+        data = self._get(f"/historical/sports/{sport}/events", {"date": date, "dateFormat": "iso"})
+        return data.get("data", []) if isinstance(data, dict) else []
+
+    def historical_event_odds(self, sport: str, event_id: str, markets: str, date: str) -> dict | None:
+        """Pinnacle's odds for one event at a past moment. Costs 10 x markets credits."""
+        params = {"bookmakers": "pinnacle", "markets": markets, "oddsFormat": "decimal",
+                  "date": date, "dateFormat": "iso"}
+        try:
+            data = self._get(f"/historical/sports/{sport}/events/{event_id}/odds", params)
+        except OddsApiError:
+            return None
+        return data.get("data") if isinstance(data, dict) else None

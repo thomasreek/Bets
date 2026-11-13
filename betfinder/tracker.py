@@ -31,6 +31,8 @@ class Bet:
     start: str  # game start, ISO 8601 UTC
     status: str = "open"
     notes: str = ""
+    close_odds: float | None = None  # Pinnacle's fair closing price for this selection
+    clv: float | None = None  # odds / close_odds - 1: positive means the bet beat the close
 
     @property
     def to_win(self) -> float:
@@ -62,6 +64,8 @@ def load(path: Path = LOG_FILE) -> list[Bet]:
                 selection=row["selection"], book=row["book"], stake=float(row["stake"]),
                 odds=float(row["odds"]), fair_odds=float(row["fair_odds"]) if row["fair_odds"] else None,
                 start=row["start"], status=row["status"], notes=row.get("notes", ""),
+                close_odds=float(row["close_odds"]) if row.get("close_odds") else None,
+                clv=float(row["clv"]) if row.get("clv") else None,
             ))
     return bets
 
@@ -73,6 +77,8 @@ def save(bets: list[Bet], path: Path = LOG_FILE, table: Path | None = TABLE_FILE
         for b in bets:
             row = asdict(b)
             row["fair_odds"] = "" if b.fair_odds is None else b.fair_odds
+            row["close_odds"] = "" if b.close_odds is None else round(b.close_odds, 4)
+            row["clv"] = "" if b.clv is None else round(b.clv, 4)
             writer.writerow(row)
     if table:
         table.write_text(render_markdown(bets))
@@ -102,6 +108,9 @@ def summary(bets: list[Bet]) -> dict:
         "roi": profit / staked if staked else 0.0,
         "win_rate": sum(b.status == "won" for b in graded) / len(graded) if graded else 0.0,
         "expected_profit": sum(ev),
+        "clv_count": sum(b.clv is not None for b in bets),
+        "clv_beat": sum(b.clv is not None and b.clv > 0 for b in bets),
+        "clv_avg": (sum(b.clv for b in bets if b.clv is not None) / max(1, sum(b.clv is not None for b in bets))),
     }
 
 
@@ -126,10 +135,18 @@ def render_markdown(bets: list[Bet]) -> str:
         "Expected profit is what the bets were worth at the fair price when placed. Over hundreds of bets, "
         "profit should track it. Over a few bets, luck dominates.",
         "",
+        "## Closing line value",
+        "",
+        (f"Beat Pinnacle's closing price on **{s['clv_beat']} of {s['clv_count']}** bets, "
+         f"average CLV **{s['clv_avg']:+.1%}**." if s["clv_count"] else "No closing prices recorded yet."),
+        "",
+        "CLV compares each bet's price with Pinnacle's fair price just before the game. A positive average "
+        "over 30-50+ bets is the clearest sign the edges are real; results take hundreds of bets to show it.",
+        "",
         "## Bets",
         "",
-        "| # | Game time (Houston) | Event | Bet | Book | Stake | Odds | To win | Edge | Result | Profit |",
-        "|---|---|---|---|---|---|---|---|---|---|---|",
+        "| # | Game time (Houston) | Event | Bet | Book | Stake | Odds | To win | Edge | CLV | Result | Profit |",
+        "|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     icons = {"won": "✅ Won", "lost": "❌ Lost", "push": "↩️ Push", "void": "Void", "open": "⏳ Open"}
     for b in sorted(bets, key=lambda b: b.id, reverse=True):
@@ -138,7 +155,7 @@ def render_markdown(bets: list[Bet]) -> str:
         lines.append(
             f"| {b.id} | {fmt_time(b.start) or b.placed} | {b.event} | {b.selection} | {b.book} | {_money(b.stake)} "
             f"| {b.odds:.3f} ({decimal_to_american(b.odds):+d}) | {_money(b.to_win)} | {edge} "
-            f"| {icons.get(b.status, b.status)} | {profit} |"
+            f"| {'' if b.clv is None else f'{b.clv:+.1%}'} | {icons.get(b.status, b.status)} | {profit} |"
         )
     return "\n".join(lines) + "\n"
 

@@ -352,3 +352,33 @@ class ConversionTailTest(unittest.TestCase):
                        {"name": "Over", "point": 4.5, "price": 1.25}, {"name": "Under", "point": 4.5, "price": 4.76}]}]}]}]
         bets, _ = scan_events(ev, ScanConfig(bet_books=("novig",), min_ev=0.0))
         self.assertFalse([b for b in bets if b.selection == "Under 4.5"])
+
+
+class ClvParseTest(unittest.TestCase):
+    def test_logged_selections(self):
+        from betfinder.clv import parse
+        cases = {
+            "Over 151.5": ("totals", "Over 151.5"),
+            "Chicago Bulls +5.5": ("spreads", "Chicago Bulls +5.5"),
+            "Detroit Lions": ("h2h", "Detroit Lions"),
+            "Tyler Bertuzzi 2+ shots on goal": ("player_shots_on_goal", "Tyler Bertuzzi Over 1.5"),
+            "Joel Eriksson Ek under 3 shots on goal": ("player_shots_on_goal", "Joel Eriksson Ek Under 2.5"),
+            "Trae Young under 31 PRA": ("player_points_rebounds_assists", "Trae Young Under 30.5"),
+            "Mikal Bridges Under 10.5 points": ("player_points", "Mikal Bridges Under 10.5"),
+            "Bijan Robinson anytime TD": ("player_anytime_td", "Bijan Robinson Yes"),
+        }
+        for text, (market, sel) in cases.items():
+            t = parse(text, "Home")
+            self.assertEqual((t.market, t.selection), (market, sel), text)
+
+    def test_log_roundtrip_keeps_clv(self):
+        import tempfile
+        from betfinder import tracker
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "log.csv"
+            bets = []
+            b = tracker.add(bets, placed="2026-11-12", sport="x", event="A @ H", selection="Over 1.5",
+                            book="novig", stake=5, odds=2.2, fair_odds=2.0, start="")
+            b.close_odds, b.clv = 2.0, 0.1
+            tracker.save(bets, path, table=None)
+            self.assertAlmostEqual(tracker.load(path)[0].clv, 0.1)

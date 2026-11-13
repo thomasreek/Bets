@@ -78,6 +78,8 @@ python -m betfinder bet settle 1 won       # record a result by hand (won, lost,
 python -m betfinder bet settle --auto      # grade moneyline bets from final scores (2 credits per sport)
 ```
 
+**Closing line value:** `python -m betfinder bet clv` fetches Pinnacle's price from 5 minutes before each started game (historical odds, about 11-21 credits per bet) and records how much your price beat it. `BETS.md` shows the share of bets that beat the close and the average CLV, which is the quickest reliable check that the edges are real. Props Pinnacle didn't price at your exact line are skipped.
+
 Game times in the scan output and `BETS.md` are shown in Houston time. Set `BETFINDER_TZ` to change it, e.g. `export BETFINDER_TZ=America/New_York`.
 
 Copy `--event`, `--sport` and `--fair` from the scan output. `--fair` lets the log compare your actual profit with expected profit.

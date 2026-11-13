@@ -1,58 +1,58 @@
-id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes
-1,2026-11-01,americanfootball_nfl,Minnesota Vikings @ Detroit Lions,Detroit Lions,novig,16.68,1.5995,1.58,2026-11-01T18:00:00Z,won,
-2,2026-11-01,americanfootball_nfl,Las Vegas Raiders @ New York Jets,Las Vegas Raiders +1.5,novig,10.0,2.04,2.03,2026-11-01T18:00:00Z,won,
-3,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +0.5,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,won,"Half of Asian handicap Sparta +0.5,+1 (+0.75), $10.80 to win $10"
-4,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +1,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,won,"Half of Asian handicap Sparta +0.5,+1 (+0.75), $10.80 to win $10"
-5,2026-11-01,icehockey_nhl,Winnipeg Jets @ Carolina Hurricanes,Under 6,betopenly,10.0,2.11,2.04,2026-11-01T18:10:00Z,void,
-6,2026-11-01,basketball_ncaab,UCLA Bruins @ Arizona Wildcats,Arizona Wildcats -4.5,betopenly,10.0,2.0,1.97,2026-11-03T03:00:00Z,lost,Fair is an average-based estimate (no Pinnacle line yet)
-7,2026-11-02,basketball_ncaab,Tenn-Martin Skyhawks @ Tulane Green Wave,Under 147,betopenly,10.0,2.044,1.96,2026-11-03T01:00:00Z,void,
-8,2026-11-02,basketball_ncaab,La Salle Explorers @ Houston Cougars,Over 134.5,novig,10.0,2.0,1.955,2026-11-03T02:00:00Z,won,
-9,2026-11-03,icehockey_nhl,Anaheim Ducks @ Vancouver Canucks,Under 6.5,novig,9.9,2.3485,2.1,2026-11-04T02:10:00Z,lost,Fair estimated from Pinnacle Under 7 (1.77)
-10,2026-11-04,basketball_ncaab,SE Louisiana Lions @ Auburn Tigers,Over 149.5,novig,10.0,2.04,1.93,2026-11-05T01:00:00Z,won,Fair converted from Pinnacle total 150
-11,2026-11-04,basketball_ncaab,Maryland-Eastern Shore Hawks @ High Point Panthers,Maryland-Eastern Shore Hawks +34.5,novig,10.0,2.0,1.92,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle line 34
-12,2026-11-04,basketball_ncaab,Fairleigh Dickinson Knights @ Butler Bulldogs,Over 155.5,kalshi,10.0,2.051,1.91,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle total 156.5
-13,2026-11-05,basketball_ncaab,Jackson St Tigers @ Tulane Green Wave,Over 151.5,novig,10.0,2.04,1.924,2026-11-06T00:30:00Z,won,Fair converted from Pinnacle total 152.5
-14,2026-11-06,basketball_ncaab,Northeastern Huskies @ Virginia Cavaliers,Virginia Cavaliers -34.5,novig,10.0,2.083,1.988,2026-11-06T22:00:00Z,lost,Fair converted from Pinnacle line -35
-15,2026-11-06,basketball_ncaab,UConn Huskies @ Michigan Wolverines,Michigan Wolverines +7.5,draftkings_predictions,9.9,1.9818,1.947,2026-11-07T01:00:00Z,lost,"18 contracts at 53c + 0.36 fee, 20% profit boost"
-16,2026-11-07,soccer_efl_champ,Southampton @ Preston North End,Under 3,bovada,12.8,1.7812,1.72,2026-11-07T15:00:00Z,won,Fair converted from Pinnacle total 2.75
-17,2026-11-07,americanfootball_ncaaf,Florida State Seminoles @ Boston College Eagles,Under 53.5,novig,10.0,2.0,1.94,2026-11-07T17:00:00Z,lost,Fair converted from Pinnacle total 52.5
-18,2026-11-07,americanfootball_ncaaf,Louisiana Tech Bulldogs @ Troy Trojans,Troy Trojans +6.5,novig,10.0,2.04,1.97,2026-11-07T21:00:00Z,lost,Fair converted from Pinnacle line 5.5
-19,2026-11-07,americanfootball_ncaaf,Texas Longhorns @ Missouri Tigers,Under 45.5,draftkings_predictions,9.9,1.8182,1.89,2026-11-07T17:00:00Z,lost,"Earns 50% trade match in DK credit (up to 5 dollars), not counted in profit"
-20,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Bijan Robinson anytime TD,novig,10.0,1.515,1.42,2026-11-08T14:30:00Z,won,Player prop; fair from Pinnacle
-21,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Under 46.5,novig,5.0,3.03,2.78,2026-11-08T14:30:00Z,lost,Alternate total; fair converted from Pinnacle 45.5
-22,2026-11-08,basketball_ncaab,Central Connecticut St Blue Devils @ Dartmouth Big Green,Over 143.5,novig,5.0,2.408,2.27,2026-11-08T19:00:00Z,won,Alternate total; fair converted from Pinnacle 142.5
-23,2026-11-08,americanfootball_nfl,Los Angeles Rams @ Washington Commanders,Blake Corum anytime TD,novig,10.0,2.531,2.36,2026-11-08T18:00:00Z,won,Player prop at 39.5%; fair from Pinnacle
-24,2026-11-08,americanfootball_nfl,Denver Broncos @ Carolina Panthers,John Metchie III 2+ receptions,novig,10.0,1.818,1.73,2026-11-08T18:00:00Z,won,Player prop (Over 1.5) at 55%; fair from Pinnacle
-25,2026-11-08,americanfootball_nfl,New York Jets @ Kansas City Chiefs,Emmett Johnson 11+ rushing yards,novig,5.0,2.324,2.05,2026-11-08T18:00:00Z,won,Player prop (Over 10.5) at 43%; fair from Pinnacle
-26,2026-11-08,basketball_nba,Philadelphia 76ers @ Chicago Bulls,Chicago Bulls +5.5,novig,7.96,2.8706,2.71,2026-11-08T20:40:00Z,lost,34.8%; fair converted from Pinnacle +7
-27,2026-11-08,basketball_nba,Los Angeles Lakers @ Detroit Pistons,Jake LaRavia Under 3.5 rebounds,bovada,5.0,2.85,2.62,2026-11-08T23:10:00Z,won,Player prop; fair from Novig/other books
-28,2026-11-08,basketball_nba,Utah Jazz @ Minnesota Timberwolves,Terrence Shannon Jr. 12+ points,novig,8.0,2.04,1.92,2026-11-09T00:10:00Z,lost,Player prop (Over 11.5) at 49%; fair from Pinnacle 12.5
-29,2026-11-08,basketball_nba,Brooklyn Nets @ Dallas Mavericks,Brooklyn Nets +3.5,prophetx,5.0,2.76,2.65,2026-11-09T00:40:00Z,lost,Alternate spread; fair converted from Pinnacle
-30,2026-11-08,basketball_nba,Miami Heat @ Sacramento Kings,Darius Acuff Jr. under 7 assists,novig,5.98,1.9281,1.84,2026-11-09T02:10:00Z,lost,Player prop (Under 6.5) at 51.8%; fair from Pinnacle
-31,2026-11-08,basketball_nba,New Orleans Pelicans @ Los Angeles Clippers,Darius Garland under 7 assists,novig,5.0,2.38,2.18,2026-11-09T02:10:00Z,lost,Player prop (Under 6.5) at 42%; fair from Pinnacle at 2 PM
-32,2026-11-08,americanfootball_nfl,Arizona Cardinals @ Seattle Seahawks,Over 45.5,novig,5.0,3.224,2.94,2026-11-08T21:25:00Z,lost,Alternate total at 31%; fair converted from Pinnacle 46.5
-33,2026-11-08,americanfootball_nfl,Green Bay Packers @ New England Patriots,Over 50.5,novig,5.0,2.94,2.83,2026-11-08T21:25:00Z,won,Alternate total at 34%; fair converted from Pinnacle 51.5
-34,2026-11-10,basketball_ncaab,Maryland-Eastern Shore Hawks @ Boston College Eagles,Under 128.5,novig,8.0,2.02,1.92,2026-11-11T00:00:00Z,lost,49.5%; Pinnacle same line
-35,2026-11-10,basketball_ncaab,Presbyterian Blue Hose @ NC State Wolfpack,Over 154.5,prophetx,5.0,2.43,2.32,2026-11-11T00:00:00Z,lost,2.46 before ProphetX 2% fee on winnings; fair converted from Pinnacle 153.5
-36,2026-11-10,basketball_ncaab,Texas State Bobcats @ UT Rio Grande Valley Vaqueros,Over 140.5,novig,7.0,2.38,2.26,2026-11-11T00:30:00Z,lost,42%; fair converted from Pinnacle 140
-37,2026-11-10,basketball_ncaab,SE Louisiana Lions @ Ole Miss Rebels,Over 149.5,novig,5.0,2.38,2.28,2026-11-11T01:30:00Z,lost,42%; fair converted from Pinnacle 149
-38,2026-11-10,basketball_nba,Milwaukee Bucks @ New York Knicks,Mikal Bridges Under 10.5 points,prophetx,8.0,1.8687,1.8,2026-11-11T00:40:00Z,won,Filled at 1.88 avg; after ProphetX 2% fee; Pinnacle same line
-39,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Bennett Stirtz Over 7.5 points,prophetx,5.0,2.336,2.39,2026-11-11T04:10:00Z,won,Filled at 2.36 avg (scan had 2.60); after 2% fee; Pinnacle same line
-40,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Jrue Holiday Under 12.5 points,bovada,6.0,2.1,1.98,2026-11-11T04:10:00Z,won,Pinnacle same line
-41,2026-11-11,basketball_ncaab,Saint Peter's Peacocks @ South Carolina Gamecocks,Under 124.5,novig,5.0,2.272,2.15,2026-11-12T00:00:00Z,won,44%; fair converted from Pinnacle 125
-42,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Andrew Nembhard Under 25.5 PRA,bovada,8.0,2.35,2.1,2026-11-12T00:10:00Z,lost,Pinnacle same line
-43,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Trae Young under 31 PRA,novig,6.0,2.0617,1.93,2026-11-12T00:10:00Z,won,Under 30.5 at 48.5%; Pinnacle same line
-44,2026-11-11,basketball_nba,Cleveland Cavaliers @ New York Knicks,Donovan Mitchell Under 34.5 PRA,bovada,6.0,1.69,1.55,2026-11-12T00:10:00Z,lost,Pinnacle 33.5 + ladder
-45,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Zach Edey Under 7.5 rebounds,bovada,5.0,2.6,2.3,2026-11-12T01:10:00Z,won,+160; Pinnacle 8.5 + ladder
-46,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Cam Spencer 4+ assists,novig,6.0,1.625,1.52,2026-11-12T01:10:00Z,lost,Over 3.5 at 61.5%; Pinnacle 4.5 + ladder
-47,2026-11-11,basketball_nba,Golden State Warriors @ Houston Rockets,Alperen Sengun 7+ assists,novig,6.0,1.96,1.86,2026-11-12T02:40:00Z,won,Over 6.5 at 51%; Pinnacle same line
-48,2026-11-11,icehockey_nhl,Utah Mammoth @ Vegas Golden Knights,Nick Schmaltz Over 2.5 shots on goal,prophetx,5.0,2.78,2.62,2026-11-12T02:40:00Z,lost,2.82 with 0.11 fee; Pinnacle same line
-49,2026-11-11,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Isaiah Hartenstein Under 8.5 points,bovada,5.0,2.2,2.0,2026-11-12T03:10:00Z,lost,Pinnacle 9.5 + ladder
-50,2026-11-11,icehockey_nhl,Pittsburgh Penguins @ San Jose Sharks,Ben Kindel under 2 shots on goal,novig,5.0,2.898,2.69,2026-11-12T03:10:00Z,lost,Under 1.5 (2+ No) at 34.5%; Pinnacle same line
-51,2026-11-12,basketball_ncaab,Western Michigan Broncos @ Fort Wayne Mastodons,Over 151.5,novig,8.0,1.98,1.81,2026-11-13T00:00:00Z,lost,50.5%; Pinnacle same line
-52,2026-11-12,icehockey_nhl,Tampa Bay Lightning @ Columbus Blue Jackets,Adam Fantilli 3+ shots on goal,novig,6.0,2.2983,2.15,2026-11-13T00:10:00Z,lost,Over 2.5 at 43.5%; Pinnacle same line
-53,2026-11-12,icehockey_nhl,Minnesota Wild @ Toronto Maple Leafs,Joel Eriksson Ek under 3 shots on goal,novig,5.0,2.352,2.21,2026-11-13T00:10:00Z,lost,Under 2.5 (3+ No) at 42.5%; Pinnacle same line
-54,2026-11-12,icehockey_nhl,Detroit Red Wings @ Florida Panthers,Andrew Copp 2+ shots on goal,novig,6.0,2.3517,2.22,2026-11-13T00:40:00Z,lost,Over 1.5 at 42.5%; Pinnacle same line
-55,2026-11-12,basketball_ncaab,Loyola Marymount Lions @ South Alabama Jaguars,Under 137.5,novig,5.0,2.564,2.39,2026-11-13T01:00:00Z,lost,39%; fair converted from Pinnacle 139
-56,2026-11-12,icehockey_nhl,Buffalo Sabres @ Chicago Blackhawks,Tyler Bertuzzi 2+ shots on goal,novig,6.0,2.4383,2.22,2026-11-13T01:09:00Z,lost,Over 1.5 at 41%; Pinnacle same line
-57,2026-11-12,icehockey_nhl,Winnipeg Jets @ Dallas Stars,Tyler Seguin 2+ shots on goal,novig,6.0,1.96,1.84,2026-11-13T01:10:00Z,won,Over 1.5 at 51%; Pinnacle same line
+id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,close_odds,clv
+1,2026-11-01,americanfootball_nfl,Minnesota Vikings @ Detroit Lions,Detroit Lions,novig,16.68,1.5995,1.58,2026-11-01T18:00:00Z,won,,1.5803,0.0121
+2,2026-11-01,americanfootball_nfl,Las Vegas Raiders @ New York Jets,Las Vegas Raiders +1.5,novig,10.0,2.04,2.03,2026-11-01T18:00:00Z,won,,2.0776,-0.0181
+3,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +0.5,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,won,"Half of Asian handicap Sparta +0.5,+1 (+0.75), $10.80 to win $10",2.297,-0.1616
+4,2026-11-01,soccer_netherlands_eredivisie,Sparta Rotterdam @ Groningen,Sparta Rotterdam +1,bovada,5.4,1.9259,1.975,2026-11-01T15:45:00Z,won,"Half of Asian handicap Sparta +0.5,+1 (+0.75), $10.80 to win $10",1.771,0.0875
+5,2026-11-01,icehockey_nhl,Winnipeg Jets @ Carolina Hurricanes,Under 6,betopenly,10.0,2.11,2.04,2026-11-01T18:10:00Z,void,,,
+6,2026-11-01,basketball_ncaab,UCLA Bruins @ Arizona Wildcats,Arizona Wildcats -4.5,betopenly,10.0,2.0,1.97,2026-11-03T03:00:00Z,lost,Fair is an average-based estimate (no Pinnacle line yet),1.93,0.0363
+7,2026-11-02,basketball_ncaab,Tenn-Martin Skyhawks @ Tulane Green Wave,Under 147,betopenly,10.0,2.044,1.96,2026-11-03T01:00:00Z,void,,,
+8,2026-11-02,basketball_ncaab,La Salle Explorers @ Houston Cougars,Over 134.5,novig,10.0,2.0,1.955,2026-11-03T02:00:00Z,won,,1.9549,0.0231
+9,2026-11-03,icehockey_nhl,Anaheim Ducks @ Vancouver Canucks,Under 6.5,novig,9.9,2.3485,2.1,2026-11-04T02:10:00Z,lost,Fair estimated from Pinnacle Under 7 (1.77),2.3265,0.0094
+10,2026-11-04,basketball_ncaab,SE Louisiana Lions @ Auburn Tigers,Over 149.5,novig,10.0,2.04,1.93,2026-11-05T01:00:00Z,won,Fair converted from Pinnacle total 150,1.9639,0.0388
+11,2026-11-04,basketball_ncaab,Maryland-Eastern Shore Hawks @ High Point Panthers,Maryland-Eastern Shore Hawks +34.5,novig,10.0,2.0,1.92,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle line 34,1.9161,0.0438
+12,2026-11-04,basketball_ncaab,Fairleigh Dickinson Knights @ Butler Bulldogs,Over 155.5,kalshi,10.0,2.051,1.91,2026-11-05T00:00:00Z,won,Fair converted from Pinnacle total 156.5,1.9146,0.0712
+13,2026-11-05,basketball_ncaab,Jackson St Tigers @ Tulane Green Wave,Over 151.5,novig,10.0,2.04,1.924,2026-11-06T00:30:00Z,won,Fair converted from Pinnacle total 152.5,1.9888,0.0257
+14,2026-11-06,basketball_ncaab,Northeastern Huskies @ Virginia Cavaliers,Virginia Cavaliers -34.5,novig,10.0,2.083,1.988,2026-11-06T22:00:00Z,lost,Fair converted from Pinnacle line -35,2.0562,0.013
+15,2026-11-06,basketball_ncaab,UConn Huskies @ Michigan Wolverines,Michigan Wolverines +7.5,draftkings_predictions,9.9,1.9818,1.947,2026-11-07T01:00:00Z,lost,"18 contracts at 53c + 0.36 fee, 20% profit boost",1.9836,-0.0009
+16,2026-11-07,soccer_efl_champ,Southampton @ Preston North End,Under 3,bovada,12.8,1.7812,1.72,2026-11-07T15:00:00Z,won,Fair converted from Pinnacle total 2.75,1.8793,-0.0522
+17,2026-11-07,americanfootball_ncaaf,Florida State Seminoles @ Boston College Eagles,Under 53.5,novig,10.0,2.0,1.94,2026-11-07T17:00:00Z,lost,Fair converted from Pinnacle total 52.5,1.9669,0.0168
+18,2026-11-07,americanfootball_ncaaf,Louisiana Tech Bulldogs @ Troy Trojans,Troy Trojans +6.5,novig,10.0,2.04,1.97,2026-11-07T21:00:00Z,lost,Fair converted from Pinnacle line 5.5,2.1161,-0.0359
+19,2026-11-07,americanfootball_ncaaf,Texas Longhorns @ Missouri Tigers,Under 45.5,draftkings_predictions,9.9,1.8182,1.89,2026-11-07T17:00:00Z,lost,"Earns 50% trade match in DK credit (up to 5 dollars), not counted in profit",1.8847,-0.0353
+20,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Bijan Robinson anytime TD,novig,10.0,1.515,1.42,2026-11-08T14:30:00Z,won,Player prop; fair from Pinnacle,1.538,-0.015
+21,2026-11-08,americanfootball_nfl,Cincinnati Bengals @ Atlanta Falcons,Under 46.5,novig,5.0,3.03,2.78,2026-11-08T14:30:00Z,lost,Alternate total; fair converted from Pinnacle 45.5,2.8654,0.0574
+22,2026-11-08,basketball_ncaab,Central Connecticut St Blue Devils @ Dartmouth Big Green,Over 143.5,novig,5.0,2.408,2.27,2026-11-08T19:00:00Z,won,Alternate total; fair converted from Pinnacle 142.5,2.3768,0.0131
+23,2026-11-08,americanfootball_nfl,Los Angeles Rams @ Washington Commanders,Blake Corum anytime TD,novig,10.0,2.531,2.36,2026-11-08T18:00:00Z,won,Player prop at 39.5%; fair from Pinnacle,2.6002,-0.0266
+24,2026-11-08,americanfootball_nfl,Denver Broncos @ Carolina Panthers,John Metchie III 2+ receptions,novig,10.0,1.818,1.73,2026-11-08T18:00:00Z,won,Player prop (Over 1.5) at 55%; fair from Pinnacle,1.7421,0.0435
+25,2026-11-08,americanfootball_nfl,New York Jets @ Kansas City Chiefs,Emmett Johnson 11+ rushing yards,novig,5.0,2.324,2.05,2026-11-08T18:00:00Z,won,Player prop (Over 10.5) at 43%; fair from Pinnacle,2.2213,0.0462
+26,2026-11-08,basketball_nba,Philadelphia 76ers @ Chicago Bulls,Chicago Bulls +5.5,novig,7.96,2.8706,2.71,2026-11-08T20:40:00Z,lost,34.8%; fair converted from Pinnacle +7,2.6338,0.0899
+27,2026-11-08,basketball_nba,Los Angeles Lakers @ Detroit Pistons,Jake LaRavia Under 3.5 rebounds,bovada,5.0,2.85,2.62,2026-11-08T23:10:00Z,won,Player prop; fair from Novig/other books,,
+28,2026-11-08,basketball_nba,Utah Jazz @ Minnesota Timberwolves,Terrence Shannon Jr. 12+ points,novig,8.0,2.04,1.92,2026-11-09T00:10:00Z,lost,Player prop (Over 11.5) at 49%; fair from Pinnacle 12.5,,
+29,2026-11-08,basketball_nba,Brooklyn Nets @ Dallas Mavericks,Brooklyn Nets +3.5,prophetx,5.0,2.76,2.65,2026-11-09T00:40:00Z,lost,Alternate spread; fair converted from Pinnacle,2.7226,0.0138
+30,2026-11-08,basketball_nba,Miami Heat @ Sacramento Kings,Darius Acuff Jr. under 7 assists,novig,5.98,1.9281,1.84,2026-11-09T02:10:00Z,lost,Player prop (Under 6.5) at 51.8%; fair from Pinnacle,,
+31,2026-11-08,basketball_nba,New Orleans Pelicans @ Los Angeles Clippers,Darius Garland under 7 assists,novig,5.0,2.38,2.18,2026-11-09T02:10:00Z,lost,Player prop (Under 6.5) at 42%; fair from Pinnacle at 2 PM,2.309,0.0307
+32,2026-11-08,americanfootball_nfl,Arizona Cardinals @ Seattle Seahawks,Over 45.5,novig,5.0,3.224,2.94,2026-11-08T21:25:00Z,lost,Alternate total at 31%; fair converted from Pinnacle 46.5,2.9357,0.0982
+33,2026-11-08,americanfootball_nfl,Green Bay Packers @ New England Patriots,Over 50.5,novig,5.0,2.94,2.83,2026-11-08T21:25:00Z,won,Alternate total at 34%; fair converted from Pinnacle 51.5,2.834,0.0374
+34,2026-11-10,basketball_ncaab,Maryland-Eastern Shore Hawks @ Boston College Eagles,Under 128.5,novig,8.0,2.02,1.92,2026-11-11T00:00:00Z,lost,49.5%; Pinnacle same line,1.9233,0.0503
+35,2026-11-10,basketball_ncaab,Presbyterian Blue Hose @ NC State Wolfpack,Over 154.5,prophetx,5.0,2.43,2.32,2026-11-11T00:00:00Z,lost,2.46 before ProphetX 2% fee on winnings; fair converted from Pinnacle 153.5,2.3199,0.0475
+36,2026-11-10,basketball_ncaab,Texas State Bobcats @ UT Rio Grande Valley Vaqueros,Over 140.5,novig,7.0,2.38,2.26,2026-11-11T00:30:00Z,lost,42%; fair converted from Pinnacle 140,2.3085,0.031
+37,2026-11-10,basketball_ncaab,SE Louisiana Lions @ Ole Miss Rebels,Over 149.5,novig,5.0,2.38,2.28,2026-11-11T01:30:00Z,lost,42%; fair converted from Pinnacle 149,2.2805,0.0436
+38,2026-11-10,basketball_nba,Milwaukee Bucks @ New York Knicks,Mikal Bridges Under 10.5 points,prophetx,8.0,1.8687,1.8,2026-11-11T00:40:00Z,won,Filled at 1.88 avg; after ProphetX 2% fee; Pinnacle same line,1.8272,0.0227
+39,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Bennett Stirtz Over 7.5 points,prophetx,5.0,2.336,2.39,2026-11-11T04:10:00Z,won,Filled at 2.36 avg (scan had 2.60); after 2% fee; Pinnacle same line,2.3254,0.0046
+40,2026-11-10,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Jrue Holiday Under 12.5 points,bovada,6.0,2.1,1.98,2026-11-11T04:10:00Z,won,Pinnacle same line,1.9823,0.0594
+41,2026-11-11,basketball_ncaab,Saint Peter's Peacocks @ South Carolina Gamecocks,Under 124.5,novig,5.0,2.272,2.15,2026-11-12T00:00:00Z,won,44%; fair converted from Pinnacle 125,2.1643,0.0497
+42,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Andrew Nembhard Under 25.5 PRA,bovada,8.0,2.35,2.1,2026-11-12T00:10:00Z,lost,Pinnacle same line,2.4412,-0.0373
+43,2026-11-11,basketball_nba,Washington Wizards @ Indiana Pacers,Trae Young under 31 PRA,novig,6.0,2.0617,1.93,2026-11-12T00:10:00Z,won,Under 30.5 at 48.5%; Pinnacle same line,1.9313,0.0675
+44,2026-11-11,basketball_nba,Cleveland Cavaliers @ New York Knicks,Donovan Mitchell Under 34.5 PRA,bovada,6.0,1.69,1.55,2026-11-12T00:10:00Z,lost,Pinnacle 33.5 + ladder,,
+45,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Zach Edey Under 7.5 rebounds,bovada,5.0,2.6,2.3,2026-11-12T01:10:00Z,won,+160; Pinnacle 8.5 + ladder,,
+46,2026-11-11,basketball_nba,Denver Nuggets @ Memphis Grizzlies,Cam Spencer 4+ assists,novig,6.0,1.625,1.52,2026-11-12T01:10:00Z,lost,Over 3.5 at 61.5%; Pinnacle 4.5 + ladder,,
+47,2026-11-11,basketball_nba,Golden State Warriors @ Houston Rockets,Alperen Sengun 7+ assists,novig,6.0,1.96,1.86,2026-11-12T02:40:00Z,won,Over 6.5 at 51%; Pinnacle same line,2.0486,-0.0432
+48,2026-11-11,icehockey_nhl,Utah Mammoth @ Vegas Golden Knights,Nick Schmaltz Over 2.5 shots on goal,prophetx,5.0,2.78,2.62,2026-11-12T02:40:00Z,lost,2.82 with 0.11 fee; Pinnacle same line,,
+49,2026-11-11,basketball_nba,Oklahoma City Thunder @ Portland Trail Blazers,Isaiah Hartenstein Under 8.5 points,bovada,5.0,2.2,2.0,2026-11-12T03:10:00Z,lost,Pinnacle 9.5 + ladder,,
+50,2026-11-11,icehockey_nhl,Pittsburgh Penguins @ San Jose Sharks,Ben Kindel under 2 shots on goal,novig,5.0,2.898,2.69,2026-11-12T03:10:00Z,lost,Under 1.5 (2+ No) at 34.5%; Pinnacle same line,2.6854,0.0792
+51,2026-11-12,basketball_ncaab,Western Michigan Broncos @ Fort Wayne Mastodons,Over 151.5,novig,8.0,1.98,1.81,2026-11-13T00:00:00Z,lost,50.5%; Pinnacle same line,1.8934,0.0458
+52,2026-11-12,icehockey_nhl,Tampa Bay Lightning @ Columbus Blue Jackets,Adam Fantilli 3+ shots on goal,novig,6.0,2.2983,2.15,2026-11-13T00:10:00Z,lost,Over 2.5 at 43.5%; Pinnacle same line,2.1518,0.0681
+53,2026-11-12,icehockey_nhl,Minnesota Wild @ Toronto Maple Leafs,Joel Eriksson Ek under 3 shots on goal,novig,5.0,2.352,2.21,2026-11-13T00:10:00Z,lost,Under 2.5 (3+ No) at 42.5%; Pinnacle same line,2.2146,0.0621
+54,2026-11-12,icehockey_nhl,Detroit Red Wings @ Florida Panthers,Andrew Copp 2+ shots on goal,novig,6.0,2.3517,2.22,2026-11-13T00:40:00Z,lost,Over 1.5 at 42.5%; Pinnacle same line,2.2237,0.0576
+55,2026-11-12,basketball_ncaab,Loyola Marymount Lions @ South Alabama Jaguars,Under 137.5,novig,5.0,2.564,2.39,2026-11-13T01:00:00Z,lost,39%; fair converted from Pinnacle 139,2.5055,0.0233
+56,2026-11-12,icehockey_nhl,Buffalo Sabres @ Chicago Blackhawks,Tyler Bertuzzi 2+ shots on goal,novig,6.0,2.4383,2.22,2026-11-13T01:09:00Z,lost,Over 1.5 at 41%; Pinnacle same line,2.2146,0.101
+57,2026-11-12,icehockey_nhl,Winnipeg Jets @ Dallas Stars,Tyler Seguin 2+ shots on goal,novig,6.0,1.96,1.84,2026-11-13T01:10:00Z,won,Over 1.5 at 51%; Pinnacle same line,1.8435,0.0632
