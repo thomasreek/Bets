@@ -56,8 +56,8 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 55,2026-11-12,basketball_ncaab,Loyola Marymount Lions @ South Alabama Jaguars,Under 137.5,novig,5.0,2.564,2.39,2026-11-13T01:00:00Z,lost,39%; fair converted from Pinnacle 139,2.5055,0.0233
 56,2026-11-12,icehockey_nhl,Buffalo Sabres @ Chicago Blackhawks,Tyler Bertuzzi 2+ shots on goal,novig,6.0,2.4383,2.22,2026-11-13T01:09:00Z,lost,Over 1.5 at 41%; Pinnacle same line,2.2146,0.101
 57,2026-11-12,icehockey_nhl,Winnipeg Jets @ Dallas Stars,Tyler Seguin 2+ shots on goal,novig,6.0,1.96,1.84,2026-11-13T01:10:00Z,won,Over 1.5 at 51%; Pinnacle same line,1.8435,0.0632
-58,2026-11-13,basketball_nba,Atlanta Hawks @ Chicago Bulls,Aaron Wiggins Over 2.5 threes,bovada,5.0,2.85,2.41,2026-11-14T01:10:00Z,open,+185; Pinnacle same line,,
-59,2026-11-13,basketball_nba,Memphis Grizzlies @ New Orleans Pelicans,Saddiq Bey Over 16.5 points,bovada,6.0,1.77,1.64,2026-11-14T01:10:00Z,open,-130; Pinnacle same line,,
+58,2026-11-13,basketball_nba,Atlanta Hawks @ Chicago Bulls,Aaron Wiggins Over 2.5 threes,bovada,5.0,2.85,2.41,2026-11-14T01:10:00Z,lost,+185; Pinnacle same line,,
+59,2026-11-13,basketball_nba,Memphis Grizzlies @ New Orleans Pelicans,Saddiq Bey Over 16.5 points,bovada,6.0,1.77,1.64,2026-11-14T01:10:00Z,won,-130; Pinnacle same line,,
 60,2026-11-13,basketball_nba,Utah Jazz @ Houston Rockets,Ace Bailey Over 13.5 points,prophetx,6.0,2.0783,1.86,2026-11-14T01:40:00Z,won,2.10 before 2% fee; Pinnacle same line,,
 61,2026-11-13,basketball_nba,Golden State Warriors @ San Antonio Spurs,Brandin Podziemski 6+ rebounds,novig,5.0,2.126,2.0,2026-11-14T02:40:00Z,open,Over 5.5 at 47%; Pinnacle same line,,
 62,2026-11-13,basketball_nba,Portland Trail Blazers @ Sacramento Kings,Keegan Murray Under 9.5 points,bovada,5.0,2.6,2.38,2026-11-14T03:10:00Z,open,+160; Pinnacle 10.5 + ladder,,
