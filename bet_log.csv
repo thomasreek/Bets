@@ -71,3 +71,10 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 70,2026-11-14,americanfootball_ncaaf,Georgia Tech Yellow Jackets @ Clemson Tigers,Tait Reynolds Under 209.5 passing yards,bovada,10.0,1.87,1.8,2026-11-14T17:30:00Z,open,-115; Pinnacle same line,1.7789,0.0512
 71,2026-11-14,americanfootball_ncaaf,Nebraska Cornhuskers @ Rutgers Scarlet Knights,Nebraska Cornhuskers -11.5,novig,10.0,1.666,1.62,2026-11-14T17:30:00Z,won,60.0%; fair converted from Pinnacle -12.5,1.6075,0.0364
 72,2026-11-14,basketball_ncaab,Bradley Braves @ George Mason Patriots,Under 131.5,novig,10.0,1.941,1.86,2026-11-14T18:00:00Z,won,51.5%; Pinnacle same line,1.8832,0.0307
+73,2026-11-14,americanfootball_ncaaf,Auburn Tigers @ Mississippi State Bulldogs,Mississippi State Bulldogs +5.5,novig,10.0,1.6807,1.63,2026-11-14T21:15:00Z,open,59.5%; fair converted from Pinnacle +4.5,,
+74,2026-11-14,basketball_ncaab,Utah Tech Trailblazers @ California Golden Bears,Utah Tech Trailblazers +17.5,novig,10.0,1.6393,1.57,2026-11-14T22:00:00Z,open,61.0%; fair converted from Pinnacle +16,,
+75,2026-11-14,basketball_ncaab,Lafayette Leopards @ St. Bonaventure Bonnies,Lafayette Leopards +16.5,novig,10.0,1.9231,1.88,2026-11-14T21:05:00Z,open,52.0%; Pinnacle same line,,
+76,2026-11-14,basketball_ncaab,South Dakota St Jackrabbits @ N Colorado Bears,Under 152.5,novig,10.0,1.8018,1.76,2026-11-14T21:05:00Z,open,55.5%; fair converted from Pinnacle 152,,
+77,2026-11-14,basketball_ncaab,Hampton Pirates @ Navy Midshipmen,Navy Midshipmen -1.5,novig,10.0,2.1322,2.05,2026-11-14T21:05:00Z,open,46.9%; Pinnacle same line,,
+78,2026-11-14,americanfootball_ncaaf,Fresno State Bulldogs @ Texas State Bobcats,Under 61.5,novig,10.0,1.9048,1.83,2026-11-14T21:00:00Z,open,52.5%; Pinnacle same line,,
+79,2026-11-14,basketball_ncaab,Southern Utah Thunderbirds @ Wake Forest Demon Deacons,Southern Utah Thunderbirds +21.5,novig,10.0,1.6529,1.59,2026-11-14T21:00:00Z,open,60.5%; fair converted from Pinnacle +20.5,,
