@@ -313,6 +313,7 @@ def cmd_bet(args: argparse.Namespace) -> int:
             return 1
         now = datetime.now(timezone.utc)
         todo = [b for b in bets if b.clv is None and b.status != "void" and b.sport and b.start
+                and "[no close]" not in b.notes
                 and datetime.fromisoformat(b.start.replace("Z", "+00:00")) < now
                 and (not args.ids or b.id in args.ids)]
         print(f"Fetching Pinnacle closing prices for {len(todo)} bets (about 11-21 credits each)")
@@ -326,6 +327,8 @@ def cmd_bet(args: argparse.Namespace) -> int:
                 print(f"#{b.id:<3} {b.selection:<40} bet {b.odds:.3f}  close {close:.3f}  CLV {b.clv:+.1%}")
             else:
                 print(f"#{b.id:<3} {b.selection:<40} skipped: {note}")
+                if "no closing price" in note or "could not read" in note:
+                    b.notes = (b.notes + " [no close]").strip()  # don't pay to retry it
             tracker.save(bets)
         print(f"API credits remaining: {client.requests_remaining}")
     _print_log(bets)
