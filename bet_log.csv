@@ -78,3 +78,4 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 77,2026-11-14,basketball_ncaab,Hampton Pirates @ Navy Midshipmen,Navy Midshipmen -1.5,novig,10.0,2.1322,2.05,2026-11-14T21:05:00Z,open,46.9%; Pinnacle same line,,
 78,2026-11-14,americanfootball_ncaaf,Fresno State Bulldogs @ Texas State Bobcats,Under 61.5,novig,10.0,1.9048,1.83,2026-11-14T21:00:00Z,open,52.5%; Pinnacle same line,,
 79,2026-11-14,basketball_ncaab,Southern Utah Thunderbirds @ Wake Forest Demon Deacons,Southern Utah Thunderbirds +21.5,novig,10.0,1.6529,1.59,2026-11-14T21:00:00Z,open,60.5%; fair converted from Pinnacle +20.5,,
+80,2026-11-14,americanfootball_ncaaf,Arizona State Sun Devils @ UCF Knights,Over 46.5,novig,10.0,1.9608,1.9,2026-11-14T22:30:00Z,open,51.0%; Pinnacle same line,,
