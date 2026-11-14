@@ -68,7 +68,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 67,2026-11-14,americanfootball_ncaaf,Northwestern Wildcats @ Ohio State Buckeyes,Ohio State Buckeyes -11.5,novig,10.0,1.724,1.68,2026-11-14T17:00:00Z,lost,58.0%; fair converted from Pinnacle -12,1.6859,0.0226
 68,2026-11-14,americanfootball_ncaaf,Syracuse Orange @ NC State Wolfpack,Under 54.5,novig,10.0,2.061,1.96,2026-11-14T17:00:00Z,lost,48.5%; Pinnacle same line,2.0,0.0305
 69,2026-11-14,americanfootball_ncaaf,Wake Forest Demon Deacons @ SMU Mustangs,SMU Mustangs -4.5,novig,10.0,2.469,2.4,2026-11-14T17:00:00Z,lost,40.5%; fair converted from Pinnacle -4,2.4284,0.0167
-70,2026-11-14,americanfootball_ncaaf,Georgia Tech Yellow Jackets @ Clemson Tigers,Tait Reynolds Under 209.5 passing yards,bovada,10.0,1.87,1.8,2026-11-14T17:30:00Z,open,-115; Pinnacle same line,1.7789,0.0512
+70,2026-11-14,americanfootball_ncaaf,Georgia Tech Yellow Jackets @ Clemson Tigers,Tait Reynolds Under 209.5 passing yards,bovada,10.0,1.87,1.8,2026-11-14T17:30:00Z,won,-115; Pinnacle same line,1.7789,0.0512
 71,2026-11-14,americanfootball_ncaaf,Nebraska Cornhuskers @ Rutgers Scarlet Knights,Nebraska Cornhuskers -11.5,novig,10.0,1.666,1.62,2026-11-14T17:30:00Z,won,60.0%; fair converted from Pinnacle -12.5,1.6075,0.0364
 72,2026-11-14,basketball_ncaab,Bradley Braves @ George Mason Patriots,Under 131.5,novig,10.0,1.941,1.86,2026-11-14T18:00:00Z,won,51.5%; Pinnacle same line,1.8832,0.0307
 73,2026-11-14,americanfootball_ncaaf,Auburn Tigers @ Mississippi State Bulldogs,Mississippi State Bulldogs +5.5,novig,10.0,1.6807,1.63,2026-11-14T21:15:00Z,open,59.5%; fair converted from Pinnacle +4.5,,
