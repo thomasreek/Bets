@@ -62,3 +62,4 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 61,2026-11-13,basketball_nba,Golden State Warriors @ San Antonio Spurs,Brandin Podziemski 6+ rebounds,novig,5.0,2.126,2.0,2026-11-14T02:40:00Z,open,Over 5.5 at 47%; Pinnacle same line,,
 62,2026-11-13,basketball_nba,Portland Trail Blazers @ Sacramento Kings,Keegan Murray Under 9.5 points,bovada,5.0,2.6,2.38,2026-11-14T03:10:00Z,open,+160; Pinnacle 10.5 + ladder,,
 63,2026-11-13,basketball_nba,Oklahoma City Thunder @ Los Angeles Clippers,Keaton Wagler 3+ assists,novig,5.0,1.738,1.63,2026-11-14T03:40:00Z,open,Over 2.5 at 57.5%; Pinnacle 3.5 + ladder,,
+64,2026-11-13,basketball_ncaab,Milwaukee Panthers @ TCU Horned Frogs,Milwaukee Panthers +24.5,novig,6.0,1.8017,1.68,2026-11-14T01:00:00Z,won,55.5%; fair converted from Pinnacle -23; final 64-76,,
