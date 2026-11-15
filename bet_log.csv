@@ -79,19 +79,19 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 78,2026-11-14,americanfootball_ncaaf,Fresno State Bulldogs @ Texas State Bobcats,Under 61.5,novig,10.0,1.9048,1.83,2026-11-14T21:00:00Z,lost,52.5%; Pinnacle same line,1.8261,0.0431
 79,2026-11-14,basketball_ncaab,Southern Utah Thunderbirds @ Wake Forest Demon Deacons,Southern Utah Thunderbirds +21.5,novig,10.0,1.6529,1.59,2026-11-14T21:00:00Z,lost,60.5%; fair converted from Pinnacle +20.5,1.5866,0.0418
 80,2026-11-14,americanfootball_ncaaf,Arizona State Sun Devils @ UCF Knights,Over 46.5,novig,10.0,1.9608,1.9,2026-11-14T22:30:00Z,lost,51.0%; Pinnacle same line,2.0862,-0.0601
-81,2026-11-15,americanfootball_nfl,Carolina Panthers @ New Orleans Saints,Alvin Kamara 3+ receptions,novig,10.0,1.9048,1.75,2026-11-15T18:00:00Z,open,52.5%; Pinnacle Over 2.5,,
-82,2026-11-15,americanfootball_nfl,Jacksonville Jaguars @ Tennessee Titans,Bhayshul Tuten 14+ receiving yards,novig,5.0,2.1053,1.99,2026-11-15T18:00:00Z,open,47.5%; Pinnacle Over 13.5,,
-83,2026-11-15,americanfootball_nfl,Jacksonville Jaguars @ Tennessee Titans,Parker Washington anytime TD,novig,5.0,2.5316,2.39,2026-11-15T18:00:00Z,open,39.5%; Pinnacle,,
-84,2026-11-15,americanfootball_nfl,Buffalo Bills @ New York Jets,Khalil Shakir 4+ receptions,novig,10.0,1.9231,1.81,2026-11-15T18:00:00Z,open,52.0%; Pinnacle Over 3.5,,
-85,2026-11-15,americanfootball_nfl,Buffalo Bills @ New York Jets,Braelon Allen 32+ rushing yards,novig,10.0,2.0408,1.93,2026-11-15T18:00:00Z,open,49.0%; Pinnacle Over 31.5,,
-86,2026-11-15,americanfootball_nfl,Kansas City Chiefs @ Atlanta Falcons,Drake London anytime TD,novig,5.0,2.8169,2.67,2026-11-15T18:00:00Z,open,35.5%; Pinnacle,,
-87,2026-11-15,americanfootball_nfl,Kansas City Chiefs @ Atlanta Falcons,Bijan Robinson anytime TD,novig,10.0,1.6393,1.57,2026-11-15T18:00:00Z,open,61.0%; Pinnacle,,
-88,2026-11-15,americanfootball_nfl,Miami Dolphins @ Indianapolis Colts,Jonathan Taylor 4+ receptions,novig,10.0,2.2989,2.17,2026-11-15T18:00:00Z,open,43.5%; Pinnacle Over 3.5,,
-89,2026-11-15,americanfootball_nfl,Jacksonville Jaguars @ Tennessee Titans,Tony Pollard 2+ receptions,novig,10.0,1.8349,1.68,2026-11-15T18:00:00Z,open,54.5%; Pinnacle Over 1.5,,
-90,2026-11-15,americanfootball_nfl,Minnesota Vikings @ Green Bay Packers,Kaleb Johnson Under 28.5 rushing yards,bovada,10.0,2.3,1.95,2026-11-15T18:00:00Z,open,+130; fair estimated from Pinnacle 29.5 + ladder (scan had Under 27.5 at fair 2.00),,
-91,2026-11-15,americanfootball_nfl,Kansas City Chiefs @ Atlanta Falcons,Over 47.5,novig,10.0,1.9802,1.91,2026-11-15T18:00:00Z,open,50.5%; Pinnacle same line,,
-92,2026-11-15,basketball_ncaab,Colgate Raiders @ Delaware Blue Hens,Delaware Blue Hens +1,bovada,10.0,1.87,1.8,2026-11-15T18:00:00Z,open,-115; fair converted from Pinnacle -1,,
-93,2026-11-15,basketball_ncaab,CSU Bakersfield Roadrunners @ North Dakota St Bison,Under 151.5,novig,10.0,2.0202,1.93,2026-11-15T19:00:00Z,open,49.5%; fair converted from Pinnacle 151,,
-94,2026-11-15,basketball_ncaab,William & Mary Tribe @ Michigan Wolverines,Under 167.5,novig,10.0,2.0202,1.88,2026-11-15T19:00:00Z,open,49.5%; fair converted from Pinnacle 166.5,,
-95,2026-11-15,basketball_ncaab,South Carolina St Bulldogs @ Charleston Cougars,Under 161.5,novig,10.0,1.9608,1.89,2026-11-15T19:00:00Z,open,51.0%; fair converted from Pinnacle 160,,
+81,2026-11-15,americanfootball_nfl,Carolina Panthers @ New Orleans Saints,Alvin Kamara 3+ receptions,novig,10.0,1.9048,1.75,2026-11-15T18:00:00Z,won,52.5%; Pinnacle Over 2.5,1.8233,0.0447
+82,2026-11-15,americanfootball_nfl,Jacksonville Jaguars @ Tennessee Titans,Bhayshul Tuten 14+ receiving yards,novig,5.0,2.1053,1.99,2026-11-15T18:00:00Z,won,47.5%; Pinnacle Over 13.5,1.9885,0.0587
+83,2026-11-15,americanfootball_nfl,Jacksonville Jaguars @ Tennessee Titans,Parker Washington anytime TD,novig,5.0,2.5316,2.39,2026-11-15T18:00:00Z,won,39.5%; Pinnacle,2.3864,0.0609
+84,2026-11-15,americanfootball_nfl,Buffalo Bills @ New York Jets,Khalil Shakir 4+ receptions,novig,10.0,1.9231,1.81,2026-11-15T18:00:00Z,lost,52.0%; Pinnacle Over 3.5,1.8715,0.0275
+85,2026-11-15,americanfootball_nfl,Buffalo Bills @ New York Jets,Braelon Allen 32+ rushing yards,novig,10.0,2.0408,1.93,2026-11-15T18:00:00Z,won,49.0%; Pinnacle Over 31.5,1.9331,0.0557
+86,2026-11-15,americanfootball_nfl,Kansas City Chiefs @ Atlanta Falcons,Drake London anytime TD,novig,5.0,2.8169,2.67,2026-11-15T18:00:00Z,lost,35.5%; Pinnacle,2.6655,0.0568
+87,2026-11-15,americanfootball_nfl,Kansas City Chiefs @ Atlanta Falcons,Bijan Robinson anytime TD,novig,10.0,1.6393,1.57,2026-11-15T18:00:00Z,won,61.0%; Pinnacle,1.5656,0.0471
+88,2026-11-15,americanfootball_nfl,Miami Dolphins @ Indianapolis Colts,Jonathan Taylor 4+ receptions,novig,10.0,2.2989,2.17,2026-11-15T18:00:00Z,lost,43.5%; Pinnacle Over 3.5,2.194,0.0478
+89,2026-11-15,americanfootball_nfl,Jacksonville Jaguars @ Tennessee Titans,Tony Pollard 2+ receptions,novig,10.0,1.8349,1.68,2026-11-15T18:00:00Z,won,54.5%; Pinnacle Over 1.5,1.8134,0.0119
+90,2026-11-15,americanfootball_nfl,Minnesota Vikings @ Green Bay Packers,Kaleb Johnson Under 28.5 rushing yards,bovada,10.0,2.3,1.95,2026-11-15T18:00:00Z,lost,+130; fair estimated from Pinnacle 29.5 + ladder (scan had Under 27.5 at fair 2.00) [no close],,
+91,2026-11-15,americanfootball_nfl,Kansas City Chiefs @ Atlanta Falcons,Over 47.5,novig,10.0,1.9802,1.91,2026-11-15T18:00:00Z,won,50.5%; Pinnacle same line,1.9632,0.0087
+92,2026-11-15,basketball_ncaab,Colgate Raiders @ Delaware Blue Hens,Delaware Blue Hens +1,bovada,10.0,1.87,1.8,2026-11-15T18:00:00Z,won,-115; fair converted from Pinnacle -1,1.9206,-0.0264
+93,2026-11-15,basketball_ncaab,CSU Bakersfield Roadrunners @ North Dakota St Bison,Under 151.5,novig,10.0,2.0202,1.93,2026-11-15T19:00:00Z,won,49.5%; fair converted from Pinnacle 151,1.9447,0.0388
+94,2026-11-15,basketball_ncaab,William & Mary Tribe @ Michigan Wolverines,Under 167.5,novig,10.0,2.0202,1.88,2026-11-15T19:00:00Z,lost,49.5%; fair converted from Pinnacle 166.5,2.2537,-0.1036
+95,2026-11-15,basketball_ncaab,South Carolina St Bulldogs @ Charleston Cougars,Under 161.5,novig,10.0,1.9608,1.89,2026-11-15T19:00:00Z,won,51.0%; fair converted from Pinnacle 160,1.863,0.0525
 96,2026-11-15,basketball_nba,New York Knicks @ Toronto Raptors,Toronto Raptors +4.5,novig,10.0,2.1053,1.99,2026-11-15T23:10:00Z,open,47.5%; Pinnacle same line,,
