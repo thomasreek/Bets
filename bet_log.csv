@@ -98,7 +98,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 97,2026-11-19,basketball_nba,Golden State Warriors @ Memphis Grizzlies,Jaylen Wells 3+ rebounds,novig,9.96,1.8584,1.77,2026-11-20T01:10:00Z,won,53.8%; Pinnacle Over 2.5,,
 98,2026-11-19,basketball_nba,Golden State Warriors @ Memphis Grizzlies,De'Anthony Melton 3+ assists,novig,9.97,1.9288,1.85,2026-11-20T01:10:00Z,open,51.8%; Pinnacle Over 2.5,,
 99,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Victor Wembanyama 45+ PRA,novig,10.0,2.469,2.26,2026-11-20T01:10:00Z,open,40.5%; Pinnacle 43.5 + ladder,,
-100,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Rui Hachimura 2+ threes,novig,10.0,1.904,1.74,2026-11-20T01:10:00Z,open,52.5%; Pinnacle Over 1.5,,
+100,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Rui Hachimura 2+ threes,novig,10.0,1.904,1.74,2026-11-20T01:10:00Z,won,52.5%; Pinnacle Over 1.5,,
 101,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Quinn Hughes 3+ shots,novig,10.0,2.298,2.15,2026-11-20T01:10:00Z,open,43.5%; Pinnacle Over 2.5,,
 102,2026-11-19,icehockey_nhl,St Louis Blues @ Pittsburgh Penguins,Under 6.5,novig,10.0,1.77,,2026-11-20T00:10:00Z,lost,54.0% placed live at puck drop; not a scan pick (Wild @ Flames Under 6.5 was),,
 103,2026-11-19,icehockey_nhl,Anaheim Ducks @ Colorado Avalanche,T.J. Hughes 2+ shots,novig,10.0,1.739,1.65,2026-11-20T02:10:00Z,open,57.5%; Pinnacle Over 1.5,,
