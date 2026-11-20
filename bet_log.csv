@@ -106,3 +106,5 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 105,2026-11-19,americanfootball_nfl,Indianapolis Colts @ Houston Texans,Dalton Schultz anytime TD,novig,5.0,3.332,3.17,2026-11-20T01:15:00Z,lost,30.0%; Pinnacle,3.2697,0.0191
 106,2026-11-19,basketball_ncaab,Texas A&M Aggies @ TCU Horned Frogs,TCU Horned Frogs +1.5,novig,10.0,1.886,1.73,2026-11-20T01:00:00Z,lost,53.0%; fair estimated from Pinnacle TCU -1,1.9004,-0.0076
 107,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Under 6.5,novig,10.0,1.818,1.74,2026-11-20T01:10:00Z,won,55.0%; fair converted from Pinnacle 6,1.8303,-0.0067
+108,2026-11-19,soccer_france_ligue_two,Rodez AF @ Guingamp,Under 3,bovada,10.0,1.909,1.82,2026-11-20T19:00:00Z,open,Bet night before; fair converted from Pinnacle 2.75; push if exactly 3 goals,,
+109,2026-11-19,soccer_france_ligue_two,Dijon @ Nancy,Under 3,bovada,10.0,1.781,1.72,2026-11-20T19:00:00Z,open,Bet night before; fair converted from Pinnacle 2.75; push if exactly 3 goals,,
