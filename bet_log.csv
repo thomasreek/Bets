@@ -103,6 +103,6 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 102,2026-11-19,icehockey_nhl,St Louis Blues @ Pittsburgh Penguins,Under 6.5,novig,10.0,1.77,,2026-11-20T00:10:00Z,lost,54.0% placed live at puck drop; not a scan pick (Wild @ Flames Under 6.5 was),,
 103,2026-11-19,icehockey_nhl,Anaheim Ducks @ Colorado Avalanche,T.J. Hughes 2+ shots,novig,10.0,1.739,1.65,2026-11-20T02:10:00Z,open,57.5%; Pinnacle Over 1.5,,
 104,2026-11-19,icehockey_nhl,Vancouver Canucks @ Seattle Kraken,Elias Pettersson under 2 shots,novig,10.0,1.941,1.78,2026-11-20T02:50:00Z,open,2+ No at 51.5%; Pinnacle Under 1.5,,
-105,2026-11-19,americanfootball_nfl,Indianapolis Colts @ Houston Texans,Dalton Schultz anytime TD,novig,5.0,3.332,3.17,2026-11-20T01:15:00Z,open,30.0%; Pinnacle,,
+105,2026-11-19,americanfootball_nfl,Indianapolis Colts @ Houston Texans,Dalton Schultz anytime TD,novig,5.0,3.332,3.17,2026-11-20T01:15:00Z,lost,30.0%; Pinnacle,,
 106,2026-11-19,basketball_ncaab,Texas A&M Aggies @ TCU Horned Frogs,TCU Horned Frogs +1.5,novig,10.0,1.886,1.73,2026-11-20T01:00:00Z,open,53.0%; fair estimated from Pinnacle TCU -1,,
-107,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Under 6.5,novig,10.0,1.818,1.74,2026-11-20T01:10:00Z,open,55.0%; fair converted from Pinnacle 6,,
+107,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Under 6.5,novig,10.0,1.818,1.74,2026-11-20T01:10:00Z,won,55.0%; fair converted from Pinnacle 6,,
