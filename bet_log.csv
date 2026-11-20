@@ -95,14 +95,14 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 94,2026-11-15,basketball_ncaab,William & Mary Tribe @ Michigan Wolverines,Under 167.5,novig,10.0,2.0202,1.88,2026-11-15T19:00:00Z,lost,49.5%; fair converted from Pinnacle 166.5,2.2537,-0.1036
 95,2026-11-15,basketball_ncaab,South Carolina St Bulldogs @ Charleston Cougars,Under 161.5,novig,10.0,1.9608,1.89,2026-11-15T19:00:00Z,won,51.0%; fair converted from Pinnacle 160,1.863,0.0525
 96,2026-11-15,basketball_nba,New York Knicks @ Toronto Raptors,Toronto Raptors +4.5,novig,10.0,2.1053,1.99,2026-11-15T23:10:00Z,won,47.5%; Pinnacle same line,1.9181,0.0976
-97,2026-11-19,basketball_nba,Golden State Warriors @ Memphis Grizzlies,Jaylen Wells 3+ rebounds,novig,9.96,1.8584,1.77,2026-11-20T01:10:00Z,won,53.8%; Pinnacle Over 2.5,,
-98,2026-11-19,basketball_nba,Golden State Warriors @ Memphis Grizzlies,De'Anthony Melton 3+ assists,novig,9.97,1.9288,1.85,2026-11-20T01:10:00Z,won,51.8%; Pinnacle Over 2.5,,
-99,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Victor Wembanyama 45+ PRA,novig,10.0,2.469,2.26,2026-11-20T01:10:00Z,won,40.5%; Pinnacle 43.5 + ladder,,
-100,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Rui Hachimura 2+ threes,novig,10.0,1.904,1.74,2026-11-20T01:10:00Z,won,52.5%; Pinnacle Over 1.5,,
-101,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Quinn Hughes 3+ shots,novig,10.0,2.298,2.15,2026-11-20T01:10:00Z,lost,43.5%; Pinnacle Over 2.5,,
-102,2026-11-19,icehockey_nhl,St Louis Blues @ Pittsburgh Penguins,Under 6.5,novig,10.0,1.77,,2026-11-20T00:10:00Z,lost,54.0% placed live at puck drop; not a scan pick (Wild @ Flames Under 6.5 was),,
-103,2026-11-19,icehockey_nhl,Anaheim Ducks @ Colorado Avalanche,T.J. Hughes 2+ shots,novig,10.0,1.739,1.65,2026-11-20T02:10:00Z,open,57.5%; Pinnacle Over 1.5,,
-104,2026-11-19,icehockey_nhl,Vancouver Canucks @ Seattle Kraken,Elias Pettersson under 2 shots,novig,10.0,1.941,1.78,2026-11-20T02:50:00Z,open,2+ No at 51.5%; Pinnacle Under 1.5,,
-105,2026-11-19,americanfootball_nfl,Indianapolis Colts @ Houston Texans,Dalton Schultz anytime TD,novig,5.0,3.332,3.17,2026-11-20T01:15:00Z,lost,30.0%; Pinnacle,,
-106,2026-11-19,basketball_ncaab,Texas A&M Aggies @ TCU Horned Frogs,TCU Horned Frogs +1.5,novig,10.0,1.886,1.73,2026-11-20T01:00:00Z,lost,53.0%; fair estimated from Pinnacle TCU -1,,
-107,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Under 6.5,novig,10.0,1.818,1.74,2026-11-20T01:10:00Z,won,55.0%; fair converted from Pinnacle 6,,
+97,2026-11-19,basketball_nba,Golden State Warriors @ Memphis Grizzlies,Jaylen Wells 3+ rebounds,novig,9.96,1.8584,1.77,2026-11-20T01:10:00Z,won,53.8%; Pinnacle Over 2.5,1.8614,-0.0016
+98,2026-11-19,basketball_nba,Golden State Warriors @ Memphis Grizzlies,De'Anthony Melton 3+ assists,novig,9.97,1.9288,1.85,2026-11-20T01:10:00Z,won,51.8%; Pinnacle Over 2.5,1.8474,0.0441
+99,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Victor Wembanyama 45+ PRA,novig,10.0,2.469,2.26,2026-11-20T01:10:00Z,won,40.5%; Pinnacle 43.5 + ladder [no close],,
+100,2026-11-19,basketball_nba,Los Angeles Clippers @ San Antonio Spurs,Rui Hachimura 2+ threes,novig,10.0,1.904,1.74,2026-11-20T01:10:00Z,won,52.5%; Pinnacle Over 1.5,1.8817,0.0118
+101,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Quinn Hughes 3+ shots,novig,10.0,2.298,2.15,2026-11-20T01:10:00Z,lost,43.5%; Pinnacle Over 2.5,2.146,0.0708
+102,2026-11-19,icehockey_nhl,St Louis Blues @ Pittsburgh Penguins,Under 6.5,novig,10.0,1.77,,2026-11-20T00:10:00Z,lost,54.0% placed live at puck drop; not a scan pick (Wild @ Flames Under 6.5 was),1.8889,-0.0629
+103,2026-11-19,icehockey_nhl,Anaheim Ducks @ Colorado Avalanche,T.J. Hughes 2+ shots,novig,10.0,1.739,1.65,2026-11-20T02:10:00Z,lost,57.5%; Pinnacle Over 1.5,1.6849,0.0321
+104,2026-11-19,icehockey_nhl,Vancouver Canucks @ Seattle Kraken,Elias Pettersson under 2 shots,novig,10.0,1.941,1.78,2026-11-20T02:50:00Z,lost,2+ No at 51.5%; Pinnacle Under 1.5,1.8374,0.0564
+105,2026-11-19,americanfootball_nfl,Indianapolis Colts @ Houston Texans,Dalton Schultz anytime TD,novig,5.0,3.332,3.17,2026-11-20T01:15:00Z,lost,30.0%; Pinnacle,3.2697,0.0191
+106,2026-11-19,basketball_ncaab,Texas A&M Aggies @ TCU Horned Frogs,TCU Horned Frogs +1.5,novig,10.0,1.886,1.73,2026-11-20T01:00:00Z,lost,53.0%; fair estimated from Pinnacle TCU -1,1.9004,-0.0076
+107,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Under 6.5,novig,10.0,1.818,1.74,2026-11-20T01:10:00Z,won,55.0%; fair converted from Pinnacle 6,1.8303,-0.0067
