@@ -115,3 +115,8 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 114,2026-11-21,americanfootball_ncaaf,Wake Forest Demon Deacons @ Georgia Tech Yellow Jackets,Wake Forest Demon Deacons -18.5,novig,9.99,1.6957,1.63,2026-11-21T17:00:00Z,open,59.0%; fair converted from Pinnacle -19.5,,
 115,2026-11-21,basketball_ncaab,Detroit Mercy Titans @ Michigan St Spartans,Under 149.5,novig,10.0,2.105,2.03,2026-11-21T17:00:00Z,open,47.5%; Pinnacle same line,,
 116,2026-11-21,basketball_ncaab,Columbia Lions @ Boston Univ. Terriers,Under 144.5,novig,10.0,1.818,1.78,2026-11-21T17:00:00Z,open,55.0%; fair converted from Pinnacle 143,,
+117,2026-11-21,icehockey_nhl,Edmonton Oilers @ Carolina Hurricanes,Connor McDavid 3+ shots,novig,10.0,1.923,1.82,2026-11-21T18:00:00Z,open,52.0%; Pinnacle Over 2.5,,
+118,2026-11-21,americanfootball_ncaaf,Western Kentucky Hilltoppers @ Liberty Flames,Liberty Flames -14.5,novig,10.0,1.739,1.66,2026-11-21T18:00:00Z,open,57.5%; fair converted from Pinnacle -15.5,,
+119,2026-11-21,basketball_ncaab,Denver Pioneers @ Eastern Michigan Eagles,Over 143.5,novig,7.0,2.6314,2.39,2026-11-21T18:00:00Z,open,38.0%; fair converted from Pinnacle 142,,
+120,2026-11-21,basketball_ncaab,New Hampshire Wildcats @ New Haven Chargers,New Hampshire Wildcats -2.5,novig,10.0,2.15,2.08,2026-11-21T18:00:00Z,open,46.5%; Pinnacle same line,,
+121,2026-11-21,basketball_ncaab,Queens University Royals @ LSU Tigers,LSU Tigers -26.5,novig,10.0,2.197,2.1,2026-11-21T18:00:00Z,open,"45.5%; fair from consensus(6), no Pinnacle",,
