@@ -108,3 +108,10 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 107,2026-11-19,icehockey_nhl,Minnesota Wild @ Calgary Flames,Under 6.5,novig,10.0,1.818,1.74,2026-11-20T01:10:00Z,won,55.0%; fair converted from Pinnacle 6,1.8303,-0.0067
 108,2026-11-19,soccer_france_ligue_two,Rodez AF @ Guingamp,Under 3,bovada,10.0,1.909,1.82,2026-11-20T19:00:00Z,open,Bet night before; fair converted from Pinnacle 2.75; push if exactly 3 goals,,
 109,2026-11-19,soccer_france_ligue_two,Dijon @ Nancy,Under 3,bovada,10.0,1.781,1.72,2026-11-20T19:00:00Z,open,Bet night before; fair converted from Pinnacle 2.75; push if exactly 3 goals,,
+110,2026-11-21,americanfootball_ncaaf,North Texas Mean Green @ Tulane Green Wave,North Texas Mean Green -4.5,novig,9.99,1.6957,1.61,2026-11-21T17:00:00Z,open,59.0%; fair converted from Pinnacle -5.5,,
+111,2026-11-21,americanfootball_ncaaf,East Carolina Pirates @ Army Black Knights,Under 43.5,novig,10.0,2.352,2.26,2026-11-21T17:00:00Z,open,42.5%; fair converted from Pinnacle 44,,
+112,2026-11-21,americanfootball_ncaaf,Wofford Terriers @ Ole Miss Rebels,Ole Miss Rebels -49.5,novig,10.0,2.04,1.97,2026-11-21T17:00:00Z,open,49.0%; fair converted from Pinnacle -50,,
+113,2026-11-21,americanfootball_ncaaf,Vanderbilt Commodores @ Florida Gators,Florida Gators -10.5,novig,9.99,1.7708,1.71,2026-11-21T17:00:00Z,open,56.5%; fair converted from Pinnacle -11.5,,
+114,2026-11-21,americanfootball_ncaaf,Wake Forest Demon Deacons @ Georgia Tech Yellow Jackets,Wake Forest Demon Deacons -18.5,novig,9.99,1.6957,1.63,2026-11-21T17:00:00Z,open,59.0%; fair converted from Pinnacle -19.5,,
+115,2026-11-21,basketball_ncaab,Detroit Mercy Titans @ Michigan St Spartans,Under 149.5,novig,10.0,2.105,2.03,2026-11-21T17:00:00Z,open,47.5%; Pinnacle same line,,
+116,2026-11-21,basketball_ncaab,Columbia Lions @ Boston Univ. Terriers,Under 144.5,novig,10.0,1.818,1.78,2026-11-21T17:00:00Z,open,55.0%; fair converted from Pinnacle 143,,
