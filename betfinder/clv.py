@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 from .odds_math import devig_power
-from .scanner import ScanConfig, _collect_lines, _nearest_model, _sharp_lines
+from .scanner import ScanConfig, _collect_lines, _fair_probs, _nearest_model, _sharp_lines
 from .lines import parse_bet
 
 CLOSE_BEFORE_START = timedelta(minutes=5)
@@ -119,3 +119,67 @@ def closing_odds(client, bet) -> tuple[float | None, str]:
     if fair is None:
         return None, "Pinnacle had no closing price for this line"
     return fair, "ok"
+
+
+CONSENSUS_REGIONS = "us,us_ex,eu"
+
+
+def _consensus_fair(event: dict, target: Target, sport: str) -> tuple[float, str] | None:
+    """Fair closing odds from the average of every book except Pinnacle (and Pinnacle-clones).
+
+    An independent check on Pinnacle-based CLV: if bets also beat this close, the edge is
+    not a quirk of the reference book.
+    """
+    lines = _collect_lines(event)
+    cfg = ScanConfig(sharp_books=(), consensus_min_books=3, max_consensus_margin=0.10)
+    for books in (lines.get((target.market, target.line), {}),):
+        books = {k: v for k, v in books.items() if k != "pinnacle"}
+        fair = _fair_probs(books, cfg) if books else None
+        if fair and target.selection in fair[0]:
+            return 1.0 / fair[0][target.selection], f"{fair[1]} same line"
+    if target.market not in ("spreads", "totals") or target.line is None:
+        return None
+    # Convert from the consensus on the nearest line, as the scanner converts from Pinnacle.
+    pseudo = {}
+    for (m, ln), books in lines.items():
+        if m != target.market or ln is None:
+            continue
+        books = {k: v for k, v in books.items() if k != "pinnacle"}
+        fair = _fair_probs(books, cfg) if books else None
+        if fair and len(fair[0]) == 2:
+            pseudo[(m, ln)] = ("consensus", {n: 1.0 / p for n, p in fair[0].items()})
+    event = dict(event, sport_key=sport)
+    model = _nearest_model(event, target.market, target.line, pseudo)
+    bet = parse_bet(target.market, target.selection, event.get("home_team", ""))
+    if model and bet:
+        return model.fair_odds(bet), model.source
+    return None
+
+
+def consensus_closing_odds(client, bet, cache: dict | None = None) -> tuple[float | None, str]:
+    """(fair closing odds from all non-Pinnacle books, note) for one logged bet."""
+    cache = {} if cache is None else cache
+    try:
+        away, home = bet.event.split(" @ ", 1)
+    except ValueError:
+        return None, "event name not in 'Away @ Home' form"
+    target = parse(bet.selection, home)
+    if target is None or target.market not in ("h2h", "spreads", "totals"):
+        return None, "not a main-line bet"
+    start = datetime.fromisoformat(bet.start.replace("Z", "+00:00"))
+    when = (start - CLOSE_BEFORE_START).strftime("%Y-%m-%dT%H:%M:%SZ")
+    ek = (bet.sport, when)
+    if ek not in cache:
+        cache[ek] = client.historical_events(bet.sport, when)
+    match = next((e for e in cache[ek] if e.get("home_team") == home and e.get("away_team") == away), None)
+    if match is None:
+        return None, "game not found in the historical feed"
+    sk = (match["id"], target.market, when)
+    if sk not in cache:
+        cache[sk] = client.historical_event_odds(bet.sport, match["id"], target.market, when,
+                                                 regions=CONSENSUS_REGIONS)
+    snap = cache[sk]
+    res = _consensus_fair(snap, target, bet.sport) if snap else None
+    if res is None:
+        return None, "too few books at the close"
+    return res
