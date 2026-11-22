@@ -144,10 +144,10 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 143,2026-11-22,basketball_ncaab,West Florida Argonauts @ South Alabama Jaguars,Under 139.5,novig,14.7,2.0197,1.89,2026-11-22T20:00:00Z,lost,49.5%; Pinnacle same line,1.9722,0.0241
 144,2026-11-22,basketball_ncaab,Southern Indiana Screaming Eagles @ Texas Longhorns,Under 153.5,novig,11.69,1.8512,1.77,2026-11-22T20:00:00Z,lost,54.0%; fair converted from Pinnacle 152.5,1.7731,0.0441
 145,2026-11-22,basketball_ncaab,Nicholls St Colonels @ Troy Trojans,Under 137.5,novig,10.0,2.0,1.83,2026-11-22T20:00:00Z,lost,50.0%; fair converted from Pinnacle 137,1.9447,0.0284
-146,2026-11-22,basketball_ncaab,McNeese Cowboys @ Texas State Bobcats,Over 140.5,novig,10.8,1.9222,1.86,2026-11-22T20:30:00Z,won,52.0%; Pinnacle same line,,
-147,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Nickeil Alexander-Walker 4+ rebounds,novig,11.5,2.3252,2.02,2026-11-22T20:40:00Z,lost,43.0%; Pinnacle Over 3.5,,
-148,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Kingston Flemings 1+ threes,novig,14.35,2.0404,1.87,2026-11-22T20:40:00Z,won,49.0%; Pinnacle Over 0.5,,
-149,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Kevin Huerter 2+ threes,novig,15.0,1.6667,1.6,2026-11-22T20:40:00Z,lost,60.0%; Pinnacle Over 1.5,,
-150,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Dyson Daniels 11+ points,novig,10.2,1.9794,1.89,2026-11-22T20:40:00Z,lost,50.5%; Pinnacle Over 10.5,,
-151,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Jalen Johnson 7+ assists,novig,10.9,1.9229,1.84,2026-11-22T20:40:00Z,lost,52.0%; Pinnacle Over 6.5,,
+146,2026-11-22,basketball_ncaab,McNeese Cowboys @ Texas State Bobcats,Over 140.5,novig,10.8,1.9222,1.86,2026-11-22T20:30:00Z,won,52.0%; Pinnacle same line,1.9233,-0.0006
+147,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Nickeil Alexander-Walker 4+ rebounds,novig,11.5,2.3252,2.02,2026-11-22T20:40:00Z,lost,43.0%; Pinnacle Over 3.5,2.309,0.007
+148,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Kingston Flemings 1+ threes,novig,14.35,2.0404,1.87,2026-11-22T20:40:00Z,won,49.0%; Pinnacle Over 0.5,1.9537,0.0444
+149,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Kevin Huerter 2+ threes,novig,15.0,1.6667,1.6,2026-11-22T20:40:00Z,lost,60.0%; Pinnacle Over 1.5,1.6037,0.0393
+150,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Dyson Daniels 11+ points,novig,10.2,1.9794,1.89,2026-11-22T20:40:00Z,lost,50.5%; Pinnacle Over 10.5,1.9202,0.0308
+151,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Jalen Johnson 7+ assists,novig,10.9,1.9229,1.84,2026-11-22T20:40:00Z,lost,52.0%; Pinnacle Over 6.5,1.9484,-0.0131
 152,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Paul Reed Jr Over 7.5 rebounds,bovada,11.55,2.2996,2.16,2026-11-22T20:40:00Z,open,+130; Pinnacle same line,,
