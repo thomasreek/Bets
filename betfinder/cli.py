@@ -15,7 +15,7 @@ import os
 from .bettingdata_api import BettingDataClient
 from .odds_api import OddsApiClient, OddsApiError
 from .odds_math import decimal_to_american
-from .scanner import BOOK_PRESETS, DEFAULT_US_BOOKS, ScanConfig, scan_events
+from .scanner import BOOK_PRESETS, DEFAULT_US_BOOKS, MAX_RISK_UNITS, ScanConfig, scan_events
 
 DEFAULT_SPORTS = "americanfootball_nfl,basketball_nba,icehockey_nhl,soccer_epl,tennis"
 
@@ -113,22 +113,25 @@ def _fmt_time(iso: str) -> str:
         return iso
 
 
-def _print_value_bets(bets, limit: int) -> None:
+def _print_value_bets(bets, limit: int, unit: float = 10.0) -> None:
     if not bets:
         print("\nNo +EV bets found at the current thresholds.")
         return
     print(f"\n=== +EV BETS ({len(bets)} found, showing top {min(limit, len(bets))}) ===")
-    header = f"{'EV':>6}  {'Odds':>11}  {'Fair':>6}  {'Stake':>8}  {'Book':<14} {'Market':<8} Selection / Event"
+    win = f"Win${unit:g}"
+    header = (f"{'EV':>6}  {'Odds':>11}  {'Fair':>6}  {'Stake':>8}  {win:>8}  {'Book':<14} {'Market':<8} "
+              "Selection / Event")
     print(header)
     print("-" * len(header))
     for b in bets[:limit]:
         flag = "  ⚠ CHECK: EV too high, likely stale or mismatched" if b.suspicious else ""
         odds = f"{b.odds:.2f} ({decimal_to_american(b.odds):+d})"
         print(
-            f"{b.ev:>6.1%}  {odds:>11}  {b.fair_odds:>6.2f}  ${b.stake:>7.2f}  {b.book:<14} {b.market:<8} "
+            f"{b.ev:>6.1%}  {odds:>11}  {b.fair_odds:>6.2f}  ${b.stake:>7.2f}  ${b.risk_to_win(unit):>7.2f}  "
+            f"{b.book:<14} {b.market:<8} "
             f"{b.selection}{flag}"
         )
-        print(f"{'':>46}{b.event} | {b.sport} | {_fmt_time(b.commence_time)} | fair from {b.fair_source}")
+        print(f"{'':>56}{b.event} | {b.sport} | {_fmt_time(b.commence_time)} | fair from {b.fair_source}")
 
 
 def _print_arbs(arbs) -> None:
@@ -216,13 +219,15 @@ def cmd_scan(args: argparse.Namespace) -> int:
             return 1
 
     bets, arbs = scan_events(events, cfg)
-    _print_value_bets(bets, args.limit)
+    _print_value_bets(bets, args.limit, args.unit)
     _print_arbs(arbs)
     if args.csv:
         _write_csv(args.csv, bets)
     print(
         "\nStakes are fractional Kelly on a ${:,.0f} bankroll, capped at {:.0%} per bet. Re-check each price "
         "at the book before betting: lines move fast.".format(cfg.bankroll, cfg.max_stake_pct)
+        + "\n{} = stake that wins ${:g} at the book's price after fees (capped at ${:g} on heavy favorites)."
+        .format(f"Win${args.unit:g}", args.unit, args.unit * MAX_RISK_UNITS)
     )
     return 0
 
@@ -354,6 +359,8 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--min-ev", type=float, default=0.02, help="minimum expected value (0.02 = 2%%)")
     scan.add_argument("--max-odds", type=float, default=10.0, help="ignore longer odds than this (decimal)")
     scan.add_argument("--bankroll", type=float, default=1000.0)
+    scan.add_argument("--unit", type=float, default=float(os.environ.get("BETFINDER_UNIT", 10)),
+                      help="to-win unit for the Win$ column (default $10, or BETFINDER_UNIT)")
     scan.add_argument("--kelly", type=float, default=0.25, help="Kelly multiplier (0.25 = quarter Kelly)")
     scan.add_argument("--devig", choices=["power", "multiplicative"], default="power")
     scan.add_argument("--max-cost", type=int, default=60, help="refuse scans that cost more API credits")

@@ -92,6 +92,7 @@ Copy `--event`, `--sport` and `--fair` from the scan output. `--fair` lets the l
 | Odds | The book's price, decimal (American) |
 | Fair | Fair decimal odds after removing the margin. You want Odds > Fair |
 | Stake | Suggested bet on your bankroll |
+| Win$10 | Stake that wins $10 at the book's price after fees ("bet to win a unit"), capped at $25 on heavy favorites. Change the unit with `--unit 15` or `export BETFINDER_UNIT=15` |
 
 Rows marked ⚠ CHECK have suspiciously high EV, which almost always means stale or mismatched data. Verify these by hand.
 

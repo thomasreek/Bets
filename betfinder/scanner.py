@@ -123,6 +123,11 @@ class ValueBet:
     stake: float
     fair_source: str
     suspicious: bool = False
+    net_odds: float = 0.0  # odds after the book's fee, what a stake actually pays
+
+    def risk_to_win(self, unit: float = 10.0) -> float:
+        """Stake that wins `unit` at this price (after fees)."""
+        return risk_to_win(self.net_odds or self.odds, unit)
 
 
 @dataclass
@@ -137,6 +142,16 @@ class Arbitrage:
 
 # Alternate lines are compared with the main lines (and each other) as one market.
 _MARKET_ALIASES = {"alternate_spreads": "spreads", "alternate_totals": "totals"}
+
+
+MAX_RISK_UNITS = 2.5  # never risk more than 2.5x the to-win unit (e.g. $25 to win $10)
+
+
+def risk_to_win(odds: float, unit: float = 10.0) -> float:
+    """Stake needed to win `unit` at decimal `odds`, capped for heavy favorites."""
+    if odds <= 1:
+        return 0.0
+    return round(min(unit / (odds - 1), unit * MAX_RISK_UNITS), 2)
 
 
 def base_market(market_key: str) -> str:
@@ -348,6 +363,7 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                                 stake=round(stake_frac * cfg.bankroll, 2),
                                 fair_source=source,
                                 suspicious=ev > cfg.max_ev,
+                                net_odds=net,
                             )
                         )
 

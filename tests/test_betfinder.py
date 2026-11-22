@@ -382,3 +382,13 @@ class ClvParseTest(unittest.TestCase):
             b.close_odds, b.clv = 2.0, 0.1
             tracker.save(bets, path, table=None)
             self.assertAlmostEqual(tracker.load(path)[0].clv, 0.1)
+
+
+class RiskToWinTest(unittest.TestCase):
+    def test_risk_to_win(self):
+        from betfinder.scanner import risk_to_win
+        self.assertAlmostEqual(risk_to_win(2.0), 10.0)
+        self.assertAlmostEqual(risk_to_win(3.0), 5.0)
+        self.assertAlmostEqual(risk_to_win(1.5), 20.0)
+        self.assertAlmostEqual(risk_to_win(1.25), 25.0)  # capped at 2.5 units
+        self.assertAlmostEqual(risk_to_win(2.5, unit=15), 10.0)
