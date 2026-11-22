@@ -33,7 +33,9 @@ PROP_MARKETS = {
                       "player_points,player_rebounds,player_assists,player_threes,"
                       "player_points_rebounds_assists,h2h_h1",
     "basketball_ncaab": "spreads,totals,alternate_spreads,alternate_totals",
-    "icehockey_nhl": "totals,alternate_totals,player_points,player_shots_on_goal",
+    # Shots on goal paused: 1-13 despite a +6.5% average CLV vs Pinnacle, so the Pinnacle
+    # reference for this market looks unreliable. Re-enable with --prop-markets once checked.
+    "icehockey_nhl": "totals,alternate_totals,player_points",
     "americanfootball_nfl": "spreads,totals,alternate_spreads,alternate_totals,"
                             "player_pass_yds,player_rush_yds,player_reception_yds,player_receptions,"
                             "player_anytime_td",
