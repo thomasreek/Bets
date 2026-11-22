@@ -134,16 +134,16 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 133,2026-11-21,basketball_ncaab,Bradley Braves @ Pacific Tigers,Under 128.5,novig,10.0,2.247,2.17,2026-11-22T03:00:00Z,won,44.5%; Pinnacle same line,2.172,0.0345
 134,2026-11-21,americanfootball_ncaaf,Oklahoma State Cowboys @ Arizona State Sun Devils,Under 60.5,novig,10.0,1.923,1.9,2026-11-22T03:15:00Z,won,52.0% (moved from 51.0% while clicking); Pinnacle same line,2.1122,-0.0896
 135,2026-11-21,americanfootball_ncaaf,Utah Utes @ TCU Horned Frogs,Utah Utes -4.5,novig,10.0,1.587,1.55,2026-11-22T02:00:00Z,won,63.0%; fair converted from Pinnacle -5.5 [no close],,
-136,2026-11-22,basketball_ncaab,Chicago St Cougars @ Marquette Golden Eagles,Chicago St Cougars +34.5,novig,13.1,2.1504,1.88,2026-11-22T18:00:00Z,lost,46.5%; Pinnacle same line,,
-137,2026-11-22,basketball_ncaab,Western Illinois Leathernecks @ Canisius Golden Griffins,Over 139.5,novig,14.7,2.0197,1.93,2026-11-22T18:00:00Z,lost,49.5%; Pinnacle same line,,
-138,2026-11-22,americanfootball_nfl,Miami Dolphins @ Buffalo Bills,Malik Washington Under 28.5 receiving yards,bovada,13.05,2.1502,2.08,2026-11-22T18:00:00Z,open,+115; fair from Pinnacle 29.5 + ladder,,
-139,2026-11-22,americanfootball_nfl,Tampa Bay Buccaneers @ Detroit Lions,Isaac TeSlaa 2+ receptions,novig,9.6,2.5635,2.5,2026-11-22T18:00:00Z,open,39.0%; Pinnacle Over 1.5,,
-140,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,Saquon Barkley Under 60.5 rushing yards,bovada,14.5,1.6897,1.55,2026-11-22T18:00:00Z,open,-145; fair from Pinnacle 55.5 + ladder,,
-141,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,DeVonta Smith under 5 receptions,novig,7.9,2.2722,2.16,2026-11-22T18:00:00Z,lost,5+ No at 44.0%; Pinnacle Under 4.5,,
-142,2026-11-22,americanfootball_nfl,Arizona Cardinals @ Kansas City Chiefs,Xavier Worthy 3+ receptions,novig,8.52,2.1737,2.11,2026-11-22T18:00:00Z,lost,46.0%; Pinnacle Over 2.5,,
-143,2026-11-22,basketball_ncaab,West Florida Argonauts @ South Alabama Jaguars,Under 139.5,novig,14.7,2.0197,1.89,2026-11-22T20:00:00Z,open,49.5%; Pinnacle same line,,
-144,2026-11-22,basketball_ncaab,Southern Indiana Screaming Eagles @ Texas Longhorns,Under 153.5,novig,11.69,1.8512,1.77,2026-11-22T20:00:00Z,open,54.0%; fair converted from Pinnacle 152.5,,
-145,2026-11-22,basketball_ncaab,Nicholls St Colonels @ Troy Trojans,Under 137.5,novig,10.0,2.0,1.83,2026-11-22T20:00:00Z,open,50.0%; fair converted from Pinnacle 137,,
+136,2026-11-22,basketball_ncaab,Chicago St Cougars @ Marquette Golden Eagles,Chicago St Cougars +34.5,novig,13.1,2.1504,1.88,2026-11-22T18:00:00Z,lost,46.5%; Pinnacle same line,2.1052,0.0215
+137,2026-11-22,basketball_ncaab,Western Illinois Leathernecks @ Canisius Golden Griffins,Over 139.5,novig,14.7,2.0197,1.93,2026-11-22T18:00:00Z,lost,49.5%; Pinnacle same line,2.0342,-0.0071
+138,2026-11-22,americanfootball_nfl,Miami Dolphins @ Buffalo Bills,Malik Washington Under 28.5 receiving yards,bovada,13.05,2.1502,2.08,2026-11-22T18:00:00Z,lost,+115; fair from Pinnacle 29.5 + ladder [no close],,
+139,2026-11-22,americanfootball_nfl,Tampa Bay Buccaneers @ Detroit Lions,Isaac TeSlaa 2+ receptions,novig,9.6,2.5635,2.5,2026-11-22T18:00:00Z,lost,39.0%; Pinnacle Over 1.5,2.544,0.0077
+140,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,Saquon Barkley Under 60.5 rushing yards,bovada,14.5,1.6897,1.55,2026-11-22T18:00:00Z,lost,-145; fair from Pinnacle 55.5 + ladder [no close],,
+141,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,DeVonta Smith under 5 receptions,novig,7.9,2.2722,2.16,2026-11-22T18:00:00Z,lost,5+ No at 44.0%; Pinnacle Under 4.5,2.4024,-0.0542
+142,2026-11-22,americanfootball_nfl,Arizona Cardinals @ Kansas City Chiefs,Xavier Worthy 3+ receptions,novig,8.52,2.1737,2.11,2026-11-22T18:00:00Z,lost,46.0%; Pinnacle Over 2.5,2.1122,0.0291
+143,2026-11-22,basketball_ncaab,West Florida Argonauts @ South Alabama Jaguars,Under 139.5,novig,14.7,2.0197,1.89,2026-11-22T20:00:00Z,lost,49.5%; Pinnacle same line,1.9722,0.0241
+144,2026-11-22,basketball_ncaab,Southern Indiana Screaming Eagles @ Texas Longhorns,Under 153.5,novig,11.69,1.8512,1.77,2026-11-22T20:00:00Z,lost,54.0%; fair converted from Pinnacle 152.5,1.7731,0.0441
+145,2026-11-22,basketball_ncaab,Nicholls St Colonels @ Troy Trojans,Under 137.5,novig,10.0,2.0,1.83,2026-11-22T20:00:00Z,lost,50.0%; fair converted from Pinnacle 137,1.9447,0.0284
 146,2026-11-22,basketball_ncaab,McNeese Cowboys @ Texas State Bobcats,Over 140.5,novig,10.8,1.9222,1.86,2026-11-22T20:30:00Z,open,52.0%; Pinnacle same line,,
 147,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Nickeil Alexander-Walker 4+ rebounds,novig,11.5,2.3252,2.02,2026-11-22T20:40:00Z,open,43.0%; Pinnacle Over 3.5,,
 148,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Kingston Flemings 1+ threes,novig,14.35,2.0404,1.87,2026-11-22T20:40:00Z,open,49.0%; Pinnacle Over 0.5,,
