@@ -106,6 +106,10 @@ class ScanConfig:
     # *other* books on the same line, so the bar is higher.
     prop_min_books: int = 3
     prop_min_ev: float = 0.05
+    # Bets priced by converting Pinnacle's nearest line (spreads/totals model, prop ladders)
+    # went 24-34 against 30 expected wins, and their CLV uses the same conversion so it
+    # can't catch a bias. Demand a bigger edge before trusting them.
+    converted_min_ev: float = 0.05
 
 
 @dataclass
@@ -343,7 +347,10 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                             if p is None:
                                 continue
                             ev = expected_value(p, net)
-                        if ev < (cfg.prop_min_ev if prop else cfg.min_ev):
+                        bar = cfg.prop_min_ev if prop else cfg.min_ev
+                        if "converted" in source or "ladder" in source:
+                            bar = max(bar, cfg.converted_min_ev)
+                        if ev < bar:
                             continue
                         stake_frac = min(
                             kelly_fraction(p, net) * cfg.kelly_multiplier, cfg.max_stake_pct
