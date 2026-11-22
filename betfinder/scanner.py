@@ -110,6 +110,12 @@ class ScanConfig:
     # went 24-34 against 30 expected wins, and their CLV uses the same conversion so it
     # can't catch a bias. Demand a bigger edge before trusting them.
     converted_min_ev: float = 0.05
+    # Agreement check: when Pinnacle (or a line converted from it) is far more generous than
+    # the average of the other books on the same line, Pinnacle is usually the stale one.
+    # Skip the bet if Pinnacle's fair chance beats that average by more than this, and for
+    # props also require the average itself to show an edge.
+    max_disagreement: float = 0.04
+    agree_min_books: int = 3
 
 
 @dataclass
@@ -264,6 +270,28 @@ def _fair_probs(
     return {n: s / len(complete) for n, s in sums.items()}, f"consensus({len(complete)})"
 
 
+def _agreement(books, book_key, selection, p, net, market, cfg, cache) -> str | None:
+    """Compare a sharp-based fair chance with the other books on the same line.
+
+    Returns a note for the fair-source label, or None when the bet should be skipped.
+    """
+    key = (id(books), book_key)
+    if key not in cache:
+        others = {k: v for k, v in books.items() if k != book_key and k not in cfg.sharp_books}
+        sub = replace(cfg, sharp_books=(), consensus_min_books=cfg.agree_min_books)
+        cache[key] = _fair_probs(others, sub) if others else None
+    cons = cache[key]
+    if not cons or selection not in cons[0]:
+        return ""  # too few other books to check against
+    pc = cons[0][selection]
+    if p - pc > cfg.max_disagreement:
+        return None  # Pinnacle is the outlier on our side: likely stale
+    if is_prop(market) and expected_value(pc, net) <= 0:
+        return None  # props must show an edge against the other books too
+    n = cons[1][cons[1].find("(") + 1:-1]
+    return f", others {pc:.0%}({n})"
+
+
 def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], list[Arbitrage]]:
     value_bets: list[ValueBet] = []
     arbs: list[Arbitrage] = []
@@ -283,6 +311,7 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
         lines = _collect_lines(event, now, cfg.max_age_hours)
         sharp_lines = _sharp_lines(lines, cfg)
         sharp_props = _sharp_props(lines, cfg)
+        agree_cache: dict = {}
         for (market, line), books in lines.items():
             fair = _fair_probs(books, cfg)
             sharp_fair = bool(fair and fair[1] in cfg.sharp_books)
@@ -347,6 +376,11 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                             if p is None:
                                 continue
                             ev = expected_value(p, net)
+                        if not source.startswith(("consensus", "others")):
+                            check = _agreement(books, book_key, selection, p, net, market, cfg, agree_cache)
+                            if check is None:
+                                continue
+                            source += check
                         bar = cfg.prop_min_ev if prop else cfg.min_ev
                         if "converted" in source or "ladder" in source:
                             bar = max(bar, cfg.converted_min_ev)

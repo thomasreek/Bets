@@ -392,3 +392,39 @@ class RiskToWinTest(unittest.TestCase):
         self.assertAlmostEqual(risk_to_win(1.5), 20.0)
         self.assertAlmostEqual(risk_to_win(1.25), 25.0)  # capped at 2.5 units
         self.assertAlmostEqual(risk_to_win(2.5, unit=15), 10.0)
+
+
+class AgreementTest(unittest.TestCase):
+    def _event(self, books):
+        from datetime import datetime, timedelta, timezone
+        start = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
+        return {"sport_key": "basketball_nba", "sport_title": "NBA", "commence_time": start,
+                "home_team": "H", "away_team": "A",
+                "bookmakers": [{"key": k, "markets": m} for k, m in books.items()]}
+
+    @staticmethod
+    def _pp(line, over, under):
+        return [{"key": "player_rebounds", "outcomes": [
+            {"name": "Over", "description": "P1", "point": line, "price": over},
+            {"name": "Under", "description": "P1", "point": line, "price": under}]}]
+
+    def test_stale_pinnacle_outlier_skipped(self):
+        # Pinnacle says 50%, Novig and three other books all say about 43%: Pinnacle is stale.
+        books = {"pinnacle": self._pp(3.5, 1.96, 1.96), "novig": self._pp(3.5, 2.25, 1.75)}
+        for b in ("fanduel", "draftkings", "prophetx"):
+            books[b] = self._pp(3.5, 2.25, 1.68)
+        bets, _ = scan_events([self._event(books)], ScanConfig(bet_books=("novig",)))
+        self.assertEqual(bets, [])
+
+    def test_edge_kept_when_others_agree(self):
+        books = {"pinnacle": self._pp(3.5, 1.96, 1.96), "novig": self._pp(3.5, 2.25, 1.75)}
+        for b in ("fanduel", "draftkings", "prophetx"):
+            books[b] = self._pp(3.5, 1.95, 1.87)
+        bets, _ = scan_events([self._event(books)], ScanConfig(bet_books=("novig",)))
+        self.assertEqual([b.selection for b in bets], ["P1 Over 3.5"])
+        self.assertIn("others", bets[0].fair_source)
+
+    def test_no_check_without_enough_other_books(self):
+        books = {"pinnacle": self._pp(3.5, 1.96, 1.96), "novig": self._pp(3.5, 2.25, 1.75)}
+        bets, _ = scan_events([self._event(books)], ScanConfig(bet_books=("novig",)))
+        self.assertEqual(len(bets), 1)
