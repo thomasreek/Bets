@@ -428,3 +428,45 @@ class AgreementTest(unittest.TestCase):
         books = {"pinnacle": self._pp(3.5, 1.96, 1.96), "novig": self._pp(3.5, 2.25, 1.75)}
         bets, _ = scan_events([self._event(books)], ScanConfig(bet_books=("novig",)))
         self.assertEqual(len(bets), 1)
+
+
+class PaperTest(unittest.TestCase):
+    def _vb(self, sel, ev, line, market="totals", event="A @ H"):
+        from betfinder.scanner import ValueBet
+        return ValueBet(sport="NCAAB", event=event, commence_time="2026-11-22T20:00:00Z", market=market,
+                        selection=sel, book="novig", odds=2.0, fair_prob=0.52, fair_odds=1.923, ev=ev,
+                        stake=10, fair_source="pinnacle, others 51%(4)", net_odds=2.0,
+                        sport_key="basketball_ncaab", line=line)
+
+    def test_record_one_per_side_and_roundtrip(self):
+        import tempfile
+        from betfinder import paper
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "p.csv"
+            n = paper.record([self._vb("Under 139.5", 0.04, 139.5), self._vb("Under 138.5", 0.06, 138.5),
+                              self._vb("Over 141.5", 0.03, 141.5)], path=path)
+            self.assertEqual(n, 2)  # best Under + the Over
+            bets = paper.load(path)
+            self.assertEqual(sorted(b.selection for b in bets), ["Over 141.5", "Under 138.5"])
+            self.assertAlmostEqual(bets[0].stake, 8.0)
+            # a later scan doesn't add the same side again
+            self.assertEqual(paper.record([self._vb("Under 137.5", 0.09, 137.5)], path=path), 0)
+
+    def test_settle_and_link(self):
+        from betfinder import paper
+        from betfinder.tracker import Bet
+
+        class FakeClient:
+            def scores(self, sport, days_from=3):
+                return [{"completed": True, "home_team": "H", "away_team": "A",
+                         "scores": [{"name": "H", "score": "70"}, {"name": "A", "score": "60"}]}]
+
+        b = paper.PaperBet(1, "", "basketball_ncaab", "A @ H", "2026-11-22T20:00:00Z", "totals", "139.5",
+                           "Under 139.5", "novig", 2.0, 1.9, 0.05, "pinnacle", 8.0)
+        self.assertEqual(paper.settle(FakeClient(), [b]), 1)
+        self.assertEqual(b.status, "won")
+        self.assertAlmostEqual(b.profit, 8.0)
+        real = Bet(id=143, placed="", sport="basketball_ncaab", event="A @ H", selection="Under 139.5",
+                   book="novig", stake=10, odds=2.0, fair_odds=1.9, start=b.start)
+        self.assertEqual(paper.link_taken([b], [real]), 1)
+        self.assertEqual(b.taken, "143")

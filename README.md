@@ -86,6 +86,19 @@ Game times in the scan output and `BETS.md` are shown in Houston time. Set `BETF
 
 Copy `--event`, `--sport` and `--fair` from the scan output. `--fair` lets the log compare your actual profit with expected profit.
 
+## Paper trading
+
+Every live scan also adds what it flagged to `paper_log.csv` / `PAPER.md`: one bet per side of a market per game, at the price the scan first saw, sized to win $8. No real money, and kept apart from `bet_log.csv` / `BETS.md`. Use `--no-paper` to skip it.
+
+```bash
+python -m betfinder paper            # summary
+python -m betfinder paper update     # grade main lines from final scores (2 credits/sport),
+                                     # closing prices vs Pinnacle and the other books (~30 credits/game),
+                                     # and mark the bets you actually placed
+```
+
+`PAPER.md` breaks results down by fair-price source (Pinnacle exact line, converted, other-books average), edge size, sport and book, with expected wins next to actual wins. That is the test of whether the fair prices are right. Props get CLV only (`paper clv --props`), since the scores feed has no player stats.
+
 ## Reading the output
 
 | Column | Meaning |

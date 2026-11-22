@@ -134,6 +134,8 @@ class ValueBet:
     fair_source: str
     suspicious: bool = False
     net_odds: float = 0.0  # odds after the book's fee, what a stake actually pays
+    sport_key: str = ""
+    line: object = None  # scanner line key (float, (player, point) or None)
 
     def risk_to_win(self, unit: float = 10.0) -> float:
         """Stake that wins `unit` at this price (after fees)."""
@@ -405,6 +407,8 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                                 fair_source=source,
                                 suspicious=ev > cfg.max_ev,
                                 net_odds=net,
+                                sport_key=event.get("sport_key", ""),
+                                line=line,
                             )
                         )
 

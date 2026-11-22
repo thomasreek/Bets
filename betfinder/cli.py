@@ -223,6 +223,10 @@ def cmd_scan(args: argparse.Namespace) -> int:
     bets, arbs = scan_events(events, cfg)
     _print_value_bets(bets, args.limit, args.unit)
     _print_arbs(arbs)
+    if not args.demo and not args.no_paper and bets:
+        from . import paper
+        added = paper.record(bets)
+        print(f"\nPaper log: {added} new bet(s) recorded (paper_log.csv / PAPER.md).")
     if args.csv:
         _write_csv(args.csv, bets)
     print(
@@ -342,6 +346,28 @@ def cmd_bet(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_paper(args: argparse.Namespace) -> int:
+    from . import paper, tracker
+    bets = paper.load()
+    action = args.action or "list"
+    if action in ("settle", "clv", "update"):
+        try:
+            client, _ = _make_client("oddsapi")
+        except OddsApiError as e:
+            print(e, file=sys.stderr)
+            return 1
+        if action in ("settle", "update"):
+            print(f"Settled {paper.settle(client, bets)} paper bet(s).")
+        if action in ("clv", "update"):
+            print(f"Closing prices for {paper.closing_values(client, bets, props=getattr(args, 'props', False))} "
+                  f"paper bet(s). API requests remaining: {client.requests_remaining}")
+    if action in ("update", "list"):
+        paper.link_taken(bets, tracker.load())
+    paper.save(bets)
+    print(paper.summary_line(bets))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="betfinder", description="Find +EV bets at US sportsbooks.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -363,6 +389,7 @@ def main(argv: list[str] | None = None) -> int:
     scan.add_argument("--bankroll", type=float, default=1000.0)
     scan.add_argument("--unit", type=float, default=float(os.environ.get("BETFINDER_UNIT", 10)),
                       help="to-win unit for the Win$ column (default $10, or BETFINDER_UNIT)")
+    scan.add_argument("--no-paper", action="store_true", help="don't add flagged bets to the paper log")
     scan.add_argument("--kelly", type=float, default=0.25, help="Kelly multiplier (0.25 = quarter Kelly)")
     scan.add_argument("--devig", choices=["power", "multiplicative"], default="power")
     scan.add_argument("--max-cost", type=int, default=60, help="refuse scans that cost more API credits")
@@ -410,6 +437,15 @@ def main(argv: list[str] | None = None) -> int:
     delete.add_argument("id", type=int)
     clv = bsub.add_parser("clv", help="record Pinnacle's closing price and CLV for started games")
     clv.add_argument("ids", type=int, nargs="*", help="only these bet numbers (default: all missing)")
+
+    pp = sub.add_parser("paper", help="paper trading log (paper_log.csv / PAPER.md), no real money")
+    psub = pp.add_subparsers(dest="action")
+    psub.add_parser("list", help="show the paper summary")
+    psub.add_parser("settle", help="grade finished main-line paper bets from final scores (2 credits per sport)")
+    pclv = psub.add_parser("clv", help="closing prices vs Pinnacle and the other books (about 30 credits per game)")
+    pclv.add_argument("--props", action="store_true", help="also price props at the close (costs more)")
+    psub.add_parser("update", help="settle + clv + link real bets")
+    pp.set_defaults(func=cmd_paper)
 
     args = parser.parse_args(argv)
     return args.func(args)
