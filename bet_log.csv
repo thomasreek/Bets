@@ -139,7 +139,7 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 138,2026-11-22,americanfootball_nfl,Miami Dolphins @ Buffalo Bills,Malik Washington Under 28.5 receiving yards,bovada,13.05,2.1502,2.08,2026-11-22T18:00:00Z,open,+115; fair from Pinnacle 29.5 + ladder,,
 139,2026-11-22,americanfootball_nfl,Tampa Bay Buccaneers @ Detroit Lions,Isaac TeSlaa 2+ receptions,novig,9.6,2.5635,2.5,2026-11-22T18:00:00Z,open,39.0%; Pinnacle Over 1.5,,
 140,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,Saquon Barkley Under 60.5 rushing yards,bovada,14.5,1.6897,1.55,2026-11-22T18:00:00Z,open,-145; fair from Pinnacle 55.5 + ladder,,
-141,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,DeVonta Smith under 5 receptions,novig,7.9,2.2722,2.16,2026-11-22T18:00:00Z,open,5+ No at 44.0%; Pinnacle Under 4.5,,
+141,2026-11-22,americanfootball_nfl,Pittsburgh Steelers @ Philadelphia Eagles,DeVonta Smith under 5 receptions,novig,7.9,2.2722,2.16,2026-11-22T18:00:00Z,lost,5+ No at 44.0%; Pinnacle Under 4.5,,
 142,2026-11-22,americanfootball_nfl,Arizona Cardinals @ Kansas City Chiefs,Xavier Worthy 3+ receptions,novig,8.52,2.1737,2.11,2026-11-22T18:00:00Z,lost,46.0%; Pinnacle Over 2.5,,
 143,2026-11-22,basketball_ncaab,West Florida Argonauts @ South Alabama Jaguars,Under 139.5,novig,14.7,2.0197,1.89,2026-11-22T20:00:00Z,open,49.5%; Pinnacle same line,,
 144,2026-11-22,basketball_ncaab,Southern Indiana Screaming Eagles @ Texas Longhorns,Under 153.5,novig,11.69,1.8512,1.77,2026-11-22T20:00:00Z,open,54.0%; fair converted from Pinnacle 152.5,,
