@@ -125,5 +125,5 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 124,2026-11-21,basketball_ncaab,Army Knights @ Binghamton Bearcats,Under 137.5,novig,10.0,2.105,2.03,2026-11-21T20:30:00Z,won,47.5%; Pinnacle same line,,
 125,2026-11-21,americanfootball_ncaaf,NC State Wolfpack @ Florida State Seminoles,NC State Wolfpack +13.5,novig,10.0,1.834,1.76,2026-11-21T20:30:00Z,open,54.5%; fair converted from Pinnacle +12.5,,
 126,2026-11-21,americanfootball_ncaaf,Texas A&M Aggies @ Oklahoma Sooners,Over 37.5,novig,10.0,2.127,2.07,2026-11-21T20:45:00Z,open,47.0%; Pinnacle same line,,
-127,2026-11-21,americanfootball_ncaaf,Texas A&M Aggies @ Oklahoma Sooners,Lloyd Avant Under 37.5 rushing yards,prophetx,5.0,2.0976,2.03,2026-11-21T20:45:00Z,open,2.12 before ProphetX 2% fee; Pinnacle same line,,
-128,2026-11-21,americanfootball_ncaaf,Arkansas Razorbacks @ Texas Longhorns,Cam Settles Under 31.5 rushing yards,prophetx,5.0,2.0584,2.0,2026-11-21T20:30:00Z,open,2.08 before ProphetX 2% fee; Pinnacle same line,,
+127,2026-11-21,americanfootball_ncaaf,Texas A&M Aggies @ Oklahoma Sooners,Lloyd Avant Under 37.5 rushing yards,prophetx,5.0,2.0976,2.03,2026-11-21T20:45:00Z,won,2.12 before ProphetX 2% fee; Pinnacle same line,,
+128,2026-11-21,americanfootball_ncaaf,Arkansas Razorbacks @ Texas Longhorns,Cam Settles Under 31.5 rushing yards,prophetx,5.0,2.0584,2.0,2026-11-21T20:30:00Z,lost,2.08 before ProphetX 2% fee; Pinnacle same line,,
