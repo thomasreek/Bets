@@ -6,23 +6,25 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 10 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Pinnacle exact line | 8 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| **All** | 12 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Pinnacle exact line | 10 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Other-books average | 2 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Main lines | 10 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 8 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Main lines | 12 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Edge under 4% | 10 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Edge 4-8% | 2 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Taken for real | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| basketball_ncaab | 9 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| basketball_ncaab | 11 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | soccer_uefa_champs_league | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | book: bovada | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| book: novig | 8 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| book: novig | 10 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | book: prophetx | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 
 ## Bets
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 12 | Tue 24 Nov 3:30 PM CST | Illinois St Redbirds @ Tulsa Golden Hurricane | Over 144.5 | novig | 2.17 | 2.13 | +2.0% | exact | open |  |  |  |
+| 11 | Tue 24 Nov 3:00 PM CST | New Haven Chargers @ Lindenwood Lions | Under 134.5 | novig | 1.92 | 1.87 | +2.5% | exact | open |  |  |  |
 | 10 | Tue 24 Nov 2:30 PM CST | Arkansas St Red Wolves @ Long Beach St 49ers | Arkansas St Red Wolves -3.5 | novig | 1.82 | 1.75 | +3.9% | exact | open |  |  | #155 |
 | 9 | Tue 24 Nov 2:00 PM CST | Miami Hurricanes @ TCU Horned Frogs | Miami Hurricanes +4.5 | bovada | 1.28 | 1.25 | +2.4% | consensus | open |  |  |  |
 | 8 | Tue 24 Nov 2:00 PM CST | North Dakota Fighting Hawks @ Detroit Mercy Titans | North Dakota Fighting Hawks -2.5 | novig | 1.71 | 1.66 | +2.8% | exact | open |  |  |  |
