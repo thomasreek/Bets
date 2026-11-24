@@ -6,15 +6,17 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Pinnacle exact line | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Main lines | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| basketball_ncaab | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| book: novig | 1 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| **All** | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Pinnacle exact line | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Main lines | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Edge under 4% | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| basketball_ncaab | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| book: novig | 3 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 
 ## Bets
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 3 | Tue 24 Nov 12:30 PM CST | Pittsburgh Panthers @ Oklahoma Sooners | Over 147.5 | novig | 1.92 | 1.87 | +2.5% | exact | open |  |  |  |
+| 2 | Tue 24 Nov 12:30 PM CST | UIC Flames @ Rice Owls | Under 142.5 | novig | 2.15 | 2.08 | +3.2% | exact | open |  |  |  |
 | 1 | Tue 24 Nov 10:00 AM CST | New Mexico St Aggies @ Ohio Bobcats | Under 151.5 | novig | 1.79 | 1.75 | +2.1% | exact | open |  |  |  |
