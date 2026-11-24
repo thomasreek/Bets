@@ -378,11 +378,12 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                             if p is None:
                                 continue
                             ev = expected_value(p, net)
+                        label = source
                         if not source.startswith(("consensus", "others")):
                             check = _agreement(books, book_key, selection, p, net, market, cfg, agree_cache)
                             if check is None:
                                 continue
-                            source += check
+                            label = source + check
                         bar = cfg.prop_min_ev if prop else cfg.min_ev
                         if "converted" in source or "ladder" in source:
                             bar = max(bar, cfg.converted_min_ev)
@@ -404,7 +405,7 @@ def scan_events(events: list[dict], cfg: ScanConfig) -> tuple[list[ValueBet], li
                                 fair_odds=1.0 / p,
                                 ev=ev,
                                 stake=round(stake_frac * cfg.bankroll, 2),
-                                fair_source=source,
+                                fair_source=label,
                                 suspicious=ev > cfg.max_ev,
                                 net_odds=net,
                                 sport_key=event.get("sport_key", ""),
