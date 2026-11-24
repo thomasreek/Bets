@@ -152,3 +152,5 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 151,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Jalen Johnson 7+ assists,novig,10.9,1.9229,1.84,2026-11-22T20:40:00Z,lost,52.0%; Pinnacle Over 6.5,1.9484,-0.0131
 152,2026-11-22,basketball_nba,Detroit Pistons @ Atlanta Hawks,Paul Reed Jr Over 7.5 rebounds,bovada,11.55,2.2996,2.16,2026-11-22T20:40:00Z,lost,+130; Pinnacle same line,2.1518,0.0687
 153,2026-11-24,soccer_uefa_champs_league,AEK Athens @ Como,Over 3.5,prophetx,7.5,2.0493,1.94,2026-11-24T20:00:00Z,open,"48.31% (2.071) before ProphetX 2% fee; Pinnacle same line, others 51%(18)",,
+154,2026-11-24,basketball_ncaab,Tennessee Volunteers @ Maryland Terrapins,Under 149.5,novig,9.2,1.8685,1.8,2026-11-24T20:00:00Z,open,"53.5%; Pinnacle same line, others 55%(6)",,
+155,2026-11-24,basketball_ncaab,Arkansas St Red Wolves @ Long Beach St 49ers,Arkansas St Red Wolves -3.5,novig,9.78,1.818,1.75,2026-11-24T20:30:00Z,open,"55.0%; Pinnacle same line, others 55%(7)",,
