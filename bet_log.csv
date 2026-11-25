@@ -165,3 +165,4 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 164,2026-11-24,basketball_nba,Dallas Mavericks @ Denver Nuggets,Jamal Murray under 3 threes,novig,7.55,2.0609,1.97,2026-11-25T03:10:00Z,won,"3+ No at 48.5%; Pinnacle Under 2.5, others 50%(9)",2.1942,-0.0608
 165,2026-11-24,basketball_nba,Dallas Mavericks @ Denver Nuggets,Aaron Gordon 14+ points,novig,7.85,2.0191,1.93,2026-11-25T03:10:00Z,lost,"49.5%; Pinnacle Over 13.5, others 50%(9)",1.9313,0.0455
 166,2026-11-24,basketball_nba,Dallas Mavericks @ Denver Nuggets,Cooper Flagg 7+ assists,novig,6.3,2.2714,2.21,2026-11-25T03:10:00Z,won,"44.0%; Pinnacle Over 6.5, others 45%(10)",2.2088,0.0283
+167,2026-11-25,basketball_ncaab,N Colorado Bears @ Detroit Mercy Titans,Detroit Mercy Titans +6.5,novig,9.78,1.818,1.74,2026-11-25T17:30:00Z,open,"55.0%; Pinnacle same line, others 56%(5)",,

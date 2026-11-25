@@ -15,7 +15,7 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | Edge under 4% | 37 | 13-7-0 | 11.1 | $+33.91 | +17.5% | $+5.38 | +0.6% (13/20) | -0.5% (8/20) |
 | Edge 4-8% | 26 | 3-3-0 | 3.0 | $+0.84 | +1.9% | $+2.07 | +0.8% (2/5) | +0.9% (3/5) |
 | Edge 8%+ | 7 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Taken for real | 14 | 3-4-0 | 3.7 | $-6.99 | -12.2% | $+2.52 | +1.3% (4/7) | +1.0% (5/7) |
+| Taken for real | 15 | 3-4-0 | 3.7 | $-6.99 | -12.2% | $+2.52 | +1.3% (4/7) | +1.0% (5/7) |
 | basketball_nba | 34 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | basketball_ncaab | 31 | 16-8-0 | 13.1 | $+47.01 | +20.9% | $+6.94 | +1.2% (15/23) | +0.2% (11/23) |
 | icehockey_nhl | 4 | 0-1-0 | 0.4 | $-4.49 | -100.0% | $+0.14 | -11.6% (0/1) | -10.7% (0/1) |
@@ -29,7 +29,7 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 70 | Wed 25 Nov 11:30 AM CST | N Colorado Bears @ Detroit Mercy Titans | Under 146.5 | novig | 2.11 | 2.06 | +2.5% | exact | open |  |  |  |
-| 69 | Wed 25 Nov 11:30 AM CST | N Colorado Bears @ Detroit Mercy Titans | Detroit Mercy Titans +6.5 | novig | 1.82 | 1.74 | +4.5% | exact | open |  |  |  |
+| 69 | Wed 25 Nov 11:30 AM CST | N Colorado Bears @ Detroit Mercy Titans | Detroit Mercy Titans +6.5 | novig | 1.82 | 1.74 | +4.5% | exact | open |  |  | #167 |
 | 68 | Wed 25 Nov 10:00 AM CST | Northern Iowa Panthers @ Charlotte 49ers | Northern Iowa Panthers +10.5 | novig | 1.71 | 1.67 | +2.6% | exact | open |  |  |  |
 | 67 | Wed 25 Nov 10:00 AM CST | Rice Owls @ Ohio Bobcats | Under 152.5 | prophetx | 2.27 | 2.21 | +3.1% | exact | open |  |  |  |
 | 66 | Wed 25 Nov 10:00 AM CST | Northern Iowa Panthers @ Charlotte 49ers | Under 144.5 | novig | 1.89 | 1.82 | +3.8% | exact | open |  |  |  |
