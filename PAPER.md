@@ -15,7 +15,7 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | Edge under 4% | 29 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
 | Edge 4-8% | 18 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
 | Edge 8%+ | 5 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Taken for real | 9 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
+| Taken for real | 11 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
 | basketball_nba | 21 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | basketball_ncaab | 26 | 7-2-0 | 5.3 | $+25.32 | +25.0% | $+2.84 | +1.4% (6/9) | -0.0% (4/9) |
 | icehockey_nhl | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
@@ -29,8 +29,8 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 52 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Colorado St Rams +6.5 | novig | 1.96 | 1.92 | +2.4% | exact | open |  |  |  |
-| 51 | Tue 24 Nov 9:30 PM CST | Oregon Ducks @ St. John's Red Storm | Under 156.5 | novig | 2.06 | 1.97 | +4.8% | exact | open |  |  |  |
-| 50 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Over 149.5 | novig | 2.08 | 1.98 | +5.2% | exact | open |  |  |  |
+| 51 | Tue 24 Nov 9:30 PM CST | Oregon Ducks @ St. John's Red Storm | Under 156.5 | novig | 2.06 | 1.97 | +4.8% | exact | open |  |  | #163 |
+| 50 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Over 149.5 | novig | 2.08 | 1.98 | +5.2% | exact | open |  |  | #162 |
 | 49 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Trevor Connelly Under 0.5 | novig | 1.72 | 1.68 | +2.1% | exact | open |  |  |  |
 | 48 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Under 5.5 | novig | 2.78 | 2.70 | +3.0% | exact | open |  |  |  |
 | 47 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Ivan Barbashev Under 0.5 | novig | 1.64 | 1.57 | +4.5% | exact | open |  |  |  |

@@ -160,3 +160,5 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 159,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Trae Young 8+ assists,novig,7.1,2.1268,2.02,2026-11-25T01:10:00Z,open,"47.0%; Pinnacle Over 7.5, others 49%(9)",,
 160,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Anthony Davis 22+ points,novig,6.41,2.2465,2.07,2026-11-25T01:10:00Z,open,"44.5%; Pinnacle Over 21.5, others 46%(5)",,
 161,2026-11-24,basketball_ncaab,Clemson Tigers @ Washington Huskies,Over 150.5,novig,7.85,2.0191,1.94,2026-11-25T01:00:00Z,open,"49.5%; Pinnacle same line, others 51%(16)",,
+162,2026-11-24,basketball_ncaab,VCU Rams @ Colorado St Rams,Over 149.5,novig,7.4,2.0824,1.98,2026-11-25T03:30:00Z,open,"48.0%; Pinnacle same line, others 50%(15)",,
+163,2026-11-24,basketball_ncaab,Oregon Ducks @ St. John's Red Storm,Under 156.5,novig,7.55,2.0609,1.97,2026-11-25T03:30:00Z,open,"48.5%; Pinnacle same line, others 50%(14)",,
