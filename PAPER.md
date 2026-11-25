@@ -15,7 +15,7 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | Edge under 4% | 33 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
 | Edge 4-8% | 25 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
 | Edge 8%+ | 7 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Taken for real | 11 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
+| Taken for real | 14 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
 | basketball_nba | 34 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | basketball_ncaab | 26 | 7-2-0 | 5.3 | $+25.32 | +25.0% | $+2.84 | +1.4% (6/9) | -0.0% (4/9) |
 | icehockey_nhl | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
@@ -32,13 +32,13 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | 64 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Under 23.5 | novig | 2.11 | 2.05 | +2.7% | exact | open |  |  |  |
 | 63 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cameron Johnson Over 12.5 | novig | 1.96 | 1.90 | +2.9% | exact | open |  |  |  |
 | 62 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Christian Braun Over 12.5 | novig | 1.92 | 1.86 | +3.1% | exact | open |  |  |  |
-| 61 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Over 6.5 | novig | 2.30 | 2.21 | +4.1% | exact | open |  |  |  |
-| 60 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Aaron Gordon Over 13.5 | novig | 2.02 | 1.93 | +4.6% | exact | open |  |  |  |
+| 61 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Over 6.5 | novig | 2.30 | 2.21 | +4.1% | exact | open |  |  | #166 |
+| 60 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Aaron Gordon Over 13.5 | novig | 2.02 | 1.93 | +4.6% | exact | open |  |  | #165 |
 | 59 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Zaccharie Risacher Under 0.5 | bovada | 3.00 | 2.84 | +5.5% | consensus | open |  |  |  |
 | 58 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Jamal Murray Under 24.5 | novig | 1.77 | 1.67 | +6.1% | converted | open |  |  |  |
 | 57 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Over 34.5 | novig | 1.61 | 1.51 | +6.5% | converted | open |  |  |  |
 | 56 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | P.J. Washington Over 5.5 | prophetx | 2.53 | 2.37 | +6.5% | consensus | open |  |  |  |
-| 55 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Jamal Murray Under 2.5 | novig | 2.11 | 1.97 | +7.4% | exact | open |  |  |  |
+| 55 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Jamal Murray Under 2.5 | novig | 2.11 | 1.97 | +7.4% | exact | open |  |  | #164 |
 | 54 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Kyrie Irving Under 2.5 | bovada | 2.65 | 2.43 | +9.2% | converted | open |  |  |  |
 | 53 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Nikola Jokic Over 49.5 | novig | 2.33 | 2.11 | +10.3% | converted | open |  |  |  |
 | 52 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Colorado St Rams +6.5 | novig | 1.96 | 1.92 | +2.4% | exact | open |  |  |  |
