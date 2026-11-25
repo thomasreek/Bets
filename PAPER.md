@@ -6,21 +6,21 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 70 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
-| Pinnacle exact line | 53 | 14-9-0 | 12.1 | $+40.75 | +21.1% | $+6.28 | +0.6% (15/25) | -0.2% (11/25) |
+| **All** | 71 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
+| Pinnacle exact line | 54 | 14-9-0 | 12.1 | $+40.75 | +21.1% | $+6.28 | +0.6% (15/25) | -0.2% (11/25) |
 | Converted / ladder | 8 | 1-0-0 | 0.4 | $+7.99 | +194.0% | $+0.24 |  |  |
 | Other-books average | 9 | 1-1-0 | 1.6 | $-14.00 | -35.0% | $+0.93 |  |  |
-| Main lines | 33 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
+| Main lines | 34 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
 | Props | 37 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 37 | 13-7-0 | 11.1 | $+33.91 | +17.5% | $+5.38 | +0.6% (13/20) | -0.5% (8/20) |
+| Edge under 4% | 38 | 13-7-0 | 11.1 | $+33.91 | +17.5% | $+5.38 | +0.6% (13/20) | -0.5% (8/20) |
 | Edge 4-8% | 26 | 3-3-0 | 3.0 | $+0.84 | +1.9% | $+2.07 | +0.8% (2/5) | +0.9% (3/5) |
 | Edge 8%+ | 7 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Taken for real | 15 | 3-4-0 | 3.7 | $-6.99 | -12.2% | $+2.52 | +1.3% (4/7) | +1.0% (5/7) |
 | basketball_nba | 34 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | basketball_ncaab | 31 | 16-8-0 | 13.1 | $+47.01 | +20.9% | $+6.94 | +1.2% (15/23) | +0.2% (11/23) |
 | icehockey_nhl | 4 | 0-1-0 | 0.4 | $-4.49 | -100.0% | $+0.14 | -11.6% (0/1) | -10.7% (0/1) |
-| soccer_uefa_champs_league | 1 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
-| book: bovada | 10 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
+| soccer_uefa_champs_league | 2 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
+| book: bovada | 11 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
 | book: novig | 55 | 16-8-0 | 12.7 | $+62.52 | +29.8% | $+6.60 | +0.7% (15/24) | -0.2% (11/24) |
 | book: prophetx | 5 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 
@@ -28,6 +28,7 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 71 | Wed 25 Nov 11:45 AM CST | Villarreal @ Slavia Praha | Villarreal | bovada | 2.35 | 2.27 | +3.3% | exact | open |  |  |  |
 | 70 | Wed 25 Nov 11:30 AM CST | N Colorado Bears @ Detroit Mercy Titans | Under 146.5 | novig | 2.11 | 2.06 | +2.5% | exact | open |  |  |  |
 | 69 | Wed 25 Nov 11:30 AM CST | N Colorado Bears @ Detroit Mercy Titans | Detroit Mercy Titans +6.5 | novig | 1.82 | 1.74 | +4.5% | exact | open |  |  | #167 |
 | 68 | Wed 25 Nov 10:00 AM CST | Northern Iowa Panthers @ Charlotte 49ers | Northern Iowa Panthers +10.5 | novig | 1.71 | 1.67 | +2.6% | exact | open |  |  |  |
