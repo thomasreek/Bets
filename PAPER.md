@@ -6,28 +6,31 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 65 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
-| Pinnacle exact line | 48 | 14-9-0 | 12.1 | $+40.75 | +21.1% | $+6.28 | +0.6% (15/25) | -0.2% (11/25) |
+| **All** | 68 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
+| Pinnacle exact line | 51 | 14-9-0 | 12.1 | $+40.75 | +21.1% | $+6.28 | +0.6% (15/25) | -0.2% (11/25) |
 | Converted / ladder | 8 | 1-0-0 | 0.4 | $+7.99 | +194.0% | $+0.24 |  |  |
 | Other-books average | 9 | 1-1-0 | 1.6 | $-14.00 | -35.0% | $+0.93 |  |  |
-| Main lines | 28 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
+| Main lines | 31 | 16-10-0 | 14.0 | $+34.75 | +14.6% | $+7.45 | +0.6% (15/25) | -0.2% (11/25) |
 | Props | 37 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 33 | 13-7-0 | 11.1 | $+33.91 | +17.5% | $+5.38 | +0.6% (13/20) | -0.5% (8/20) |
+| Edge under 4% | 36 | 13-7-0 | 11.1 | $+33.91 | +17.5% | $+5.38 | +0.6% (13/20) | -0.5% (8/20) |
 | Edge 4-8% | 25 | 3-3-0 | 3.0 | $+0.84 | +1.9% | $+2.07 | +0.8% (2/5) | +0.9% (3/5) |
 | Edge 8%+ | 7 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Taken for real | 14 | 3-4-0 | 3.7 | $-6.99 | -12.2% | $+2.52 | +1.3% (4/7) | +1.0% (5/7) |
 | basketball_nba | 34 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| basketball_ncaab | 26 | 16-8-0 | 13.1 | $+47.01 | +20.9% | $+6.94 | +1.2% (15/23) | +0.2% (11/23) |
-| icehockey_nhl | 4 | 0-1-0 | 0.4 | $-4.49 | -100.0% | $+0.14 | -11.6% (0/1) | -10.6% (0/1) |
+| basketball_ncaab | 29 | 16-8-0 | 13.1 | $+47.01 | +20.9% | $+6.94 | +1.2% (15/23) | +0.2% (11/23) |
+| icehockey_nhl | 4 | 0-1-0 | 0.4 | $-4.49 | -100.0% | $+0.14 | -11.6% (0/1) | -10.7% (0/1) |
 | soccer_uefa_champs_league | 1 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 | book: bovada | 10 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
-| book: novig | 51 | 16-8-0 | 12.7 | $+62.52 | +29.8% | $+6.60 | +0.7% (15/24) | -0.2% (11/24) |
-| book: prophetx | 4 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
+| book: novig | 53 | 16-8-0 | 12.7 | $+62.52 | +29.8% | $+6.60 | +0.7% (15/24) | -0.2% (11/24) |
+| book: prophetx | 5 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 
 ## Bets
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 68 | Wed 25 Nov 10:00 AM CST | Northern Iowa Panthers @ Charlotte 49ers | Northern Iowa Panthers +10.5 | novig | 1.71 | 1.67 | +2.6% | exact | open |  |  |  |
+| 67 | Wed 25 Nov 10:00 AM CST | Rice Owls @ Ohio Bobcats | Under 152.5 | prophetx | 2.27 | 2.21 | +3.1% | exact | open |  |  |  |
+| 66 | Wed 25 Nov 10:00 AM CST | Northern Iowa Panthers @ Charlotte 49ers | Under 144.5 | novig | 1.89 | 1.82 | +3.8% | exact | open |  |  |  |
 | 65 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Nikola Jokic Over 25.5 | novig | 2.02 | 1.98 | +2.2% | exact | open |  |  |  |
 | 64 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Under 23.5 | novig | 2.11 | 2.05 | +2.7% | exact | open |  |  |  |
 | 63 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cameron Johnson Over 12.5 | novig | 1.96 | 1.90 | +2.9% | exact | open |  |  |  |
@@ -45,7 +48,7 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | 51 | Tue 24 Nov 9:30 PM CST | Oregon Ducks @ St. John's Red Storm | Under 156.5 | novig | 2.06 | 1.97 | +4.8% | exact | lost | -0.9% | +1.7% | #163 |
 | 50 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Over 149.5 | novig | 2.08 | 1.98 | +5.2% | exact | won | +2.8% | +3.6% | #162 |
 | 49 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Trevor Connelly Under 0.5 | novig | 1.72 | 1.68 | +2.1% | exact | open |  |  |  |
-| 48 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Under 5.5 | novig | 2.78 | 2.70 | +3.0% | exact | lost | -11.6% | -10.6% |  |
+| 48 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Under 5.5 | novig | 2.78 | 2.70 | +3.0% | exact | lost | -11.6% | -10.7% |  |
 | 47 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Ivan Barbashev Under 0.5 | novig | 1.64 | 1.57 | +4.5% | exact | open |  |  |  |
 | 46 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Connor McDavid Under 1.5 | novig | 2.08 | 1.97 | +5.9% | exact | open |  |  |  |
 | 45 | Tue 24 Nov 7:10 PM CST | Boston Celtics @ Washington Wizards | AJ Dybantsa Over 2.5 | bovada | 1.77 | 1.73 | +2.2% | exact | open |  |  |  |
@@ -75,9 +78,9 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 | 21 | Tue 24 Nov 7:00 PM CST | Army Knights @ Air Force Falcons | Under 154.5 | novig | 2.13 | 2.05 | +3.8% | exact | lost | +3.8% | +3.8% |  |
 | 20 | Tue 24 Nov 7:00 PM CST | Green Bay Phoenix @ UMKC Kangaroos | Green Bay Phoenix -4.5 | novig | 2.94 | 2.78 | +5.8% | converted | won |  |  |  |
 | 19 | Tue 24 Nov 6:30 PM CST | High Point Panthers @ Duquesne Dukes | Over 140.5 | novig | 1.92 | 1.88 | +2.3% | exact | won | +0.8% | -2.5% |  |
-| 18 | Tue 24 Nov 6:30 PM CST | Fort Wayne Mastodons @ SE Missouri St Redhawks | SE Missouri St Redhawks -2.5 | novig | 1.87 | 1.83 | +2.3% | exact | lost | -0.5% | -0.4% |  |
+| 18 | Tue 24 Nov 6:30 PM CST | Fort Wayne Mastodons @ SE Missouri St Redhawks | SE Missouri St Redhawks -2.5 | novig | 1.87 | 1.83 | +2.3% | exact | lost | -0.4% | -0.4% |  |
 | 17 | Tue 24 Nov 6:30 PM CST | Alcorn St Braves @ Louisiana Tech Bulldogs | Louisiana Tech Bulldogs -15.5 | novig | 1.90 | 1.84 | +3.1% | exact | won | +0.7% | -0.1% |  |
-| 16 | Tue 24 Nov 6:30 PM CST | Fort Wayne Mastodons @ SE Missouri St Redhawks | Over 149.5 | novig | 2.00 | 1.94 | +3.1% | exact | won | +2.5% | +0.6% |  |
+| 16 | Tue 24 Nov 6:30 PM CST | Fort Wayne Mastodons @ SE Missouri St Redhawks | Over 149.5 | novig | 2.00 | 1.94 | +3.1% | exact | won | +2.5% | +0.5% |  |
 | 15 | Tue 24 Nov 6:30 PM CST | Houston Christian Huskies @ UL Monroe Warhawks | Over 149.5 | novig | 2.02 | 1.93 | +4.5% | exact | lost | +4.7% | +0.7% | #156 |
 | 14 | Tue 24 Nov 6:11 PM CST | Detroit Pistons @ Orlando Magic | Jalen Suggs Over 3.5 | novig | 2.04 | 2.00 | +2.0% | exact | ungraded |  |  |  |
 | 13 | Tue 24 Nov 6:11 PM CST | Detroit Pistons @ Orlando Magic | Ausar Thompson Over 7.5 | prophetx | 1.78 | 1.69 | +5.3% | converted | ungraded |  |  |  |
