@@ -6,27 +6,32 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 45 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
-| Pinnacle exact line | 34 | 6-2-0 | 4.3 | $+31.55 | +45.6% | $+2.28 | +1.2% (6/10) | -0.1% (4/10) |
+| **All** | 49 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
+| Pinnacle exact line | 38 | 6-2-0 | 4.3 | $+31.55 | +45.6% | $+2.28 | +1.2% (6/10) | -0.1% (4/10) |
 | Converted / ladder | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Other-books average | 7 | 1-1-0 | 1.6 | $-14.00 | -35.0% | $+0.93 |  |  |
-| Main lines | 24 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
-| Props | 21 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 26 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
-| Edge 4-8% | 14 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
+| Main lines | 25 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
+| Props | 24 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Edge under 4% | 28 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
+| Edge 4-8% | 16 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
 | Edge 8%+ | 5 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Taken for real | 9 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
 | basketball_nba | 21 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | basketball_ncaab | 23 | 7-2-0 | 5.3 | $+25.32 | +25.0% | $+2.84 | +1.4% (6/9) | -0.0% (4/9) |
+| icehockey_nhl | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | soccer_uefa_champs_league | 1 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 | book: bovada | 8 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
-| book: novig | 34 | 7-1-0 | 4.5 | $+45.32 | +55.7% | $+2.36 | +1.4% (6/9) | -0.0% (4/9) |
+| book: novig | 38 | 7-1-0 | 4.5 | $+45.32 | +55.7% | $+2.36 | +1.4% (6/9) | -0.0% (4/9) |
 | book: prophetx | 3 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 
 ## Bets
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 49 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Trevor Connelly Under 0.5 | novig | 1.72 | 1.68 | +2.1% | exact | open |  |  |  |
+| 48 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Under 5.5 | novig | 2.78 | 2.70 | +3.0% | exact | open |  |  |  |
+| 47 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Ivan Barbashev Under 0.5 | novig | 1.64 | 1.57 | +4.5% | exact | open |  |  |  |
+| 46 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Connor McDavid Under 1.5 | novig | 2.08 | 1.97 | +5.9% | exact | open |  |  |  |
 | 45 | Tue 24 Nov 7:10 PM CST | Boston Celtics @ Washington Wizards | AJ Dybantsa Over 2.5 | bovada | 1.77 | 1.73 | +2.2% | exact | open |  |  |  |
 | 44 | Tue 24 Nov 7:10 PM CST | Boston Celtics @ Washington Wizards | Kyshawn George Under 2.5 | prophetx | 1.74 | 1.71 | +2.3% | exact | open |  |  |  |
 | 43 | Tue 24 Nov 7:10 PM CST | Boston Celtics @ Washington Wizards | Trae Young Under 2.5 | novig | 1.80 | 1.75 | +2.6% | exact | open |  |  |  |
