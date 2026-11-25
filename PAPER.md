@@ -6,28 +6,41 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 52 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
-| Pinnacle exact line | 41 | 6-2-0 | 4.3 | $+31.55 | +45.6% | $+2.28 | +1.2% (6/10) | -0.1% (4/10) |
-| Converted / ladder | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Other-books average | 7 | 1-1-0 | 1.6 | $-14.00 | -35.0% | $+0.93 |  |  |
+| **All** | 65 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
+| Pinnacle exact line | 48 | 6-2-0 | 4.3 | $+31.55 | +45.6% | $+2.28 | +1.2% (6/10) | -0.1% (4/10) |
+| Converted / ladder | 8 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Other-books average | 9 | 1-1-0 | 1.6 | $-14.00 | -35.0% | $+0.93 |  |  |
 | Main lines | 28 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
-| Props | 24 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 29 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
-| Edge 4-8% | 18 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
-| Edge 8%+ | 5 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Props | 37 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| Edge under 4% | 33 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
+| Edge 4-8% | 25 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
+| Edge 8%+ | 7 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Taken for real | 11 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
-| basketball_nba | 21 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
+| basketball_nba | 34 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | basketball_ncaab | 26 | 7-2-0 | 5.3 | $+25.32 | +25.0% | $+2.84 | +1.4% (6/9) | -0.0% (4/9) |
 | icehockey_nhl | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | soccer_uefa_champs_league | 1 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
-| book: bovada | 8 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
-| book: novig | 41 | 7-1-0 | 4.5 | $+45.32 | +55.7% | $+2.36 | +1.4% (6/9) | -0.0% (4/9) |
-| book: prophetx | 3 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
+| book: bovada | 10 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
+| book: novig | 51 | 7-1-0 | 4.5 | $+45.32 | +55.7% | $+2.36 | +1.4% (6/9) | -0.0% (4/9) |
+| book: prophetx | 4 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 
 ## Bets
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 65 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Nikola Jokic Over 25.5 | novig | 2.02 | 1.98 | +2.2% | exact | open |  |  |  |
+| 64 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Under 23.5 | novig | 2.11 | 2.05 | +2.7% | exact | open |  |  |  |
+| 63 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cameron Johnson Over 12.5 | novig | 1.96 | 1.90 | +2.9% | exact | open |  |  |  |
+| 62 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Christian Braun Over 12.5 | novig | 1.92 | 1.86 | +3.1% | exact | open |  |  |  |
+| 61 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Over 6.5 | novig | 2.30 | 2.21 | +4.1% | exact | open |  |  |  |
+| 60 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Aaron Gordon Over 13.5 | novig | 2.02 | 1.93 | +4.6% | exact | open |  |  |  |
+| 59 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Zaccharie Risacher Under 0.5 | bovada | 3.00 | 2.84 | +5.5% | consensus | open |  |  |  |
+| 58 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Jamal Murray Under 24.5 | novig | 1.77 | 1.67 | +6.1% | converted | open |  |  |  |
+| 57 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Cooper Flagg Over 34.5 | novig | 1.61 | 1.51 | +6.5% | converted | open |  |  |  |
+| 56 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | P.J. Washington Over 5.5 | prophetx | 2.53 | 2.37 | +6.5% | consensus | open |  |  |  |
+| 55 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Jamal Murray Under 2.5 | novig | 2.11 | 1.97 | +7.4% | exact | open |  |  |  |
+| 54 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Kyrie Irving Under 2.5 | bovada | 2.65 | 2.43 | +9.2% | converted | open |  |  |  |
+| 53 | Tue 24 Nov 9:10 PM CST | Dallas Mavericks @ Denver Nuggets | Nikola Jokic Over 49.5 | novig | 2.33 | 2.11 | +10.3% | converted | open |  |  |  |
 | 52 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Colorado St Rams +6.5 | novig | 1.96 | 1.92 | +2.4% | exact | open |  |  |  |
 | 51 | Tue 24 Nov 9:30 PM CST | Oregon Ducks @ St. John's Red Storm | Under 156.5 | novig | 2.06 | 1.97 | +4.8% | exact | open |  |  | #163 |
 | 50 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Over 149.5 | novig | 2.08 | 1.98 | +5.2% | exact | open |  |  | #162 |
