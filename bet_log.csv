@@ -155,8 +155,8 @@ id,placed,sport,event,selection,book,stake,odds,fair_odds,start,status,notes,clo
 154,2026-11-24,basketball_ncaab,Tennessee Volunteers @ Maryland Terrapins,Under 149.5,novig,9.2,1.8685,1.8,2026-11-24T20:00:00Z,won,"53.5%; Pinnacle same line, others 55%(6)",1.8978,-0.0154
 155,2026-11-24,basketball_ncaab,Arkansas St Red Wolves @ Long Beach St 49ers,Arkansas St Red Wolves -3.5,novig,9.78,1.818,1.75,2026-11-24T20:30:00Z,won,"55.0%; Pinnacle same line, others 55%(7)",1.719,0.0576
 156,2026-11-24,basketball_ncaab,Houston Christian Huskies @ UL Monroe Warhawks,Over 149.5,novig,7.85,2.0191,1.93,2026-11-25T00:30:00Z,lost,"49.5%; Pinnacle same line, others 50%(9)",,
-157,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Neemias Queta 9+ rebounds,novig,8.0,2.0,1.87,2026-11-25T01:10:00Z,won,"50.0%; Pinnacle Over 8.5, others 51%(9)",,
-158,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Alex Sarr 10+ points,novig,6.7,2.197,2.08,2026-11-25T01:10:00Z,won,"45.5%; Pinnacle Over 9.5, others 47%(7)",,
+157,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Neemias Queta 9+ rebounds,novig,8.0,2.0,1.87,2026-11-25T01:10:00Z,lost,"50.0%; Pinnacle Over 8.5, others 51%(9)",,
+158,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Alex Sarr 10+ points,novig,6.7,2.197,2.08,2026-11-25T01:10:00Z,lost,"45.5%; Pinnacle Over 9.5, others 47%(7)",,
 159,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Trae Young 8+ assists,novig,7.1,2.1268,2.02,2026-11-25T01:10:00Z,won,"47.0%; Pinnacle Over 7.5, others 49%(9)",,
 160,2026-11-24,basketball_nba,Boston Celtics @ Washington Wizards,Anthony Davis 22+ points,novig,6.41,2.2465,2.07,2026-11-25T01:10:00Z,won,"44.5%; Pinnacle Over 21.5, others 46%(5)",,
 161,2026-11-24,basketball_ncaab,Clemson Tigers @ Washington Huskies,Over 150.5,novig,7.85,2.0191,1.94,2026-11-25T01:00:00Z,lost,"49.5%; Pinnacle same line, others 51%(16)",,
