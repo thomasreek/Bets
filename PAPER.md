@@ -6,28 +6,31 @@ Every bet a scan flags, sized to win $8, logged at the price the scan saw. No re
 
 | Group | Bets | W-L-P | Expected wins | Profit | ROI | Expected profit | CLV vs Pinnacle (beat) | CLV vs other books (beat) |
 |---|---|---|---|---|---|---|---|---|
-| **All** | 49 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
-| Pinnacle exact line | 38 | 6-2-0 | 4.3 | $+31.55 | +45.6% | $+2.28 | +1.2% (6/10) | -0.1% (4/10) |
+| **All** | 52 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
+| Pinnacle exact line | 41 | 6-2-0 | 4.3 | $+31.55 | +45.6% | $+2.28 | +1.2% (6/10) | -0.1% (4/10) |
 | Converted / ladder | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Other-books average | 7 | 1-1-0 | 1.6 | $-14.00 | -35.0% | $+0.93 |  |  |
-| Main lines | 25 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
+| Main lines | 28 | 7-3-0 | 5.9 | $+17.55 | +16.1% | $+3.21 | +1.2% (6/10) | -0.1% (4/10) |
 | Props | 24 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| Edge under 4% | 28 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
-| Edge 4-8% | 16 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
+| Edge under 4% | 29 | 6-2-0 | 4.8 | $+17.32 | +18.8% | $+2.47 | +1.8% (6/8) | +0.1% (4/8) |
+| Edge 4-8% | 18 | 1-1-0 | 1.1 | $+0.23 | +1.4% | $+0.74 | -1.4% (0/2) | -0.8% (0/2) |
 | Edge 8%+ | 5 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | Taken for real | 9 | 2-1-0 | 1.6 | $+8.24 | +30.8% | $+1.12 | -0.1% (1/3) | -0.0% (1/3) |
 | basketball_nba | 21 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
-| basketball_ncaab | 23 | 7-2-0 | 5.3 | $+25.32 | +25.0% | $+2.84 | +1.4% (6/9) | -0.0% (4/9) |
+| basketball_ncaab | 26 | 7-2-0 | 5.3 | $+25.32 | +25.0% | $+2.84 | +1.4% (6/9) | -0.0% (4/9) |
 | icehockey_nhl | 4 | 0-0-0 |  | $+0.00 | +0.0% | $+0.00 |  |  |
 | soccer_uefa_champs_league | 1 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 | book: bovada | 8 | 0-1-0 | 0.8 | $-20.00 | -100.0% | $+0.48 |  |  |
-| book: novig | 38 | 7-1-0 | 4.5 | $+45.32 | +55.7% | $+2.36 | +1.4% (6/9) | -0.0% (4/9) |
+| book: novig | 41 | 7-1-0 | 4.5 | $+45.32 | +55.7% | $+2.36 | +1.4% (6/9) | -0.0% (4/9) |
 | book: prophetx | 3 | 0-1-0 | 0.5 | $-7.77 | -100.0% | $+0.37 | -0.4% (0/1) | -0.3% (0/1) |
 
 ## Bets
 
 | # | Game time (Houston) | Event | Bet | Book | Odds | Fair | Edge | Source | Result | CLV Pin | CLV others | Taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 52 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Colorado St Rams +6.5 | novig | 1.96 | 1.92 | +2.4% | exact | open |  |  |  |
+| 51 | Tue 24 Nov 9:30 PM CST | Oregon Ducks @ St. John's Red Storm | Under 156.5 | novig | 2.06 | 1.97 | +4.8% | exact | open |  |  |  |
+| 50 | Tue 24 Nov 9:30 PM CST | VCU Rams @ Colorado St Rams | Over 149.5 | novig | 2.08 | 1.98 | +5.2% | exact | open |  |  |  |
 | 49 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Trevor Connelly Under 0.5 | novig | 1.72 | 1.68 | +2.1% | exact | open |  |  |  |
 | 48 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Under 5.5 | novig | 2.78 | 2.70 | +3.0% | exact | open |  |  |  |
 | 47 | Tue 24 Nov 7:10 PM CST | Vegas Golden Knights @ Edmonton Oilers | Ivan Barbashev Under 0.5 | novig | 1.64 | 1.57 | +4.5% | exact | open |  |  |  |
